@@ -1,0 +1,455 @@
+Tema 1. Introducción al derecho administrativo
+1. El derecho administrativo. Concepto
+2. La actividad de derecho privado versus derecho público en la Administración.
+2.1. Derecho Privado
+2.2. Derecho Público
+2.3. La aplicación del derecho
+2.4. Zonas de fricción entre el Derecho Público y el Privado
+2.5. El entrecruzamiento del Derecho Administrativo y del Derecho Privado: la técnica
+de los actos separables.
+3. La naturaleza y objetivo del procedimiento administrativo.
+3.1. Naturaleza y objetivo
+3.2. Control jurisdiccional
+4. Los principios generales del procedimiento administrativo.
+4.1. Principio de eficacia
+4.2. Principio de oficialidad
+4.3. Principio de Celeridad
+4.4. Principio de Igualdad y Contradicción.
+4.5. Principio de imparcialidad de la Administración
+4.6. Principio antiformalista
+4.7. Principio de conservación de los actos jurídicos
+4.8. Principios de buena fe y confianza legítima
+4.9. Principio de publicidad
+4.10. Principio de Congruencia y Prohibición de la “reformatio in peius”
+5. La nueva ley 39/2015 del procedimiento administrativo: características
+principales
+5.1. Introducción
+5.2. Proceso de gestación de la LAPC
+5.3. Seguimiento de las medidas del informe de la CORA
+5.4. Antecedentes legislativos de la LPAC
+5.5. El marco constitucional de la LPAC
+5.6. La estructura de la LPAC
+5.7. Entrada en vigor de la LPAC
+5.8. Disposiciones derogadas tras la LPAC
+5.9. El régimen transitorio de la LPAC
+5.10. Ámbito objetivo de la LPAC
+5.11. Ámbito subjetivo de la LPAC
+5.12. Novedades de la LPAC
+6. El procedimiento general y los procedimientos especiales.
+Tema 2. Iniciación del procedimiento administrativo
+1. Clases de iniciación del procedimiento
+1.1 Introducción
+1.2 Acumulación de expedientes
+2. Iniciación de Oficio
+2.1 Introducción
+2.2 Iniciación “por propia iniciativa”
+2.3 Iniciación “por orden superior”
+2.4 Iniciación “a petición razonada de otros órganos”
+2.5 Iniciación por “denuncia”
+3. Iniciación a solicitud del interesado. Capacidad de obrar y concepto de
+interesado
+3.1 La capacidad de obrar
+3.2 El concepto de interesado
+3.2.1 El interesado
+3.2.2 Acción Pública
+3.2.3 Actuación por medio de representante
+3.2.4 El Registro electrónico de apoderamientos
+4. El escrito de iniciación del procedimiento administrativo. Forma y lugar de
+presentación.
+4.1 El escrito de iniciación del procedimiento administrativo
+4.2 La subsanación y mejora de la solicitud
+4.3 Declaración responsable y comunicación
+4.3.1 Declaración responsable
+4.3.2 Comunicación
+4.3.3 Notas comunes a ambas figuras
+4.4 Forma de presentación de las solicitudes de iniciación.
+4.5 Lugar de presentación de las solicitudes de iniciación.
+4.5.1 Lugares de presentación de las solicitudes
+4.5.2 Los Registros electrónicos
+4.6 Utilización de medios electrónicos
+4.7 Entrada en vigor de las previsiones de la LPAC sobre ciertos medios electrónicos
+5. La lengua de tramitación del procedimiento
+5.1 El marco de la Ley 39/2015
+5.2 La cooficialidad lingüística en las Comunidades Autónomas
+6. Efectos de la incoación de un procedimiento administrativo
+6.1 Efectos generales
+6.2 Medidas provisionales
+Tema 3. Ordenación del procedimiento administrativo
+1. Ordenación del procedimiento
+1.1. Introducción
+1.2. Expediente Administrativo
+1.3. Principios de la fase de ordenación
+1.3.1. Impulso de oficio
+1.3.2. El impulso de oficio a lo largo de la LPAC
+1.3.3. Naturaleza de los actos de ordenación
+1.3.4. Concentración de trámites
+1.3.5. Cumplimiento de trámites por los interesados
+1.3.6. Principio de tramitación separada de las cuestiones incidentales
+2. Los términos y plazos en la tramitación del procedimiento.
+2.1. Introducción
+2.2. Diferencia entre término y plazo
+2.3. Inicio del cómputo de los plazos.
+2.3.1. El “dies a quo”
+2.3.2. Finalización del plazo.
+2.3.3. Otras reglas sobre cómputo de plazos
+2.4. Forma de cómputo de los plazos.
+2.5. Determinación de los días hábiles e inhábiles.
+2.5.1. Introducción
+2.5.2. Días inhábiles en las Comunidades Autónomas
+2.5.3. Días inhábiles en los ayuntamientos
+2.5.4. Calendario de días inhábiles
+2.6. Cómputo de plazos en los Registros.
+2.7. Ampliación de plazos.
+2.8. Reducción de plazos.
+Tema 4 - Instrucción del procedimiento administrativo
+1. De los actos de instrucción del procedimiento
+1.1. Introducción
+1.2. Concepto
+1.3. La incidencia de los medios electrónicos
+2. Participación de los interesados y público en general en el procedimiento.
+2.1. Participación de los interesados y público en general
+2.2. Derechos de los ciudadanos y de los interesados en sus relaciones con las
+Administraciones Públicas
+2.2.1. Introducción
+2.2.2. Derechos de las personas
+2.2.3. Derechos de los interesados
+2.2.4. De la colaboración y comparecencia ante la Administración
+2.3. Las alegaciones
+2.3.1. Introducción
+2.3.2. Alegaciones sobre defectos de tramitación
+2.3.3. Alegaciones antes del trámite de audiencia
+2.3.4. Alegaciones en el trámite de audiencia
+2.3.5. Información Pública
+3. Medios de prueba en el procedimiento administrativo.
+3.1. Concepto
+3.2. Presunción de legalidad de los actos y documentos administrativos
+3.3. Medios y períodos de prueba
+3.3.1. Medios de prueba
+3.3.2. Período de prueba
+3.3.3. Práctica de la prueba
+4. De los informes
+4.1. Concepto
+4.2. Tipos de informes
+4.3. Consecuencias de la no solicitud de un informe preceptivo
+4.4. Emisión de Informes vinculantes o no vinculantes
+4.4.1. Regla general y condiciones de emisión
+4.4.2. Consecuencias de no emitir el informe en el plazo señalado
+4.5. Informes de otras Administraciones Públicas
+4.5.1. Consecuencias de su no emisión
+4.5.2. Carácter vinculante de dichos informes
+5. Tipos de tramitación del procedimiento: simplificada y de urgencia
+5.1. Tramitación simplificada
+5.1.1. Acuerdo de iniciación de la tramitación simplificada
+5.1.2. Duración y trámites a realizar
+5.2. Tramitación de urgencia
+Tema 5 - Terminación del procedimiento administrativo
+1. La resolución como forma de terminación del procedimiento
+1.1. Introducción
+1.2. Formas de terminación del procedimiento
+1.3. Propuesta de resolución y actuaciones complementarias
+1.3.1. Propuesta de resolución
+1.3.2. Actuaciones complementarias
+1.4. La obligación de resolver de la Administración
+1.5. El plazo para resolver y notificar la resolución
+1.5.1. Plazo máximo para resolver y notificar y su cómputo
+1.5.2. Información al ciudadano de los plazos para resolver y otras cuestiones
+1.5.3. Suspensión del plazo para resolver y notificar
+1.5.4. Ampliación del plazo para resolver y notificar
+1.5.5. Consecuencias de la no resolución dentro del plazo
+1.6. Forma de la resolución administrativa
+1.7. Contenido de la resolución administrativa
+1.7.1. Congruencia de la resolución
+1.7.2. Pie de recurso
+1.8. Valoración de la situación de hecho y normativa aplicable por la resolución
+1.9. Validez y eficacia de la resolución administrativa
+1.10. Motivación de la resolución administrativa
+1.10.1. Motivación con sucinta referencia de hechos y fundamentos
+1.10.2. Motivación por referencia a documentos obrantes en el expediente
+1.10.3. Consecuencias de la ausencia de motivación
+1.10.4. Motivación en procedimientos de concurrencia competitiva
+1.11. Notificación de la resolución administrativa
+1.11.1. La notificación como requisito de eficacia de la resolución administrativa
+1.11.2. Órgano competente, plazo y contenido de la notificación
+1.11.3. La notificación defectuosa
+1.11.4. Práctica de la notificación
+1.11.5. Notificación por medios no electrónicos
+1.11.6. La notificación en papel en el domicilio del interesado
+1.11.7. Notificación por medios electrónicos
+1.11.8. Notificación a través de la sede electrónica
+1.11.9. Notificación en los procedimientos iniciados a solicitud del interesado
+1.11.10. Rechazar o rehusar la notificación
+1.11.11. Notificación infructuosa
+1.12. Publicación de la resolución administrativa
+1.12.1. Casos en los que se publicará la resolución
+1.12.2. Del contenido de la publicación
+1.12.3. Publicaciones defectuosas
+1.12.4. Medios de publicación
+1.13. Indicación del contenido de una notificación o publicación
+2. El silencio administrativo
+2.1. Concepto
+2.2. El silencio administrativo positivo o estimatorio
+2.2.1. Características del silencio positivo
+2.2.2. Límites del silencio positivo
+2.3. El silencio administrativo negativo o desestimatorio
+2.4. El silencio administrativo en los procedimientos iniciados a solicitud del
+interesado
+2.4.1. Regla general de silencio positivo o estimatorio
+2.4.2. Excepciones a la regla general de silencio positivo o estimatorio
+2.5. El silencio administrativo en los procedimientos iniciados de oficio
+2.5.1. El silencio regulado en la LPAC
+2.5.2. El silencio en materia de contratación administrativa
+2.6. Información por parte de la Administración
+2.7. Acreditación del silencio administrativo
+2.8. El silencio y el recurso contencioso-administrativo
+3. La terminación convencional
+4. Desistimiento y renuncia
+4.1. Concepto
+4.1. Diferencias entre desistimiento y renuncia
+4.2. Similitudes entre desistimiento y renuncia
+4.3. Desistimiento por la Administración
+5. Caducidad
+5.1. En los procedimientos iniciados a instancia del interesado
+5.2. En los procedimientos iniciados de oficio
+5.3. Diferencias entre prescripción y caducidad
+5.3.1. La prescripción
+5.3.2. La caducidad
+Tema 6 - De la invalidez de los actos administrativos y disposiciones de carácter
+general
+1. El acto administrativo
+1.1. Concepto
+1.2. Clases de actos administrativos
+2. Presunción de validez del acto administrativo
+2.1. La presunción de validez
+2.2. La invalidez de los actos administrativos
+2.3. Tipos de invalidez de los actos administrativos
+3. La nulidad de pleno derecho
+3.1. Concepto
+3.2. Tipos de actos nulos de pleno derecho
+3.2.1. Los que lesionen los derechos y libertades susceptibles de amparo
+constitucional.
+3.2.2. Los dictados por órgano manifiestamente incompetente por razón de la
+materia
+o del territorio
+3.2.3. Los que tengan un contenido imposible
+3.2.4. Los que sean constitutivos de infracción penal o se dicten como consecuencia
+de ésta
+3.2.5. Los dictados prescindiendo total y absolutamente del procedimiento
+legalmente establecido o de las normas que contienen las reglas esenciales
+para la formación de la voluntad de los órganos colegiados
+Los actos dictados prescindiendo total y absolutamente del procedimiento
+legalmente establecido.
+Los actos dictados prescindiendo de las normas que contienen las reglas
+esenciales para la formación de la voluntad de los órganos colegiados.
+3.2.6. Los actos expresos o presuntos contrarios al ordenamiento jurídico por los que
+se adquieren facultades o derechos cuando se carezca de los requisitos
+esenciales para su adquisición
+3.2.7. Cualquier otro que se establezca expresamente en una disposición con rango
+de Ley
+4. De la invalidez de las disposiciones de carácter general.
+4.1. Concepto
+4.2. Casos de nulidad de pleno derecho de las disposiciones
+4.2.1. Contenido ilegal de las disposiciones
+4.2.2. De los defectos de tramitación de las disposiciones de carácter general
+4.3. Mecanismos de control de los reglamentos ilegales
+4.4. Efectos de la declaración de nulidad de los reglamentos ilegales
+5. La anulabilidad
+5.1. Concepto
+5.2. Tipos de anulabilidad
+5.2.1. Actos dictados con desviación de poder.
+5.2.2. Los defectos de forma
+5.2.3. Actos dictados fuera de plazo
+6. Irregularidades formales no invalidantes
+6.1. Concepto
+6.2. Ejemplos de irregularidades formales no invalidantes
+7. Transmisión de la ineficacia de los actos administrativos
+7.1. Concepto
+7.2. Ejemplos de transmisión de la ineficacia de los actos
+8. De la conversión, conservación y convalidación de los actos administrativos
+8.1. La conversión
+8.1.1. Concepto
+8.1.2. Ejemplos de conversión de actos
+8.2. La conservación
+8.2.1. Concepto
+8.2.2. Ejemplos de conservación de actos
+8.3. La convalidación
+8.3.1. Concepto
+8.3.2. Órgano competente
+8.3.3. Ejemplos de convalidación de actos anulables
+Tema 7 - Procedimientos administrativos de revisión
+1. Los procedimientos de revisión
+1.1. Concepto
+1.2. Ámbito de aplicación
+2. Revisión de actos y disposiciones nulos.
+2.1. Introducción
+2.2. Revisión de actos y disposiciones administrativas nulas de pleno derecho
+2.3. Compatibilidad con otros procedimientos de revisión
+2.4. La revisión de actos y disposiciones administrativas nulas como procedimiento
+reglado
+2.5. Peculiaridades del procedimiento de revisión de actos y disposiciones
+2.5.1. Dictamen del Consejo de Estado u órgano equivalente de las CC.AA
+2.5.2. Inadmisión a trámite de las solicitudes de revisión de los interesados
+2.5.3. Posibilidad de establecer una indemnización para los interesados 2.5.4.
+Duración del procedimiento y finalización del mismo sin resolución
+3. Declaración de lesividad de actos anulables.
+3.1. Concepto
+3.2. La declaración de lesividad para el interés público
+3.3. Plazo para ejecutar la declaración de lesividad
+3.4. Duración del procedimiento y finalización del mismo sin resolución
+3.5. Órgano competente para la declaración de lesividad
+3.6. La audiencia a los interesados
+3.7. Impugnación ante el orden contencioso-administrativo
+4. Suspensión del acto de revisión
+4.1. Concepto
+4.2. Suspensión de la ejecución en los procedimientos de declaración de lesividad
+4.3. Suspensión de la ejecución en los procedimientos de revisión de actos y
+disposiciones administrativas nulas
+5. La revocación y rectificación del acto administrativo.
+5.1. La revocación de actos administrativos
+5.2. La rectificación de actos administrativos
+6. Límites de la facultad de revisión y órganos competentes
+6.1. Límites de la facultad de revisión
+6.2. Órganos competentes para la revisión
+7. Los recursos administrativos
+7.1. Concepto
+7.2. Ámbito de aplicación
+7.3. Clases de recursos administrativos
+7.3.1. Recurso de alzada
+Actos de trámite cualificados
+7.3.2. Recurso potestativo de reposición
+7.3.3. Recurso extraordinario de revisión
+8. Principios generales aplicables a los recursos administrativos
+8.1. Personas legitimadas para interponer los recursos administrativos
+8.2. Posibilidad de sustituir el recurso de alzada y el potestativo de reposición por
+otros procedimientos
+8.3. Recurso administrativo contra una disposición de carácter general
+8.4. La especificidad de las reclamaciones económico-administrativas
+8.5. Actos que ponen fin a la vía administrativa
+8.6. Requisitos formales del escrito del recurso
+8.7. El error o la ausencia de la calificación del recurso por parte del recurrente
+8.8. El error en la identificación del órgano que resuelve el recurso por parte del
+recurrente
+8.9. Exigencia del principio de buena fe
+8.10. Suspensión de la ejecución del acto impugnado
+8.10.1.Concepto
+8.10.2.Silencio positivo en la solicitud de suspensión del recurrente
+8.10.3.Adopción de medidas cautelares
+8.10.4.Publicación de la suspensión
+8.11. La audiencia a los interesados
+8.12. Resolución de los recursos administrativos
+8.12.1.Formas de terminación del procedimiento del recurso
+8.12.2.La inadmisión del recurso
+8.12.3.La terminación mediante resolución
+8.12.4.Órgano competente para la resolución del recurso
+8.13. Pluralidad de recursos administrativos
+Tema 8 - Procedimientos de ejecución
+1. La ejecución forzosa de los actos administrativos.
+1.1. La autotutela administrativa: ejecutividad y ejecutoriedad.
+1.2. La ejecutividad de los actos administrativos
+1.3. La ejecutoriedad o ejecución forzosa de los actos administrativos
+1.3.1. Concepto
+1.3.2. Características de la ejecutoriedad: su carácter obligatorio
+1.3.3. Su distinción respecto a otros supuestos: la coacción administrativa y la
+ejecución de sentencias
+2. Requisitos de la ejecución forzosa
+3. Potestad ejecutiva de la Administración: límites
+3.1. Excepciones a la ejecutividad inmediata del acto administrativo
+3.2. Excepciones a la ejecución directa por la Administración
+3.3. La ejecución forzosa entre distintas Administraciones Públicas
+4. Los medios de ejecución forzosa
+4.1. Introducción
+4.2. Procedimiento de apremio
+4.3. Ejecución subsidiaria
+4.4. Multa coercitiva
+4.5. Compulsión sobre las personas
+5. La protección jurisdiccional
+5.1. La impugnación de los actos de ejecución
+5.2. La reclamación ante la inejecución de los actos firmes
+5.3. La tutela judicial frente a la vía de hecho
+Tema 9 - El procedimiento sancionador
+1. Introducción.
+1.1. Concepto
+1.2. Normativa reguladora
+2. Garantías del procedimiento sancionador.
+2.1. Garantía de la tramitación del procedimiento sancionador
+2.2. Garantía de separación entre la fase instructora y la fase sancionadora
+2.3. Garantía de protección del objeto y finalidad del procedimiento (medidas
+cautelares)
+2.4. Garantía de motivación de la resolución sancionadora
+3. Garantías del presunto responsable.
+3.1. Derecho a la presunción de inocencia
+3.2. Derecho a intervenir en el procedimiento sancionador conociendo la imputación y
+empleando los medios de prueba
+3.3. Otros derechos reconocidos en la LPAC
+4. Trámites del procedimiento sancionador
+4.1. Fase de “iniciación”
+4.1.1. Por propia iniciativa
+4.1.2. Iniciación “por orden superior”
+4.1.3. Iniciación “a petición razonada de otros órganos”
+4.1.4. Iniciación mediante “denuncia”
+4.1.5. Actuaciones previas o fase de información reservada
+4.1.6. Acuerdo de incoación
+4.2. Fase de “instrucción”
+4.2.1. Alegaciones
+4.2.2. Prueba
+4.2.3. Alternativas tras la finalización de la instrucción
+4.2.4. Propuesta de resolución y audiencia a los interesados
+4.3. Fase de “resolución”
+4.3.1. Actuaciones complementarias
+4.3.2. Resolución
+Contenido de la resolución del procedimiento sancionador
+4.3.3. La caducidad del procedimiento sancionador
+Cómputo del plazo
+Plazo de caducidad
+4.4. Efectos de la resolución: ejecutividad, impugnación y suspensión de la ejecución
+4.4.1. Ejecutividad de la resolución sancionadora
+4.4.2. Impugnación de la resolución sancionadora
+4.4.3. Suspensión de la ejecución de la resolución sancionadora en vía contencioso-
+administrativa
+5. Los principios de la potestad sancionadora
+5.1. El principio de legalidad
+5.2. El principio de tipicidad
+5.3. El principio de irretroactividad
+5.4. El principio de responsabilidad
+5.4.1. Concepto
+5.4.2. Diferencias entre responsabilidad objetiva y subjetiva
+5.4.3. Ámbito personal de la sanción
+5.4.4. Exigencia de responsabilidad en casos de relaciones de dependencia entre
+distintos sujetos
+5.4.5. Compatibilidad de la sanción con la reposición o indemnización
+5.5. El principio de proporcionalidad
+5.6. El principio de prescripción
+5.7. El principio non bis in ídem
+Tema 10 - De la responsabilidad patrimonial de la Administración
+1. Introducción.
+1.1. Antecedentes
+1.2. Normativa reguladora
+2. Requisitos de la responsabilidad patrimonial.
+2.1. Introducción
+2.2. Requisitos de la responsabilidad patrimonial
+2.2.1. El daño
+2.2.2. La relación de causalidad
+La responsabilidad objetiva: concepto
+Ejemplos de responsabilidad objetiva
+2.2.3. La responsabilidad concurrente de las Administraciones Públicas Ejemplos
+prácticos
+Responsabilidad cuando no deriva de fórmulas conjuntas de actuación
+2.2.4. Causas de exoneración de la responsabilidad patrimonial
+Concepto de fuerza mayor
+Ejemplos de fuerza mayor
+Concepto de caso fortuito
+2.2.5. Plazo de prescripción para exigir la responsabilidad patrimonial
+3. De la indemnización
+3.1. Valoración de la indemnización
+3.2. Daño emergente y lucro cesante
+4. Procedimiento ordinario y simplificado de la responsabilidad patrimonial.
+4.1. Procedimiento ordinario de determinación de la responsabilidad patrimonial
+4.1.1. Ámbito de aplicación
+4.1.2. Fase de iniciación
+4.1.3. Órgano competente para la incoación e instrucción del procedimiento
+4.1.4. Fase de instrucción
+4.1.5. Órgano competente para resolver el procedimiento
+4.1.6. Resolución de los procedimientos de responsabilidad patrimonial
+4.1.7. La terminación convencional en los procedimientos de responsabilidad
+patrimonial
+4.2. Procedimiento simplificado de la responsabilidad patrimonial
+5. La responsabilidad de la Administración por relaciones de derecho privado

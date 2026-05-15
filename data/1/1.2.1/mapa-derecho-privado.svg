@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="760" viewBox="0 0 960 760" role="img" aria-labelledby="title desc">
+  <title id="title">Mapa conceptual del Derecho privado en la Administracion</title>
+  <desc id="desc">Esquema con una idea central y cuatro bloques: tecnicas privadas, ambitos tipicos, limites publicos y control jurisdiccional.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8fbff"/>
+      <stop offset="100%" stop-color="#edf4ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="760" rx="28" fill="url(#bg)"/>
+  <rect x="40" y="40" width="880" height="680" rx="24" fill="#ffffff" stroke="#d7dee8" stroke-width="2"/>
+  <text x="480" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="700" fill="#10203a">Administracion bajo Derecho privado</text>
+  <text x="480" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#5f6b7a">Tecnica privada, sujeto publico, interes general permanente</text>
+
+  <rect x="310" y="180" width="340" height="110" rx="20" fill="#1f6feb"/>
+  <text x="480" y="222" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#ffffff">Idea central</text>
+  <text x="480" y="254" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#eef5ff">La Administracion no usa potestades</text>
+  <text x="480" y="278" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#eef5ff">publicas clasicas, pero sigue sometida</text>
+  <text x="480" y="302" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#eef5ff">a legalidad, finalidad y control</text>
+
+  <line x1="480" y1="290" x2="190" y2="380" stroke="#91b4ea" stroke-width="4"/>
+  <line x1="480" y1="290" x2="770" y2="380" stroke="#91b4ea" stroke-width="4"/>
+  <line x1="480" y1="290" x2="290" y2="575" stroke="#91b4ea" stroke-width="4"/>
+  <line x1="480" y1="290" x2="670" y2="575" stroke="#91b4ea" stroke-width="4"/>
+
+  <rect x="70" y="360" width="240" height="150" rx="18" fill="#f6f9fd" stroke="#d7dee8" stroke-width="2"/>
+  <text x="190" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#123e7c">Tecnicas privadas</text>
+  <text x="100" y="430" font-family="Arial, sans-serif" font-size="18" fill="#18212f">• contrato</text>
+  <text x="100" y="458" font-family="Arial, sans-serif" font-size="18" fill="#18212f">• negocio juridico</text>
+  <text x="100" y="486" font-family="Arial, sans-serif" font-size="18" fill="#18212f">• reglas civiles o mercantiles</text>
+
+  <rect x="650" y="360" width="240" height="150" rx="18" fill="#f6f9fd" stroke="#d7dee8" stroke-width="2"/>
+  <text x="770" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#123e7c">Ambitos tipicos</text>
+  <text x="680" y="430" font-family="Arial, sans-serif" font-size="18" fill="#18212f">• patrimonio</text>
+  <text x="680" y="458" font-family="Arial, sans-serif" font-size="18" fill="#18212f">• sociedades publicas</text>
+  <text x="680" y="486" font-family="Arial, sans-serif" font-size="18" fill="#18212f">• personal laboral</text>
+
+  <rect x="140" y="540" width="300" height="130" rx="18" fill="#f6f9fd" stroke="#d7dee8" stroke-width="2"/>
+  <text x="290" y="575" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#123e7c">Limites publicos</text>
+  <text x="168" y="610" font-family="Arial, sans-serif" font-size="18" fill="#18212f">• competencia del organo</text>
+  <text x="168" y="638" font-family="Arial, sans-serif" font-size="18" fill="#18212f">• interes general y presupuesto</text>
+
+  <rect x="520" y="540" width="300" height="130" rx="18" fill="#f6f9fd" stroke="#d7dee8" stroke-width="2"/>
+  <text x="670" y="575" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#123e7c">Control</text>
+  <text x="548" y="610" font-family="Arial, sans-serif" font-size="18" fill="#18212f">• jurisdiccion civil o social</text>
+  <text x="548" y="638" font-family="Arial, sans-serif" font-size="18" fill="#18212f">• actos separables: control contencioso</text>
+</svg>

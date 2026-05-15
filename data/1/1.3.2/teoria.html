@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tema 1.3.2 - Control jurisdiccional</title>
+  <style>
+    :root {
+      --bg: #eef3f9;
+      --surface: #ffffff;
+      --surface-alt: #f6f9fd;
+      --ink: #18212f;
+      --muted: #5f6b7a;
+      --accent: #1f6feb;
+      --border: #d7dee8;
+      --quote: #0f1723;
+      --shadow: 0 18px 40px rgba(24, 33, 47, 0.08);
+      --max: 980px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background: linear-gradient(180deg, #f4f7fb 0%, #eef3f9 100%);
+      color: var(--ink);
+      line-height: 1.7;
+    }
+    .page {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 32px auto 56px;
+    }
+    .hero, .block, .note, .sources {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+    .hero { padding: 36px; margin-bottom: 24px; }
+    .eyebrow {
+      margin: 0 0 8px;
+      font: 700 12px/1.2 Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+    }
+    h1, h2, h3 { margin: 0; line-height: 1.15; color: #10203a; }
+    h1 { font-size: clamp(2.2rem, 4vw, 3.3rem); margin-bottom: 16px; }
+    h2 { font-size: 1.8rem; margin-bottom: 18px; }
+    h3 { font-size: 1.25rem; margin-bottom: 12px; }
+    p { margin: 0 0 16px; font-size: 1.07rem; }
+    .lead { font-size: 1.18rem; color: #2a3950; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: start;
+      margin-top: 28px;
+    }
+    .hero-card, .mini-card {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+    }
+    .hero-card ul, .block ul, .block ol, .sources ul { margin: 0; padding-left: 22px; }
+    .hero-card li, .block li, .sources li { margin-bottom: 10px; }
+    .illustration {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      display: block;
+      background: #fff;
+    }
+    .toc {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 18px;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-family: Arial, sans-serif;
+      font-size: 0.96rem;
+    }
+    .toc a, .sources a { color: #184f9c; text-decoration: none; }
+    .toc a:hover, .sources a:hover { text-decoration: underline; }
+    .block, .note, .sources { padding: 30px; margin-bottom: 24px; }
+    .callout {
+      margin: 22px 0;
+      padding: 18px 20px;
+      border-left: 4px solid var(--accent);
+      background: #f4f8ff;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+    blockquote {
+      margin: 24px 0;
+      padding: 24px 26px;
+      background: var(--quote);
+      color: #eef5ff;
+      border-radius: 14px;
+      font-size: 1.08rem;
+    }
+    blockquote p:last-child { margin-bottom: 0; }
+    .cols {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+    .table-wrap { overflow-x: auto; margin-top: 18px; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.98rem; }
+    th, td { border: 1px solid var(--border); padding: 12px 14px; vertical-align: top; }
+    th {
+      background: #edf4ff;
+      text-align: left;
+      font-family: Arial, sans-serif;
+      font-size: 0.95rem;
+    }
+    .note { background: #f7fbff; }
+    .note strong { color: #123e7c; }
+    .footer {
+      margin-top: 12px;
+      font-size: 0.94rem;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+    }
+    @media (max-width: 820px) {
+      .hero-grid, .cols, .toc { grid-template-columns: 1fr; }
+      .hero, .block, .note, .sources { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <p class="eyebrow">Tema 1 · Punto 3.2</p>
+      <h1>Control jurisdiccional</h1>
+      <p class="lead">
+        El <strong>control jurisdiccional de la actuacion administrativa</strong> es la garantia externa por la cual los
+        tribunales verifican que la Administracion ha actuado conforme a la Constitucion, a la ley y al Derecho. Este
+        control asegura que el procedimiento administrativo, los actos, las disposiciones generales y, en general, el
+        ejercicio del poder publico queden sometidos a un examen judicial independiente.
+      </p>
+      <blockquote>
+        <p>
+          La idea central de este punto es esta: <strong>la Administracion puede actuar con prerrogativas propias</strong>,
+          pero nunca fuera del control de los jueces. El control jurisdiccional es la garantia ultima de la legalidad
+          administrativa y de los derechos de los ciudadanos.
+        </p>
+      </blockquote>
+      <div class="hero-grid">
+        <div class="hero-card">
+          <h3>Lo primero que debes retener</h3>
+          <ul>
+            <li>El control jurisdiccional verifica <strong>legalidad, competencia, procedimiento, motivacion y finalidad</strong>.</li>
+            <li>Su anclaje constitucional principal esta en el <strong>art. 106 CE</strong>.</li>
+            <li>Se canaliza, de forma tipica, a traves de la <strong>jurisdiccion contencioso-administrativa</strong>.</li>
+            <li>Es la prolongacion natural del procedimiento administrativo: sin control judicial, las garantias procedimentales perderian eficacia real.</li>
+          </ul>
+        </div>
+        <img class="illustration" src="mapa-control-jurisdiccional.svg" alt="Esquema sobre el control jurisdiccional de la actuacion administrativa">
+      </div>
+      <nav class="toc" aria-label="Indice de contenidos">
+        <a href="#concepto">1. Concepto general</a>
+        <a href="#fundamento">2. Fundamento constitucional</a>
+        <a href="#objeto">3. Que controla la jurisdiccion</a>
+        <a href="#funciones">4. Funciones del control jurisdiccional</a>
+        <a href="#procedimiento">5. Relacion con el procedimiento administrativo</a>
+        <a href="#limites">6. Limites y alcance del control</a>
+        <a href="#medios">7. Instrumentos y efectos del control</a>
+        <a href="#garantias">8. Garantia para los ciudadanos</a>
+        <a href="#ejemplos">9. Ejemplos practicos</a>
+        <a href="#importancia">10. Importancia para la Ley 39/2015</a>
+        <a href="#estudio">11. Sintesis para estudio</a>
+      </nav>
+    </section>
+
+    <section id="concepto" class="block">
+      <h2>1. Concepto general</h2>
+      <p>
+        El control jurisdiccional consiste en la <strong>fiscalizacion judicial de la actividad administrativa</strong>.
+        No se trata de que los jueces administren en lugar de la Administracion, sino de que comprueben si esta ha actuado
+        dentro de la legalidad y de los fines que justifican sus potestades.
+      </p>
+      <p>
+        En el Estado de Derecho, la Administracion no es juez de su propia legalidad en ultima instancia. Aunque puede
+        revisar actos y resolver recursos en via administrativa, la ultima palabra corresponde a los tribunales cuando el
+        ordenamiento abre la via jurisdiccional.
+      </p>
+      <div class="callout">
+        <strong>Idea-clave:</strong> el control jurisdiccional no sustituye a la Administracion, sino que
+        <strong>la somete al Derecho de manera efectiva</strong>.
+      </div>
+    </section>
+
+    <section id="fundamento" class="block">
+      <h2>2. Fundamento constitucional</h2>
+      <p>
+        El fundamento esencial se encuentra en la <strong>Constitucion Espanola</strong>, que configura la posicion de la
+        Administracion dentro del Estado de Derecho.
+      </p>
+      <h3>2.1. Articulo 103 CE</h3>
+      <p>
+        Situa a la Administracion al servicio objetivo del interes general y sometida plenamente a la ley y al Derecho.
+      </p>
+      <h3>2.2. Articulo 106 CE</h3>
+      <p>
+        Es el precepto nuclear: los tribunales controlan la potestad reglamentaria, la legalidad de la actuacion
+        administrativa y el sometimiento de esta a los fines que la justifican. Este punto es capital porque muestra que
+        el control judicial alcanza no solo a la forma, sino tambien a la <strong>desviacion de poder</strong> y al uso
+        correcto de las potestades.
+      </p>
+      <h3>2.3. Conexion con el derecho a la tutela judicial efectiva</h3>
+      <p>
+        El art. 24 CE proyecta ademas una garantia transversal: los ciudadanos tienen derecho a acceder a los tribunales y
+        a obtener una respuesta fundada en Derecho.
+      </p>
+      <blockquote>
+        <p>
+          La Constitucion no admite una Administracion inmune al juez. Su sometimiento a la ley se completa con su
+          <strong>sometimiento al control judicial</strong>.
+        </p>
+      </blockquote>
+    </section>
+
+    <section id="objeto" class="block">
+      <h2>3. Que controla la jurisdiccion</h2>
+      <p>
+        El control jurisdiccional se proyecta sobre multiples manifestaciones de la actividad administrativa.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Elemento controlado</th>
+              <th>Que revisa el tribunal</th>
+              <th>Ejemplo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Actos administrativos</td>
+              <td>Competencia, procedimiento, motivacion, hechos, adecuacion a Derecho</td>
+              <td>Multa, licencia, sancion, resolucion de recurso</td>
+            </tr>
+            <tr>
+              <td>Reglamentos</td>
+              <td>Su conformidad con la ley y con la Constitucion</td>
+              <td>Ordenanza o disposicion general</td>
+            </tr>
+            <tr>
+              <td>Inactividad administrativa</td>
+              <td>Si la Administracion incumple obligaciones juridicas de actuar</td>
+              <td>No ejecutar una obligacion reconocida</td>
+            </tr>
+            <tr>
+              <td>Via de hecho</td>
+              <td>Si la Administracion actua materialmente sin cobertura juridica suficiente</td>
+              <td>Actuacion material sin acto habilitante valido</td>
+            </tr>
+            <tr>
+              <td>Fines de la potestad</td>
+              <td>Si la potestad se usa con desviacion de poder</td>
+              <td>Decision adoptada con fin distinto del legalmente previsto</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="funciones" class="block">
+      <h2>4. Funciones del control jurisdiccional</h2>
+      <p>
+        El control judicial cumple varias funciones simultaneas, todas esenciales para el sistema administrativo.
+      </p>
+      <div class="cols">
+        <article class="mini-card">
+          <h3>Funcion de legalidad</h3>
+          <p>Comprueba si la Administracion ha respetado la ley, la competencia, el procedimiento y la forma debida.</p>
+        </article>
+        <article class="mini-card">
+          <h3>Funcion garantista</h3>
+          <p>Protege derechos e intereses legitimos frente a actos u omisiones administrativas lesivos.</p>
+        </article>
+        <article class="mini-card">
+          <h3>Funcion correctora</h3>
+          <p>Permite anular actos, reconocer situaciones juridicas individualizadas y reparar vulneraciones.</p>
+        </article>
+        <article class="mini-card">
+          <h3>Funcion de equilibrio institucional</h3>
+          <p>Impide que el poder administrativo quede sin contrapeso dentro del Estado de Derecho.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="procedimiento" class="block">
+      <h2>5. Relacion con el procedimiento administrativo</h2>
+      <p>
+        El control jurisdiccional esta estrechamente ligado al procedimiento administrativo. En realidad, puede verse como
+        la <strong>garantia externa</strong> del propio procedimiento.
+      </p>
+      <ul>
+        <li>si falta audiencia cuando era exigible, el juez puede apreciarlo;</li>
+        <li>si la resolucion carece de motivacion suficiente, el juez puede controlarlo;</li>
+        <li>si los hechos no fueron bien instruidos o valorados, el juez puede revisarlo dentro de los limites propios de su funcion;</li>
+        <li>si la Administracion se aparta del fin legal, el juez puede corregirlo.</li>
+      </ul>
+      <p>
+        El procedimiento deja un <strong>expediente administrativo</strong>, y ese expediente es esencial para que el
+        organo jurisdiccional conozca como se ha formado la decision.
+      </p>
+      <div class="callout">
+        <strong>Consecuencia practica:</strong> el procedimiento administrativo no solo sirve para decidir; tambien sirve
+        para que el juez pueda <strong>controlar</strong> la decision adoptada.
+      </div>
+    </section>
+
+    <section id="limites" class="block">
+      <h2>6. Limites y alcance del control</h2>
+      <p>
+        El control jurisdiccional es amplio, pero no significa que el juez pueda sustituir libremente a la Administracion
+        en toda valoracion tecnica, organizativa u oportuna. Hay que distinguir entre control de legalidad y sustitucion
+        del criterio administrativo.
+      </p>
+      <h3>6.1. Lo que si controla</h3>
+      <ul>
+        <li>competencia del organo;</li>
+        <li>procedimiento seguido;</li>
+        <li>existencia y suficiencia de motivacion;</li>
+        <li>proporcionalidad y razonabilidad cuando proceda;</li>
+        <li>desviacion de poder y error manifiesto.</li>
+      </ul>
+      <h3>6.2. Lo que no implica</h3>
+      <p>
+        No convierte al juez en un organo administrativo paralelo. El juez controla la juridicidad, pero no administra en
+        lugar de la Administracion. Esta distincion es especialmente relevante cuando hay discrecionalidad o valoraciones
+        tecnicas.
+      </p>
+      <blockquote>
+        <p>
+          El juez no sustituye la oportunidad administrativa por su propia oportunidad, pero si controla que esa
+          oportunidad se ejerza dentro de la ley y sin arbitrariedad.
+        </p>
+      </blockquote>
+    </section>
+
+    <section id="medios" class="block">
+      <h2>7. Instrumentos y efectos del control</h2>
+      <p>
+        El control jurisdiccional no es una idea abstracta; se despliega a traves de instrumentos procesales concretos y
+        produce efectos relevantes.
+      </p>
+      <ol>
+        <li><strong>Anulacion de actos o disposiciones</strong>: cuando son contrarios al ordenamiento.</li>
+        <li><strong>Reconocimiento de situaciones juridicas individualizadas</strong>: cuando el ciudadano tiene derecho a una determinada consecuencia juridica.</li>
+        <li><strong>Condena a actuar</strong>: en supuestos de inactividad administrativa.</li>
+        <li><strong>Medidas cautelares</strong>: para evitar que el tiempo vacie de contenido la tutela judicial.</li>
+        <li><strong>Control de ejecucion de sentencias</strong>: para asegurar que lo juzgado se cumpla realmente.</li>
+      </ol>
+      <p>
+        Estas herramientas muestran que el control judicial no es solo declarativo: puede tener una eficacia practica
+        intensa sobre la actuacion administrativa.
+      </p>
+    </section>
+
+    <section id="garantias" class="block">
+      <h2>8. Garantia para los ciudadanos</h2>
+      <p>
+        Desde la perspectiva del ciudadano, el control jurisdiccional es una garantia decisiva. Sin ella, el procedimiento
+        administrativo y los recursos en via administrativa dependerian solo de la propia Administracion.
+      </p>
+      <div class="cols">
+        <article class="mini-card">
+          <h3>Garantia de defensa</h3>
+          <p>Permite discutir ante un juez independiente la legalidad de la actuacion administrativa.</p>
+        </article>
+        <article class="mini-card">
+          <h3>Garantia de imparcialidad</h3>
+          <p>El conflicto deja de resolverse solo dentro de la estructura administrativa.</p>
+        </article>
+        <article class="mini-card">
+          <h3>Garantia de efectividad</h3>
+          <p>Hace posible obtener anulacion, reconocimiento de derechos o medidas cautelares.</p>
+        </article>
+        <article class="mini-card">
+          <h3>Garantia del Estado de Derecho</h3>
+          <p>Confirma que toda potestad administrativa tiene limites juridicamente exigibles.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="ejemplos" class="block">
+      <h2>9. Ejemplos practicos</h2>
+      <ol>
+        <li><strong>Denegacion de una licencia</strong>: el tribunal revisa competencia, informes, motivacion y adecuacion de la decision a la normativa aplicable.</li>
+        <li><strong>Sancion administrativa</strong>: se controla si hubo hechos probados, tipicidad, proporcionalidad y respeto al procedimiento.</li>
+        <li><strong>Ordenanza municipal</strong>: se revisa si el reglamento respeta la ley y el marco competencial.</li>
+        <li><strong>Inactividad administrativa</strong>: se comprueba si la Administracion debia actuar y no lo hizo.</li>
+      </ol>
+      <p>
+        Todos estos ejemplos muestran que el control jurisdiccional no es un elemento accesorio, sino una pieza central del
+        funcionamiento administrativo en un sistema constitucional.
+      </p>
+    </section>
+
+    <section id="importancia" class="block">
+      <h2>10. Importancia para la Ley 39/2015</h2>
+      <p>
+        La Ley 39/2015 debe estudiarse siempre bajo la idea de que sus tramites, plazos, derechos de los interesados y
+        exigencias de motivacion pueden acabar siendo revisados por un juez. Esto refuerza el valor practico de todo lo que
+        la ley regula.
+      </p>
+      <p>
+        El procedimiento administrativo y el control jurisdiccional forman asi una pareja inseparable: el primero ordena y
+        garantiza la actuacion administrativa; el segundo asegura que esa ordenacion y esas garantias no queden a merced de
+        la sola voluntad de la Administracion.
+      </p>
+    </section>
+
+    <section id="estudio" class="note">
+      <h2>11. Sintesis final para estudio</h2>
+      <p>
+        <strong>Definicion util:</strong> el control jurisdiccional es la fiscalizacion judicial de la actividad
+        administrativa para comprobar su conformidad con la Constitucion, la ley, el procedimiento debido y los fines que
+        justifican el ejercicio de las potestades publicas.
+      </p>
+      <ul>
+        <li>se fundamenta especialmente en el <strong>art. 106 CE</strong>;</li>
+        <li>se proyecta sobre <strong>actos, reglamentos, inactividad, via de hecho y fines de la potestad</strong>;</li>
+        <li>garantiza legalidad, tutela judicial efectiva y equilibrio institucional;</li>
+        <li>se conecta directamente con el <strong>procedimiento administrativo</strong> y con el expediente;</li>
+        <li>es la <strong>garantia ultima</strong> frente a la arbitrariedad administrativa.</li>
+      </ul>
+      <p>
+        <strong>Formula corta para memorizar:</strong> <em>legalidad, jueces, control de actos y garantias del ciudadano</em>.
+      </p>
+    </section>
+
+    <section class="sources">
+      <h2>Base normativa y referencias</h2>
+      <p>
+        El contenido de esta pagina combina explicacion doctrinal y sistematizacion propia con apoyo en normas oficiales
+        del <strong>Boletin Oficial del Estado</strong>. La caracterizacion general del control jurisdiccional es una
+        <strong>sintesis explicativa</strong> construida a partir del marco constitucional y legal vigente.
+      </p>
+      <ul>
+        <li><a target="_blank" href="https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229" target="_blank" rel="noopener noreferrer">Constitucion Espanola, especialmente arts. 24, 103 y 106</a>.</li>
+        <li><a target="_blank" href="https://www.boe.es/buscar/act.php?id=BOE-A-1998-16718" target="_blank" rel="noopener noreferrer">Ley 29/1998, reguladora de la Jurisdiccion Contencioso-Administrativa</a>.</li>
+        <li><a target="_blank" href="https://www.boe.es/buscar/act.php?id=BOE-A-2015-10565" target="_blank" rel="noopener noreferrer">Ley 39/2015, del Procedimiento Administrativo Comun de las Administraciones Publicas</a>.</li>
+        <li><a target="_blank" href="https://www.boe.es/buscar/act.php?id=BOE-A-2015-10566" target="_blank" rel="noopener noreferrer">Ley 40/2015, de Regimen Juridico del Sector Publico</a>.</li>
+      </ul>
+      <p class="footer">Contenido redactado para estudio del punto 3.2 del Tema 1, con enfoque sistematico y de examen.</p>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tema 1.2.4 - Zonas de friccion entre el Derecho Publico y el Privado</title>
+  <style>
+    :root {
+      --bg: #eef3f9;
+      --surface: #ffffff;
+      --surface-alt: #f6f9fd;
+      --ink: #18212f;
+      --muted: #5f6b7a;
+      --accent: #1f6feb;
+      --border: #d7dee8;
+      --quote: #0f1723;
+      --shadow: 0 18px 40px rgba(24, 33, 47, 0.08);
+      --max: 980px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background: linear-gradient(180deg, #f4f7fb 0%, #eef3f9 100%);
+      color: var(--ink);
+      line-height: 1.7;
+    }
+    .page {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 32px auto 56px;
+    }
+    .hero, .block, .note, .sources {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+    .hero { padding: 36px; margin-bottom: 24px; }
+    .eyebrow {
+      margin: 0 0 8px;
+      font: 700 12px/1.2 Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+    }
+    h1, h2, h3 { margin: 0; line-height: 1.15; color: #10203a; }
+    h1 { font-size: clamp(2.2rem, 4vw, 3.3rem); margin-bottom: 16px; }
+    h2 { font-size: 1.8rem; margin-bottom: 18px; }
+    h3 { font-size: 1.25rem; margin-bottom: 12px; }
+    p { margin: 0 0 16px; font-size: 1.07rem; }
+    .lead { font-size: 1.18rem; color: #2a3950; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: start;
+      margin-top: 28px;
+    }
+    .hero-card, .mini-card {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+    }
+    .hero-card ul, .block ul, .block ol, .sources ul { margin: 0; padding-left: 22px; }
+    .hero-card li, .block li, .sources li { margin-bottom: 10px; }
+    .illustration {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      display: block;
+      background: #fff;
+    }
+    .toc {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 18px;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-family: Arial, sans-serif;
+      font-size: 0.96rem;
+    }
+    .toc a, .sources a { color: #184f9c; text-decoration: none; }
+    .toc a:hover, .sources a:hover { text-decoration: underline; }
+    .block, .note, .sources { padding: 30px; margin-bottom: 24px; }
+    .callout {
+      margin: 22px 0;
+      padding: 18px 20px;
+      border-left: 4px solid var(--accent);
+      background: #f4f8ff;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+    blockquote {
+      margin: 24px 0;
+      padding: 24px 26px;
+      background: var(--quote);
+      color: #eef5ff;
+      border-radius: 14px;
+      font-size: 1.08rem;
+    }
+    blockquote p:last-child { margin-bottom: 0; }
+    .cols {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+    .table-wrap { overflow-x: auto; margin-top: 18px; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.98rem; }
+    th, td { border: 1px solid var(--border); padding: 12px 14px; vertical-align: top; }
+    th {
+      background: #edf4ff;
+      text-align: left;
+      font-family: Arial, sans-serif;
+      font-size: 0.95rem;
+    }
+    .note { background: #f7fbff; }
+    .note strong { color: #123e7c; }
+    .footer {
+      margin-top: 12px;
+      font-size: 0.94rem;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+    }
+    @media (max-width: 820px) {
+      .hero-grid, .cols, .toc { grid-template-columns: 1fr; }
+      .hero, .block, .note, .sources { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <p class="eyebrow">Tema 1 · Punto 2.4</p>
+      <h1>Zonas de friccion entre el Derecho Publico y el Privado</h1>
+      <p class="lead">
+        Entre la actuacion administrativa sometida claramente a <strong>Derecho publico</strong> y la sometida de forma
+        mas neta a <strong>Derecho privado</strong> existen espacios intermedios o <strong>zonas de friccion</strong>,
+        donde ambos regímenes se cruzan, se condicionan mutuamente o aparecen mezclados en distintas fases de una misma
+        actuacion. Estas zonas son especialmente importantes porque plantean problemas de <strong>calificacion juridica,
+        competencia, procedimiento, jurisdiccion y control</strong>.
+      </p>
+      <blockquote>
+        <p>
+          La idea central para este punto es esta: <strong>no toda actuacion administrativa puede clasificarse de forma
+          simple como publica o privada</strong>. Existen supuestos frontera en los que la respuesta juridica exige
+          analizar con precision la funcion que desempena la Administracion, la norma aplicable y la fase concreta del
+          conflicto.
+        </p>
+      </blockquote>
+      <div class="hero-grid">
+        <div class="hero-card">
+          <h3>Lo primero que debes retener</h3>
+          <ul>
+            <li>Las zonas de friccion aparecen cuando una actuacion administrativa contiene <strong>elementos publicos y privados al mismo tiempo</strong>.</li>
+            <li>El problema central suele ser determinar <strong>que regimen juridico predomina</strong> y <strong>que jurisdiccion es competente</strong>.</li>
+            <li>Son frecuentes en materia de <strong>contratacion</strong>, <strong>patrimonio</strong>, <strong>sociedades publicas</strong>, <strong>personal laboral</strong> y <strong>servicios publicos</strong>.</li>
+            <li>Estas zonas preparan el estudio del apartado siguiente: <strong>la tecnica de los actos separables</strong>.</li>
+          </ul>
+        </div>
+        <img class="illustration" src="mapa-zonas-friccion.svg" alt="Esquema sobre las zonas de friccion entre Derecho publico y Derecho privado">
+      </div>
+      <nav class="toc" aria-label="Indice de contenidos">
+        <a href="#concepto">1. Que son las zonas de friccion</a>
+        <a href="#por-que">2. Por que se producen</a>
+        <a href="#criterios">3. Criterios para distinguir el regimen aplicable</a>
+        <a href="#supuestos">4. Supuestos tipicos de friccion</a>
+        <a href="#contratos">5. Contratacion y negocios juridicos</a>
+        <a href="#patrimonio">6. Patrimonio y dominio publico</a>
+        <a href="#entidades">7. Entidades publicas y formas instrumentales</a>
+        <a href="#jurisdiccion">8. Problemas de jurisdiccion y control</a>
+        <a href="#riesgos">9. Riesgos juridicos frecuentes</a>
+        <a href="#ejemplos">10. Ejemplos practicos</a>
+        <a href="#estudio">11. Sintesis para estudio</a>
+      </nav>
+    </section>
+
+    <section id="concepto" class="block">
+      <h2>1. Que son las zonas de friccion</h2>
+      <p>
+        Las <strong>zonas de friccion</strong> son aquellos ambitos en los que el Derecho publico y el Derecho privado no
+        aparecen completamente separados, sino que se interfieren. La Administracion puede actuar mediante instrumentos
+        privados, pero sometida a condicionantes publicos; o puede desarrollar una actuacion publicistica cuyas
+        consecuencias finales se conectan con relaciones privadas.
+      </p>
+      <p>
+        No se trata de una anomalia, sino de una consecuencia normal de la complejidad del Estado contemporaneo. La
+        Administracion organiza servicios, gestiona patrimonio, participa en el mercado, crea entidades instrumentales y se
+        relaciona con ciudadanos y empresas a traves de tecnicas juridicas muy variadas.
+      </p>
+      <div class="callout">
+        <strong>Idea-clave:</strong> una zona de friccion aparece cuando la realidad administrativa no cabe entera en una
+        sola etiqueta y obliga a decidir <strong>que aspectos son publicos, que aspectos son privados y como se coordinan</strong>.
+      </div>
+    </section>
+
+    <section id="por-que" class="block">
+      <h2>2. Por que se producen</h2>
+      <p>
+        Estas fricciones nacen porque la Administracion no se limita a dictar actos de autoridad. Tambien posee patrimonio,
+        contrata, presta servicios, crea sociedades, participa en relaciones laborales y desarrolla actividades economicas.
+      </p>
+      <ol>
+        <li><strong>Pluralidad funcional</strong>: la Administracion cumple funciones de policia, fomento, servicio, gestion patrimonial y actividad instrumental.</li>
+        <li><strong>Pluralidad organizativa</strong>: el sector publico incluye administraciones, organismos autonomos, entidades publicas empresariales, sociedades mercantiles y otras formas personificadas.</li>
+        <li><strong>Pluralidad de tecnicas juridicas</strong>: en una misma operacion pueden coexistir autorizaciones publicas, expedientes administrativos y contratos sometidos a normas privadas.</li>
+        <li><strong>Necesidad de eficacia</strong>: a veces el ordenamiento permite tecnicas privadas para agilizar determinadas actuaciones, pero sin perder del todo los controles publicos.</li>
+      </ol>
+    </section>
+
+    <section id="criterios" class="block">
+      <h2>3. Criterios para distinguir el regimen aplicable</h2>
+      <p>
+        Ante una zona fronteriza, no basta con fijarse en el nombre del instrumento utilizado. Hay que aplicar varios
+        criterios de analisis.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Criterio</th>
+              <th>Pregunta clave</th>
+              <th>Utilidad practica</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Sujeto</td>
+              <td>Quien actua exactamente: administracion territorial, organismo, sociedad publica, entidad instrumental</td>
+              <td>Ayuda, pero por si solo no resuelve el regimen aplicable</td>
+            </tr>
+            <tr>
+              <td>Funcion</td>
+              <td>Se ejerce una potestad publica o una actividad de gestion patrimonial o economica</td>
+              <td>Es uno de los criterios mas relevantes</td>
+            </tr>
+            <tr>
+              <td>Norma reguladora</td>
+              <td>Que ley o reglamento disciplina la actuacion</td>
+              <td>Permite conocer el regimen juridico principal</td>
+            </tr>
+            <tr>
+              <td>Instrumento juridico</td>
+              <td>Hay acto administrativo, procedimiento, contrato, negocio patrimonial o relacion laboral</td>
+              <td>Orienta la calificacion del caso</td>
+            </tr>
+            <tr>
+              <td>Control jurisdiccional</td>
+              <td>Que orden jurisdiccional revisa el conflicto</td>
+              <td>Confirma muchas veces la naturaleza del aspecto controvertido</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        En la practica, la respuesta correcta suele exigir una <strong>vision combinada</strong> de todos estos factores.
+      </p>
+    </section>
+
+    <section id="supuestos" class="block">
+      <h2>4. Supuestos tipicos de friccion</h2>
+      <p>
+        Hay varios escenarios clasicos donde la frontera entre ambos derechos se vuelve especialmente problematica.
+      </p>
+      <div class="cols">
+        <article class="mini-card">
+          <h3>Contratacion</h3>
+          <p>Fases preparatorias publicas y relaciones de ejecucion con elementos privados o mixtos.</p>
+        </article>
+        <article class="mini-card">
+          <h3>Patrimonio</h3>
+          <p>Diferencia entre dominio publico y bienes patrimoniales, con tecnicas distintas de gestion y proteccion.</p>
+        </article>
+        <article class="mini-card">
+          <h3>Sociedades publicas</h3>
+          <p>Entidades sujetas en parte al Derecho mercantil, pero insertas en el sector publico y sometidas a controles publicos.</p>
+        </article>
+        <article class="mini-card">
+          <h3>Personal</h3>
+          <p>Conviven regimenes funcionariales y laborales dentro del sector publico, con consecuencias distintas.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contratos" class="block">
+      <h2>5. Contratacion y negocios juridicos</h2>
+      <p>
+        La contratacion publica es uno de los terrenos mas representativos de friccion. Aunque la contratacion del sector
+        publico esta fuertemente administrativizada, siguen existiendo supuestos en los que aparecen componentes privados o
+        relaciones que no se explican solo desde el acto administrativo clasico.
+      </p>
+      <p>
+        El conflicto puede aparecer en varios planos:
+      </p>
+      <ul>
+        <li><strong>fase de preparacion y adjudicacion</strong>, claramente sometida a reglas publicas de competencia, publicidad y procedimiento;</li>
+        <li><strong>fase de ejecucion</strong>, donde entran en juego obligaciones contractuales y remedios de incumplimiento;</li>
+        <li><strong>negocios excluidos o especiales</strong>, cuya naturaleza exige examinar con cuidado el regimen aplicable.</li>
+      </ul>
+      <blockquote>
+        <p>
+          En materia contractual, una misma operacion puede contener decisiones publicas previas y una relacion negocial con
+          tecnicas privadas o mixtas. Precisamente por eso esta materia enlaza con la doctrina de los actos separables.
+        </p>
+      </blockquote>
+    </section>
+
+    <section id="patrimonio" class="block">
+      <h2>6. Patrimonio y dominio publico</h2>
+      <p>
+        El patrimonio administrativo es otro espacio clasico de friccion. No es lo mismo un <strong>bien de dominio
+        publico</strong> que un <strong>bien patrimonial</strong>. Los primeros estan afectados al uso general o al
+        servicio publico y quedan sometidos a un regimen claramente publicistico; los segundos admiten con mas facilidad
+        tecnicas de Derecho privado.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Tipo de bien</th>
+              <th>Regimen predominante</th>
+              <th>Consecuencia practica</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Dominio publico</td>
+              <td>Derecho publico intenso</td>
+              <td>Proteccion reforzada, inalienabilidad en ciertos terminos y uso vinculado al interes general</td>
+            </tr>
+            <tr>
+              <td>Bien patrimonial</td>
+              <td>Mayor apertura a tecnicas privadas</td>
+              <td>Compraventa, arrendamiento o gestion patrimonial con condicionantes publicos</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Aqui la friccion aparece porque incluso cuando se aplican tecnicas privadas sobre bienes patrimoniales siguen
+        existiendo competencia organica, control presupuestario y exigencias de legalidad patrimonial.
+      </p>
+    </section>
+
+    <section id="entidades" class="block">
+      <h2>7. Entidades publicas y formas instrumentales</h2>
+      <p>
+        La proliferacion de entidades instrumentales ha multiplicado las zonas mixtas. El sector publico no esta integrado
+        solo por administraciones territoriales, sino tambien por una constelacion de entes con regimenes juridicos
+        diferentes.
+      </p>
+      <h3>7.1. Organismos y entidades publicas</h3>
+      <p>
+        Aunque forman parte del sector publico, no todas actuan con la misma intensidad publicistica. Su regimen puede
+        variar segun su funcion, su ley de creacion y la actividad concreta que desarrollan.
+      </p>
+      <h3>7.2. Sociedades mercantiles publicas</h3>
+      <p>
+        Se rigen en gran medida por normas mercantiles, pero no pueden entenderse como sociedades privadas ordinarias:
+        estan sujetas a controles de gasto, de organizacion, de transparencia y, en muchos casos, a reglas especificas del
+        sector publico.
+      </p>
+      <h3>7.3. Personal laboral del sector publico</h3>
+      <p>
+        El fondo de la relacion se somete al Derecho laboral, pero el acceso, la oferta de empleo, las limitaciones
+        presupuestarias y determinados principios de seleccion siguen marcados por exigencias publicas.
+      </p>
+    </section>
+
+    <section id="jurisdiccion" class="block">
+      <h2>8. Problemas de jurisdiccion y control</h2>
+      <p>
+        Una de las dificultades practicas mas importantes en estas zonas de friccion es determinar
+        <strong>que orden jurisdiccional</strong> debe conocer del litigio.
+      </p>
+      <ul>
+        <li>Si el conflicto afecta a una <strong>potestad administrativa</strong>, la via normal sera la jurisdiccion contencioso-administrativa.</li>
+        <li>Si se refiere al <strong>contenido privado</strong> de una relacion patrimonial o negocial, puede corresponder a la jurisdiccion civil.</li>
+        <li>Si se trata de una <strong>relacion laboral</strong>, la competencia habitual sera del orden social.</li>
+      </ul>
+      <p>
+        El problema aparece cuando una misma controversia contiene decisiones previas o accesorias de naturaleza publica y
+        efectos materiales privados. En esos casos, la correcta descomposicion del conflicto es decisiva.
+      </p>
+      <div class="callout">
+        <strong>Claves de examen:</strong> la pregunta no es solo <em>quien actua</em>, sino <strong>que se discute</strong>,
+        <strong>en que fase se discute</strong> y <strong>bajo que norma se articula esa parte del conflicto</strong>.
+      </div>
+    </section>
+
+    <section id="riesgos" class="block">
+      <h2>9. Riesgos juridicos frecuentes</h2>
+      <p>
+        Las zonas de friccion no son solo un problema teorico. Generan riesgos practicos relevantes:
+      </p>
+      <ol>
+        <li><strong>Error en la calificacion juridica</strong>: tratar como privado lo que sigue siendo publico en lo esencial.</li>
+        <li><strong>Eleccion incorrecta de jurisdiccion</strong>: acudir al orden equivocado y comprometer la defensa.</li>
+        <li><strong>Intento de eludir garantias publicas</strong>: presentar como negocio privado una actuacion que exige publicidad, concurrencia o procedimiento administrativo.</li>
+        <li><strong>Confusion entre regimen del sujeto y regimen del acto</strong>: una entidad publica no actua siempre bajo la misma logica juridica.</li>
+        <li><strong>Defectos de control</strong>: omitir fiscalizacion, motivacion o tramitacion cuando siguen siendo exigibles.</li>
+      </ol>
+      <blockquote>
+        <p>
+          El uso de formas privadas por el sector publico no autoriza a esquivar la Constitucion, la ley ni los principios
+          de control que corresponden a la actuacion administrativa.
+        </p>
+      </blockquote>
+    </section>
+
+    <section id="ejemplos" class="block">
+      <h2>10. Ejemplos practicos</h2>
+      <ol>
+        <li><strong>Enajenacion de un inmueble patrimonial</strong>: el contrato puede ser privado, pero la decision de vender, la valoracion y la competencia del organo siguen sometidas a Derecho publico.</li>
+        <li><strong>Litigio con una sociedad mercantil publica</strong>: aunque la actividad cotidiana pueda moverse en el ambito mercantil, determinadas decisiones estructurales o de control obedecen a logica publica.</li>
+        <li><strong>Contrato del sector publico con fase previa impugnada</strong>: la adjudicacion puede discutirse por via contenciosa aunque despues existan efectos de naturaleza contractual.</li>
+        <li><strong>Conflicto sobre personal laboral publico</strong>: el fondo del asunto es laboral, pero el acceso y ciertas limitaciones se explican por principios publicos.</li>
+      </ol>
+      <p>
+        En todos estos ejemplos la dificultad consiste en separar correctamente los <strong>aspectos publicos</strong> de
+        los <strong>aspectos privados</strong> sin simplificar en exceso la realidad juridica.
+      </p>
+    </section>
+
+    <section id="estudio" class="note">
+      <h2>11. Sintesis final para estudio</h2>
+      <p>
+        <strong>Definicion util:</strong> las zonas de friccion entre Derecho publico y Derecho privado son los ambitos en
+        los que la actuacion del sector publico presenta elementos de ambos regimenes, de modo que es necesario precisar
+        que normas rigen cada aspecto, que jurisdiccion es competente y como se articulan las garantias de control.
+      </p>
+      <ul>
+        <li>surgen por la <strong>diversidad de funciones, entidades y tecnicas juridicas</strong> del sector publico;</li>
+        <li>aparecen especialmente en <strong>contratacion, patrimonio, entidades instrumentales y personal laboral</strong>;</li>
+        <li>obligan a distinguir entre <strong>regimen del sujeto, funcion ejercida, norma aplicable y fase del conflicto</strong>;</li>
+        <li>plantean problemas de <strong>calificacion, jurisdiccion y control</strong>;</li>
+        <li>preparan el terreno para la tecnica de los <strong>actos separables</strong>.</li>
+      </ul>
+      <p>
+        <strong>Formula corta para memorizar:</strong> <em>supuesto frontera, mezcla de regimenes, analisis por fases y
+        necesidad de identificar el control correcto</em>.
+      </p>
+    </section>
+
+    <section class="sources">
+      <h2>Base normativa y referencias</h2>
+      <p>
+        El contenido de esta pagina es una <strong>sistematizacion doctrinal</strong> apoyada en el marco constitucional y
+        legal del regimen juridico del sector publico. Las zonas de friccion no se agotan en un unico precepto, sino que
+        resultan de la interaccion entre distintas normas y categorias del Derecho administrativo.
+      </p>
+      <ul>
+        <li><a target="_blank" href="https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229" target="_blank" rel="noopener noreferrer">Constitucion Espanola, especialmente arts. 9.3, 103 y 106</a>.</li>
+        <li><a target="_blank" href="https://www.boe.es/buscar/act.php?id=BOE-A-2015-10566" target="_blank" rel="noopener noreferrer">Ley 40/2015, de Regimen Juridico del Sector Publico</a>.</li>
+        <li><a target="_blank" href="https://www.boe.es/buscar/act.php?id=BOE-A-2003-20254" target="_blank" rel="noopener noreferrer">Ley 33/2003, del Patrimonio de las Administraciones Publicas</a>.</li>
+        <li><a target="_blank" href="https://www.boe.es/buscar/act.php?id=BOE-A-2017-12902" target="_blank" rel="noopener noreferrer">Ley 9/2017, de Contratos del Sector Publico</a>.</li>
+        <li><a target="_blank" href="https://www.boe.es/buscar/act.php?id=BOE-A-1998-16718" target="_blank" rel="noopener noreferrer">Ley 29/1998, reguladora de la Jurisdiccion Contencioso-Administrativa</a>.</li>
+      </ul>
+      <p class="footer">Contenido redactado para estudio del punto 2.4 del Tema 1, con enfoque sistematico y de examen.</p>
+    </section>
+  </main>
+</body>
+</html>

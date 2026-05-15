@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tema 1.1 - El derecho administrativo. Concepto</title>
+  <style>
+    :root {
+      --bg: #eef3f9;
+      --surface: #ffffff;
+      --surface-alt: #f6f9fd;
+      --ink: #18212f;
+      --muted: #5f6b7a;
+      --accent: #1f6feb;
+      --border: #d7dee8;
+      --quote: #0f1723;
+      --shadow: 0 18px 40px rgba(24, 33, 47, 0.08);
+      --max: 980px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background: linear-gradient(180deg, #f4f7fb 0%, #eef3f9 100%);
+      color: var(--ink);
+      line-height: 1.7;
+    }
+    .page {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 32px auto 56px;
+    }
+    .hero, .block, .note, .sources {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+    .hero { padding: 36px; margin-bottom: 24px; }
+    .eyebrow {
+      margin: 0 0 8px;
+      font: 700 12px/1.2 Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+    }
+    h1, h2, h3 { margin: 0; line-height: 1.15; color: #10203a; }
+    h1 { font-size: clamp(2.2rem, 4vw, 3.3rem); margin-bottom: 16px; }
+    h2 { font-size: 1.8rem; margin-bottom: 18px; }
+    h3 { font-size: 1.25rem; margin-bottom: 12px; }
+    p { margin: 0 0 16px; font-size: 1.07rem; }
+    .lead { font-size: 1.18rem; color: #2a3950; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: start;
+      margin-top: 28px;
+    }
+    .hero-card, .mini-card {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+    }
+    .hero-card ul, .block ul, .block ol, .sources ul { margin: 0; padding-left: 22px; }
+    .hero-card li, .block li, .sources li { margin-bottom: 10px; }
+    .illustration {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      display: block;
+      background: #fff;
+    }
+    .toc {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 18px;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-family: Arial, sans-serif;
+      font-size: 0.96rem;
+    }
+    .toc a, .sources a { color: #184f9c; text-decoration: none; }
+    .toc a:hover, .sources a:hover { text-decoration: underline; }
+    .block, .note, .sources { padding: 30px; margin-bottom: 24px; }
+    .callout {
+      margin: 22px 0;
+      padding: 18px 20px;
+      border-left: 4px solid var(--accent);
+      background: #f4f8ff;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+    blockquote {
+      margin: 24px 0;
+      padding: 24px 26px;
+      background: var(--quote);
+      color: #eef5ff;
+      border-radius: 14px;
+      font-size: 1.08rem;
+    }
+    blockquote p:last-child { margin-bottom: 0; }
+    .cols {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+    .table-wrap { overflow-x: auto; margin-top: 18px; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.98rem; }
+    th, td { border: 1px solid var(--border); padding: 12px 14px; vertical-align: top; }
+    th {
+      background: #edf4ff;
+      text-align: left;
+      font-family: Arial, sans-serif;
+      font-size: 0.95rem;
+    }
+    .note { background: #f7fbff; }
+    .note strong { color: #123e7c; }
+    .footer {
+      margin-top: 12px;
+      font-size: 0.94rem;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+    }
+    @media (max-width: 820px) {
+      .hero-grid, .cols, .toc { grid-template-columns: 1fr; }
+      .hero, .block, .note, .sources { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <p class="eyebrow">Tema 1 · Punto 1</p>
+      <h1>El derecho administrativo. Concepto</h1>
+      <p class="lead">
+        El <strong>Derecho administrativo</strong> es la rama del <strong>Derecho público</strong> que regula la
+        <strong>organización</strong>, la <strong>actividad</strong>, las <strong>potestades</strong> y los
+        <strong>controles</strong> de las Administraciones Públicas, así como las relaciones que estas mantienen con
+        los ciudadanos cuando actúan sometidas al interés general y a la legalidad.
+      </p>
+      <blockquote>
+        <p>
+          La idea central que conviene fijar desde el inicio es esta:
+          <strong>la Administración no actúa como un particular más</strong>; dispone de poderes jurídicos propios,
+          pero esos poderes solo existen porque la ley los atribuye y porque están sometidos a límites, procedimiento,
+          motivación y control.
+        </p>
+      </blockquote>
+      <div class="hero-grid">
+        <div class="hero-card">
+          <h3>Qué debes retener desde el primer minuto</h3>
+          <ul>
+            <li><strong>No todo el Derecho que afecta a la Administración es Derecho administrativo</strong>, pero sí lo es el núcleo de su organización y de su actuación pública.</li>
+            <li>Su función no es solo <em>dar poder</em> a la Administración, sino también <strong>encauzarlo y limitarlo</strong>.</li>
+            <li>Se apoya en una base constitucional clara: <strong>servicio objetivo al interés general</strong> y <strong>sometimiento pleno a la Constitución, la ley y al Derecho</strong>.</li>
+            <li>Está íntimamente conectado con el <strong>acto administrativo</strong>, el <strong>procedimiento administrativo</strong>, la <strong>potestad reglamentaria</strong> y el <strong>control judicial</strong>.</li>
+          </ul>
+        </div>
+        <img class="illustration" src="mapa-conceptual.svg" alt="Esquema conceptual sobre el derecho administrativo">
+      </div>
+      <nav class="toc" aria-label="Índice de contenidos">
+        <a href="#definicion">1. Definición y sentido del concepto</a>
+        <a href="#publico">2. Por qué pertenece al Derecho público</a>
+        <a href="#objeto">3. Qué regula exactamente</a>
+        <a href="#rasgos">4. Rasgos esenciales</a>
+        <a href="#fuentes">5. Fuentes normativas básicas</a>
+        <a href="#potestades">6. Potestades y privilegios administrativos</a>
+        <a href="#garantias">7. Garantías del ciudadano</a>
+        <a href="#limites">8. Límites del poder administrativo</a>
+        <a href="#diferencias">9. Diferencias con otras ramas del Derecho</a>
+        <a href="#ejemplos">10. Ejemplos prácticos</a>
+        <a href="#sintesis">11. Síntesis final para estudio</a>
+      </nav>
+    </section>
+
+    <section id="definicion" class="block">
+      <h2>1. Definición y sentido del concepto</h2>
+      <p>
+        Cuando se habla de <strong>Derecho administrativo</strong> se alude a una rama del ordenamiento que se ocupa de
+        la <strong>Administración Pública en cuanto poder público organizado</strong>. No se trata solo de un conjunto
+        de normas dispersas, sino de un <strong>sistema jurídico</strong> que responde a una lógica muy concreta:
+        permitir que la Administración actúe para satisfacer necesidades colectivas, pero evitando que esa actuación
+        quede liberada de control.
+      </p>
+      <p>
+        Desde un punto de vista doctrinal, puede formularse así:
+        <em>el Derecho administrativo es el Derecho propio y específico de las Administraciones Públicas cuando ejercen
+        funciones administrativas sometidas al interés general</em>. Esa formulación no procede literalmente de un solo
+        precepto legal, sino que es una <strong>síntesis doctrinal construida a partir del marco constitucional y legal vigente</strong>.
+      </p>
+      <div class="callout">
+        <strong>Idea-clave:</strong> el Derecho administrativo no nace para favorecer a la Administración frente al
+        ciudadano, sino para hacer posible una acción pública eficaz <strong>sin romper las garantías del Estado de Derecho</strong>.
+      </div>
+      <p>Por eso el concepto tiene una doble cara:</p>
+      <ol>
+        <li><strong>Funcional o instrumental</strong>: dota a la Administración de técnicas jurídicas para actuar.</li>
+        <li><strong>Garantista</strong>: impide que ese poder se ejerza fuera de la ley o de manera arbitraria.</li>
+      </ol>
+    </section>
+
+    <section id="publico" class="block">
+      <h2>2. Por qué pertenece al Derecho público</h2>
+      <p>
+        El Derecho administrativo forma parte del <strong>Derecho público</strong> porque regula relaciones en las que
+        interviene una <strong>Administración investida de potestades públicas</strong> y orientada al
+        <strong>interés general</strong>. A diferencia del Derecho privado, aquí no hay una situación de plena igualdad
+        material entre las partes: la Administración puede dictar actos unilaterales, ejecutar sus decisiones o imponer
+        condiciones cuando la ley se lo permite.
+      </p>
+      <p>
+        Esa posición jurídica singular no significa que la Administración quede por encima del Derecho. Ocurre justo lo
+        contrario: cuanto mayores son sus poderes, <strong>más intensa debe ser su sujeción al ordenamiento</strong>.
+      </p>
+      <div class="cols">
+        <article class="mini-card">
+          <h3>Derecho público</h3>
+          <p>Predomina la tutela del interés general, la presencia de potestades públicas y la sujeción a reglas de competencia, procedimiento y control.</p>
+        </article>
+        <article class="mini-card">
+          <h3>Derecho privado</h3>
+          <p>Predomina la igualdad jurídica entre las partes, la autonomía de la voluntad y un marco menos intenso de prerrogativas unilaterales.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="objeto" class="block">
+      <h2>3. Qué regula exactamente</h2>
+      <p>
+        El objeto del Derecho administrativo es amplio. No se limita al procedimiento, aunque el procedimiento sea una
+        pieza central del programa. Abarca, entre otras materias, la <strong>organización administrativa</strong>, la
+        <strong>actividad administrativa</strong>, las <strong>relaciones con los ciudadanos</strong> y los
+        <strong>mecanismos de control</strong>.
+      </p>
+      <ul>
+        <li><strong>La organización administrativa</strong>: órganos, competencias, jerarquía, delegación, coordinación.</li>
+        <li><strong>La actividad administrativa</strong>: actos, reglamentos, convenios, ejecución, inspección, sanción, responsabilidad patrimonial.</li>
+        <li><strong>Las relaciones con los ciudadanos</strong>: derechos, obligaciones, participación, acceso, audiencia, recursos.</li>
+        <li><strong>Las garantías y controles</strong>: motivación, revisión, invalidez de actos, control judicial, responsabilidad.</li>
+      </ul>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Ámbito</th>
+              <th>Preguntas que resuelve</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Organización</td>
+              <td>¿Qué órgano es competente? ¿Cómo se estructura la Administración? ¿Cómo se distribuyen funciones?</td>
+            </tr>
+            <tr>
+              <td>Actuación</td>
+              <td>¿Cómo se dicta un acto? ¿Cómo se tramita un procedimiento? ¿Cómo se aprueba un reglamento?</td>
+            </tr>
+            <tr>
+              <td>Relación con los ciudadanos</td>
+              <td>¿Qué derechos tiene el interesado? ¿Cómo presenta alegaciones? ¿Cómo recurre?</td>
+            </tr>
+            <tr>
+              <td>Control</td>
+              <td>¿Qué ocurre si el acto es inválido? ¿Quién lo revisa? ¿Cuándo intervienen los tribunales?</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="rasgos" class="block">
+      <h2>4. Rasgos esenciales</h2>
+      <h3>4.1. Es un Derecho de la Administración pública</h3>
+      <p>Su sujeto central es la Administración cuando actúa como tal. No gira alrededor del contrato entre iguales, sino alrededor de una organización pública llamada a servir fines colectivos.</p>
+      <h3>4.2. Es un Derecho de potestades</h3>
+      <p>Reconoce poderes singulares a la Administración: potestad reglamentaria, sancionadora, expropiatoria, de autotutela, de inspección y de revisión. Esas potestades no se presumen: <strong>solo existen si la ley las atribuye</strong>.</p>
+      <h3>4.3. Es un Derecho de límites y garantías</h3>
+      <p>El poder administrativo está subordinado a la competencia del órgano, a la finalidad pública, al procedimiento, a la motivación, a la proporcionalidad y al control posterior. Por eso el Derecho administrativo es inseparable de la idea de <strong>garantía del administrado</strong>.</p>
+      <h3>4.4. Es un Derecho dinámico</h3>
+      <p>Evoluciona con las transformaciones del Estado, la descentralización territorial, la digitalización, la transparencia, la intervención económica y la protección de derechos fundamentales.</p>
+    </section>
+
+    <section id="fuentes" class="block">
+      <h2>5. Fuentes normativas básicas</h2>
+      <p>El armazón esencial parte de la <strong>Constitución</strong> y se desarrolla en la legislación básica del sector público y del procedimiento administrativo.</p>
+      <h3>5.1. Constitución Española</h3>
+      <p>La Constitución fija la posición de la Administración dentro del Estado de Derecho. El núcleo es <strong>el artículo 103.1</strong>, que sitúa a la Administración al servicio objetivo de los intereses generales y le impone una actuación sometida a la Constitución, a la ley y al Derecho.</p>
+      <p>También son decisivos el <strong>artículo 105</strong>, por las garantías procedimentales, y el <strong>artículo 106</strong>, por el control judicial de la actuación administrativa y la responsabilidad patrimonial.</p>
+      <h3>5.2. Ley 40/2015, de Régimen Jurídico del Sector Público</h3>
+      <p>Esta ley ordena las bases del régimen jurídico de las Administraciones Públicas, su organización y sus principios generales de actuación. Para este tema es clave porque ayuda a perfilar <strong>qué es Administración pública</strong> y qué principios deben informar su comportamiento.</p>
+      <h3>5.3. Ley 39/2015, del Procedimiento Administrativo Común</h3>
+      <p>Completa la visión conceptual porque muestra <strong>cómo actúa jurídicamente</strong> la Administración ante los ciudadanos: derechos, interesados, procedimiento, actos, notificaciones y recursos.</p>
+      <div class="callout">
+        <strong>Conclusión normativa:</strong> el concepto de Derecho administrativo hoy se entiende como <strong>Derecho de la organización pública, de su actuación y de las garantías del ciudadano frente a ella</strong>.
+      </div>
+    </section>
+
+    <section id="potestades" class="block">
+      <h2>6. Potestades y privilegios administrativos</h2>
+      <p>La Administración no opera únicamente con técnicas privadas. Dispone de <strong>potestades públicas</strong> que la colocan en una posición jurídica especial.</p>
+      <ul>
+        <li><strong>Potestad reglamentaria</strong>: puede aprobar disposiciones generales dentro del marco legal.</li>
+        <li><strong>Potestad de autotutela declarativa</strong>: puede dictar actos que producen efectos sin necesidad de acudir previamente a un juez.</li>
+        <li><strong>Potestad de autotutela ejecutiva</strong>: en determinados casos puede ejecutar sus decisiones por sí misma.</li>
+        <li><strong>Potestad sancionadora</strong>: puede corregir infracciones administrativas con respeto al principio de legalidad.</li>
+        <li><strong>Potestad expropiatoria</strong>: puede privar de bienes o derechos por causa de utilidad pública o interés social y con indemnización.</li>
+        <li><strong>Potestad de revisión</strong>: puede revisar ciertos actos en los supuestos legalmente previstos.</li>
+      </ul>
+    </section>
+
+    <section id="garantias" class="block">
+      <h2>7. Garantías del ciudadano frente a la Administración</h2>
+      <p>Sería un error definir el Derecho administrativo solo por las prerrogativas de la Administración. Una definición correcta debe incluir las <strong>garantías de los ciudadanos</strong>, porque precisamente ahí se ve su madurez como rama jurídica del Estado constitucional.</p>
+      <ul>
+        <li>principio de legalidad;</li>
+        <li>competencia del órgano;</li>
+        <li>tramitación procedimental con audiencia y participación cuando proceda;</li>
+        <li>motivación de determinadas decisiones;</li>
+        <li>posibilidad de recurrir en vía administrativa y jurisdiccional;</li>
+        <li>responsabilidad patrimonial por daños antijurídicos;</li>
+        <li>control judicial de reglamentos, actos y fines.</li>
+      </ul>
+      <blockquote>
+        <p>Si una Administración puede imponer, sancionar o ejecutar, el ordenamiento debe ofrecer un itinerario igual de claro para discutir, revisar y controlar esa decisión.</p>
+      </blockquote>
+    </section>
+
+    <section id="limites" class="block">
+      <h2>8. Límites del poder administrativo</h2>
+      <div class="cols">
+        <article class="mini-card">
+          <h3>Límites externos</h3>
+          <p>Constitución, leyes, reglamentos, derechos fundamentales, control judicial y responsabilidad.</p>
+        </article>
+        <article class="mini-card">
+          <h3>Límites internos</h3>
+          <p>Competencia, procedimiento, forma, motivación, finalidad, proporcionalidad, igualdad y buena administración.</p>
+        </article>
+      </div>
+      <p>En términos de estudio: <strong>la Administración está jurídicamente habilitada, pero nunca jurídicamente desatada</strong>.</p>
+    </section>
+
+    <section id="diferencias" class="block">
+      <h2>9. Diferencias con otras ramas del Derecho</h2>
+      <h3>9.1. Frente al Derecho constitucional</h3>
+      <p>El Derecho constitucional establece las bases del Estado, los derechos fundamentales y la posición general de los poderes públicos. El Derecho administrativo desarrolla ese marco en la actividad cotidiana de las Administraciones.</p>
+      <h3>9.2. Frente al Derecho civil</h3>
+      <p>El Derecho civil se apoya en la igualdad de las partes y la autonomía de la voluntad. El Derecho administrativo se apoya en potestades públicas, interés general y normas de competencia y procedimiento.</p>
+      <h3>9.3. Frente al Derecho procesal</h3>
+      <p>El Derecho procesal regula la actuación de los tribunales. El Derecho administrativo regula la actuación de la Administración, aunque se conecta con la vía contencioso-administrativa para su control.</p>
+      <h3>9.4. Frente al Derecho penal</h3>
+      <p>El Derecho penal sanciona conductas delictivas con penas impuestas por jueces o tribunales. El Derecho administrativo incluye una potestad sancionadora propia, pero sometida a principios específicos y a control posterior.</p>
+    </section>
+
+    <section id="ejemplos" class="block">
+      <h2>10. Ejemplos prácticos</h2>
+      <ol>
+        <li><strong>Una multa de tráfico</strong>: hay potestad sancionadora, procedimiento, alegaciones, resolución y recursos.</li>
+        <li><strong>La denegación de una licencia</strong>: intervienen competencia, motivación, control de legalidad y revisión judicial.</li>
+        <li><strong>La aprobación de una ordenanza municipal</strong>: aparece la potestad reglamentaria y el sometimiento al ordenamiento superior.</li>
+        <li><strong>La reclamación por daños causados por un servicio público</strong>: entra en juego la responsabilidad patrimonial de la Administración.</li>
+      </ol>
+      <p>En todos estos ejemplos la constante es la misma: <strong>hay Administración, hay poder público y hay sometimiento al Derecho</strong>.</p>
+    </section>
+
+    <section id="sintesis" class="note">
+      <h2>11. Síntesis final para estudio</h2>
+      <p><strong>Definición de arrastre:</strong> el Derecho administrativo es la rama del Derecho público que regula la organización y la actividad de las Administraciones Públicas, sus potestades, sus relaciones con los ciudadanos y los mecanismos de control a los que queda sometida su actuación.</p>
+      <ul>
+        <li>pertenece al <strong>Derecho público</strong>;</li>
+        <li>tiene por centro a la <strong>Administración Pública</strong>;</li>
+        <li>se proyecta sobre <strong>organización, actuación, potestades y control</strong>;</li>
+        <li>combina <strong>eficacia administrativa</strong> con <strong>garantías del ciudadano</strong>;</li>
+        <li>se funda en el <strong>interés general</strong> y el <strong>sometimiento pleno a la ley y al Derecho</strong>.</li>
+      </ul>
+      <p><strong>Fórmula corta para memorizar:</strong> <em>poder público, interés general, legalidad, procedimiento y control</em>.</p>
+    </section>
+
+    <section class="sources">
+      <h2>Base normativa y referencias</h2>
+      <p>El contenido de esta página combina explicación doctrinal y sistematización propia con apoyo en normas oficiales del <strong>Boletín Oficial del Estado</strong>. La definición general del concepto es una <strong>síntesis explicativa</strong>; los anclajes normativos principales son estos:</p>
+      <ul>
+        <li><a target="_blank" href="https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229" target="_blank" rel="noopener noreferrer">Constitución Española, especialmente artículos 103, 105 y 106</a>.</li>
+        <li><a target="_blank" href="https://www.boe.es/buscar/act.php?id=BOE-A-2015-10566" target="_blank" rel="noopener noreferrer">Ley 40/2015, de Régimen Jurídico del Sector Público</a>, en especial su título preliminar y artículos 1 a 3.</li>
+        <li><a target="_blank" href="https://www.boe.es/buscar/act.php?id=BOE-A-2015-10565" target="_blank" rel="noopener noreferrer">Ley 39/2015, del Procedimiento Administrativo Común de las Administraciones Públicas</a>.</li>
+      </ul>
+      <p class="footer">Consulta utilizada para redactar esta teoría: 12 de mayo de 2026. En los resultados consultados, la Ley 39/2015 figuraba con última actualización publicada el 6 de noviembre de 2024 y la Ley 40/2015 con última actualización publicada el 2 de agosto de 2024.</p>
+    </section>
+  </main>
+</body>
+</html>

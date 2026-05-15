@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="760" viewBox="0 0 960 760" role="img" aria-labelledby="title desc">
+  <title id="title">Mapa conceptual del control jurisdiccional</title>
+  <desc id="desc">Esquema con una idea central y cuatro bloques: fundamento constitucional, objeto del control, funcion garantista y relacion con el procedimiento.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8fbff"/>
+      <stop offset="100%" stop-color="#edf4ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="760" rx="28" fill="url(#bg)"/>
+  <rect x="40" y="40" width="880" height="680" rx="24" fill="#ffffff" stroke="#d7dee8" stroke-width="2"/>
+  <text x="480" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#10203a">Control jurisdiccional</text>
+  <text x="480" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#5f6b7a">Garantia judicial de la legalidad administrativa</text>
+
+  <rect x="300" y="180" width="360" height="112" rx="20" fill="#1f6feb"/>
+  <text x="480" y="222" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#ffffff">Idea central</text>
+  <text x="480" y="254" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#eef5ff">Los jueces controlan que la Administracion</text>
+  <text x="480" y="278" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#eef5ff">actue conforme a la ley, al procedimiento</text>
+  <text x="480" y="302" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#eef5ff">y a los fines de sus potestades</text>
+
+  <line x1="480" y1="292" x2="190" y2="390" stroke="#91b4ea" stroke-width="4"/>
+  <line x1="480" y1="292" x2="770" y2="390" stroke="#91b4ea" stroke-width="4"/>
+  <line x1="480" y1="292" x2="285" y2="580" stroke="#91b4ea" stroke-width="4"/>
+  <line x1="480" y1="292" x2="675" y2="580" stroke="#91b4ea" stroke-width="4"/>
+
+  <rect x="70" y="365" width="240" height="150" rx="18" fill="#f6f9fd" stroke="#d7dee8" stroke-width="2"/>
+  <text x="190" y="400" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#123e7c">Fundamento</text>
+  <text x="100" y="435" font-family="Arial, sans-serif" font-size="18" fill="#18212f">• arts. 24, 103 y 106 CE</text>
+  <text x="100" y="463" font-family="Arial, sans-serif" font-size="18" fill="#18212f">• tutela judicial efectiva</text>
+  <text x="100" y="491" font-family="Arial, sans-serif" font-size="18" fill="#18212f">• sometimiento a la ley</text>
+
+  <rect x="650" y="365" width="240" height="150" rx="18" fill="#f6f9fd" stroke="#d7dee8" stroke-width="2"/>
+  <text x="770" y="400" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#123e7c">Objeto</text>
+  <text x="680" y="435" font-family="Arial, sans-serif" font-size="18" fill="#18212f">• actos y reglamentos</text>
+  <text x="680" y="463" font-family="Arial, sans-serif" font-size="18" fill="#18212f">• inactividad y via de hecho</text>
+  <text x="680" y="491" font-family="Arial, sans-serif" font-size="18" fill="#18212f">• fines de la potestad</text>
+
+  <rect x="135" y="545" width="300" height="130" rx="18" fill="#f6f9fd" stroke="#d7dee8" stroke-width="2"/>
+  <text x="285" y="580" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#123e7c">Funcion</text>
+  <text x="163" y="615" font-family="Arial, sans-serif" font-size="18" fill="#18212f">• legalidad y correccion</text>
+  <text x="163" y="643" font-family="Arial, sans-serif" font-size="18" fill="#18212f">• garantia del ciudadano</text>
+
+  <rect x="525" y="545" width="300" height="130" rx="18" fill="#f6f9fd" stroke="#d7dee8" stroke-width="2"/>
+  <text x="675" y="580" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#123e7c">Procedimiento</text>
+  <text x="553" y="615" font-family="Arial, sans-serif" font-size="18" fill="#18212f">• controla audiencia y motivacion</text>
+  <text x="553" y="643" font-family="Arial, sans-serif" font-size="18" fill="#18212f">• se apoya en el expediente</text>
+</svg>

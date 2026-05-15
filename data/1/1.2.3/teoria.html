@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tema 1.2.3 - La aplicacion del derecho</title>
+  <style>
+    :root {
+      --bg: #eef3f9;
+      --surface: #ffffff;
+      --surface-alt: #f6f9fd;
+      --ink: #18212f;
+      --muted: #5f6b7a;
+      --accent: #1f6feb;
+      --border: #d7dee8;
+      --quote: #0f1723;
+      --shadow: 0 18px 40px rgba(24, 33, 47, 0.08);
+      --max: 980px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background: linear-gradient(180deg, #f4f7fb 0%, #eef3f9 100%);
+      color: var(--ink);
+      line-height: 1.7;
+    }
+    .page {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 32px auto 56px;
+    }
+    .hero, .block, .note, .sources {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+    .hero { padding: 36px; margin-bottom: 24px; }
+    .eyebrow {
+      margin: 0 0 8px;
+      font: 700 12px/1.2 Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+    }
+    h1, h2, h3 { margin: 0; line-height: 1.15; color: #10203a; }
+    h1 { font-size: clamp(2.2rem, 4vw, 3.3rem); margin-bottom: 16px; }
+    h2 { font-size: 1.8rem; margin-bottom: 18px; }
+    h3 { font-size: 1.25rem; margin-bottom: 12px; }
+    p { margin: 0 0 16px; font-size: 1.07rem; }
+    .lead { font-size: 1.18rem; color: #2a3950; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: start;
+      margin-top: 28px;
+    }
+    .hero-card, .mini-card {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+    }
+    .hero-card ul, .block ul, .block ol, .sources ul { margin: 0; padding-left: 22px; }
+    .hero-card li, .block li, .sources li { margin-bottom: 10px; }
+    .illustration {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      display: block;
+      background: #fff;
+    }
+    .toc {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 18px;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-family: Arial, sans-serif;
+      font-size: 0.96rem;
+    }
+    .toc a, .sources a { color: #184f9c; text-decoration: none; }
+    .toc a:hover, .sources a:hover { text-decoration: underline; }
+    .block, .note, .sources { padding: 30px; margin-bottom: 24px; }
+    .callout {
+      margin: 22px 0;
+      padding: 18px 20px;
+      border-left: 4px solid var(--accent);
+      background: #f4f8ff;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+    blockquote {
+      margin: 24px 0;
+      padding: 24px 26px;
+      background: var(--quote);
+      color: #eef5ff;
+      border-radius: 14px;
+      font-size: 1.08rem;
+    }
+    blockquote p:last-child { margin-bottom: 0; }
+    .cols {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+    .table-wrap { overflow-x: auto; margin-top: 18px; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.98rem; }
+    th, td { border: 1px solid var(--border); padding: 12px 14px; vertical-align: top; }
+    th {
+      background: #edf4ff;
+      text-align: left;
+      font-family: Arial, sans-serif;
+      font-size: 0.95rem;
+    }
+    .note { background: #f7fbff; }
+    .note strong { color: #123e7c; }
+    .footer {
+      margin-top: 12px;
+      font-size: 0.94rem;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+    }
+    @media (max-width: 820px) {
+      .hero-grid, .cols, .toc { grid-template-columns: 1fr; }
+      .hero, .block, .note, .sources { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <p class="eyebrow">Tema 1 · Punto 2.3</p>
+      <h1>La aplicacion del derecho</h1>
+      <p class="lead">
+        Aplicar el Derecho en la Administracion significa <strong>seleccionar, interpretar e integrar</strong> las normas
+        juridicas pertinentes para resolver un caso concreto, dictar un acto, tramitar un procedimiento o adoptar una
+        decision conforme al ordenamiento. No basta con conocer las normas: hay que determinar <strong>cual es aplicable,
+        como debe entenderse y de que modo se proyecta sobre los hechos</strong>.
+      </p>
+      <blockquote>
+        <p>
+          La idea central de este punto es esta: <strong>la aplicacion del Derecho no es mecanica</strong>. Exige
+          identificar la fuente correcta, interpretar su sentido, respetar la jerarquia normativa, atender a los hechos
+          acreditados y adoptar una solucion congruente con la legalidad y con el interes general.
+        </p>
+      </blockquote>
+      <div class="hero-grid">
+        <div class="hero-card">
+          <h3>Lo primero que debes fijar</h3>
+          <ul>
+            <li>Aplicar el Derecho es <strong>pasar de la norma abstracta al caso concreto</strong>.</li>
+            <li>La Administracion no decide libremente: esta vinculada por <strong>competencia, procedimiento, hechos y normas aplicables</strong>.</li>
+            <li>En este proceso son decisivos la <strong>interpretacion</strong>, la <strong>motivacion</strong> y la <strong>prueba</strong>.</li>
+            <li>Cuando faltan reglas claras, entran en juego principios generales, analogia en ciertos limites e integracion sistematica del ordenamiento.</li>
+          </ul>
+        </div>
+        <img class="illustration" src="mapa-aplicacion-derecho.svg" alt="Esquema sobre como la Administracion aplica el Derecho">
+      </div>
+      <nav class="toc" aria-label="Indice de contenidos">
+        <a href="#concepto">1. Que significa aplicar el Derecho</a>
+        <a href="#elementos">2. Elementos de la aplicacion juridica</a>
+        <a href="#fuentes">3. Fuentes y jerarquia normativa</a>
+        <a href="#interpretacion">4. Interpretacion de las normas</a>
+        <a href="#hechos">5. Determinacion de los hechos</a>
+        <a href="#subsuncion">6. Subsuncion y decision administrativa</a>
+        <a href="#discrecionalidad">7. Discrecionalidad y conceptos juridicos indeterminados</a>
+        <a href="#principios">8. Principios generales y lagunas</a>
+        <a href="#motivacion">9. Motivacion, congruencia y control</a>
+        <a href="#ejemplos">10. Ejemplos practicos</a>
+        <a href="#estudio">11. Sintesis para estudio</a>
+      </nav>
+    </section>
+
+    <section id="concepto" class="block">
+      <h2>1. Que significa aplicar el Derecho</h2>
+      <p>
+        La <strong>aplicacion del Derecho</strong> consiste en trasladar el contenido del ordenamiento a una situacion
+        concreta. La Administracion se encuentra ante unos hechos, identifica la norma juridica aplicable, interpreta su
+        sentido, la relaciona con el supuesto de hecho y adopta una consecuencia juridica: autorizar, denegar, sancionar,
+        conceder, archivar, requerir o resolver.
+      </p>
+      <p>
+        Este proceso es esencial en el Derecho administrativo porque la actividad administrativa se desarrolla de forma
+        continua sobre casos concretos: expedientes sancionadores, licencias, ayudas, reclamaciones, recursos, contratos o
+        revisiones.
+      </p>
+      <div class="callout">
+        <strong>Idea-clave:</strong> aplicar el Derecho no es repetir una norma, sino <strong>razonar juridicamente</strong>
+        desde las fuentes, los hechos y los principios hasta una decision valida y controlable.
+      </div>
+    </section>
+
+    <section id="elementos" class="block">
+      <h2>2. Elementos de la aplicacion juridica</h2>
+      <p>
+        En toda aplicacion del Derecho pueden distinguirse varios elementos encadenados. Conviene estudiarlos de forma
+        ordenada porque explican como se construye una decision administrativa correcta.
+      </p>
+      <ol>
+        <li><strong>Existencia de unos hechos</strong> que deben ser conocidos y acreditados.</li>
+        <li><strong>Busqueda de la norma aplicable</strong> dentro del sistema de fuentes.</li>
+        <li><strong>Interpretacion de la norma</strong> para fijar su verdadero sentido.</li>
+        <li><strong>Calificacion juridica de los hechos</strong>.</li>
+        <li><strong>Subsuncion</strong>: encaje de los hechos en el supuesto normativo.</li>
+        <li><strong>Decision y motivacion</strong>, con expresion del por que juridico de la solucion adoptada.</li>
+      </ol>
+      <p>
+        Cuando alguno de estos pasos falla, la decision administrativa puede resultar invalida, arbitraria o insuficientemente motivada.
+      </p>
+    </section>
+
+    <section id="fuentes" class="block">
+      <h2>3. Fuentes y jerarquia normativa</h2>
+      <p>
+        La aplicacion del Derecho exige empezar por las <strong>fuentes del ordenamiento</strong>. No toda norma vale lo
+        mismo ni todas pueden emplearse con la misma intensidad. La Administracion debe actuar conforme al
+        <strong>principio de jerarquia normativa</strong> y al reparto competencial.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Fuente</th>
+              <th>Funcion en la aplicacion del Derecho</th>
+              <th>Observacion relevante</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Constitucion</td>
+              <td>Marco supremo de validez e interpretacion</td>
+              <td>Vincula a toda la Administracion y orienta la lectura del resto de normas</td>
+            </tr>
+            <tr>
+              <td>Leyes y normas con rango de ley</td>
+              <td>Regulan materias reservadas y delimitan potestades administrativas</td>
+              <td>La Administracion esta sujeta de forma plena a ellas</td>
+            </tr>
+            <tr>
+              <td>Reglamentos</td>
+              <td>Desarrollan y concretan la ley</td>
+              <td>No pueden contrariarla ni invadir materias reservadas</td>
+            </tr>
+            <tr>
+              <td>Principios generales</td>
+              <td>Informan, interpretan e integran el ordenamiento</td>
+              <td>Son clave cuando el texto normativo no basta por si solo</td>
+            </tr>
+            <tr>
+              <td>Jurisprudencia</td>
+              <td>Orienta la interpretacion uniforme del Derecho</td>
+              <td>No sustituye a la ley, pero condiciona decisivamente su lectura practica</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Aplicar bien el Derecho implica no solo encontrar una norma, sino comprobar que es <strong>vigente, competente,
+        jerarquicamente correcta y adecuada al caso</strong>.
+      </p>
+    </section>
+
+    <section id="interpretacion" class="block">
+      <h2>4. Interpretacion de las normas</h2>
+      <p>
+        Una vez localizada la norma, es necesario interpretarla. El ordenamiento no se aplica siempre con una lectura
+        literal aislada. La Administracion debe atender a los criterios generales de interpretacion y razonar por que
+        entiende la norma de una determinada manera.
+      </p>
+      <h3>4.1. Criterio literal</h3>
+      <p>
+        Se parte del sentido propio de las palabras. Es el punto de entrada, pero no agota la interpretacion.
+      </p>
+      <h3>4.2. Criterio sistematico</h3>
+      <p>
+        La norma se entiende en relacion con el conjunto del ordenamiento, especialmente con otras normas del mismo sector
+        material.
+      </p>
+      <h3>4.3. Criterio historico y legislativo</h3>
+      <p>
+        Puede atenderse a los antecedentes normativos y a la evolucion legislativa para precisar el alcance actual de la regla.
+      </p>
+      <h3>4.4. Criterio finalista o teleologico</h3>
+      <p>
+        Se interpreta la norma segun la finalidad que persigue, algo particularmente importante en el Derecho administrativo.
+      </p>
+      <h3>4.5. Criterio conforme a la Constitucion</h3>
+      <p>
+        Toda aplicacion del Derecho debe ser compatible con los valores, principios y derechos constitucionales.
+      </p>
+      <blockquote>
+        <p>
+          Una buena aplicacion del Derecho no selecciona un fragmento de texto aislado; construye una interpretacion
+          <strong>literal, sistematica y finalista</strong> coherente con la Constitucion y con el resto del ordenamiento.
+        </p>
+      </blockquote>
+    </section>
+
+    <section id="hechos" class="block">
+      <h2>5. Determinacion de los hechos</h2>
+      <p>
+        Ninguna aplicacion del Derecho es correcta si los hechos no estan bien fijados. La Administracion no aplica normas
+        sobre abstracciones, sino sobre una <strong>realidad acreditada en el expediente</strong>. De ahi la importancia de
+        la instruccion, la prueba, los informes y las alegaciones.
+      </p>
+      <div class="cols">
+        <article class="mini-card">
+          <h3>Instruccion</h3>
+          <p>Permite reunir documentos, informes, declaraciones y actuaciones necesarias para conocer el caso.</p>
+        </article>
+        <article class="mini-card">
+          <h3>Prueba</h3>
+          <p>Sirve para confirmar o desmentir hechos relevantes, especialmente cuando existe contradiccion entre las partes.</p>
+        </article>
+        <article class="mini-card">
+          <h3>Alegaciones</h3>
+          <p>El interesado puede ofrecer su version de los hechos y aportar los elementos que estime oportunos.</p>
+        </article>
+        <article class="mini-card">
+          <h3>Valoracion</h3>
+          <p>La Administracion debe justificar por que considera probados unos hechos y no otros.</p>
+        </article>
+      </div>
+      <p>
+        En la practica administrativa, muchos errores no nacen tanto de la eleccion de la norma como de una
+        <strong>incorrecta fijacion del supuesto de hecho</strong>.
+      </p>
+    </section>
+
+    <section id="subsuncion" class="block">
+      <h2>6. Subsuncion y decision administrativa</h2>
+      <p>
+        La <strong>subsuncion</strong> es el encaje de los hechos probados dentro del supuesto contemplado por la norma.
+        Cuando ese encaje se produce, la Administracion extrae la consecuencia juridica prevista por el ordenamiento.
+      </p>
+      <p>
+        En algunos casos la consecuencia juridica es estrictamente reglada: si se cumplen determinados requisitos, procede
+        conceder; si no se cumplen, procede denegar. En otros, la norma deja un cierto margen de apreciacion.
+      </p>
+      <div class="callout">
+        <strong>Formula tecnica:</strong> hecho acreditado + norma interpretada + encaje juridico correcto =
+        <strong>decision administrativa valida</strong>.
+      </div>
+      <p>
+        Esta fase exige especial cuidado porque es donde se manifiestan errores de calificacion, exceso de poder o
+        incongruencias entre lo actuado y lo resuelto.
+      </p>
+    </section>
+
+    <section id="discrecionalidad" class="block">
+      <h2>7. Discrecionalidad y conceptos juridicos indeterminados</h2>
+      <p>
+        No toda aplicacion del Derecho es completamente automatica. Hay supuestos en los que la ley deja margen a la
+        Administracion para elegir entre varias soluciones legitimas o para valorar determinadas circunstancias.
+      </p>
+      <h3>7.1. Potestad reglada</h3>
+      <p>
+        La ley determina con precision el supuesto de hecho y la consecuencia juridica. La Administracion debe limitarse a
+        aplicar lo previsto.
+      </p>
+      <h3>7.2. Discrecionalidad administrativa</h3>
+      <p>
+        Existe cuando la norma permite optar entre varias soluciones juridicamente posibles, siempre orientadas al interes
+        general y sometidas a control de legalidad, finalidad, proporcionalidad y razonabilidad.
+      </p>
+      <h3>7.3. Conceptos juridicos indeterminados</h3>
+      <p>
+        Son expresiones normativas abiertas, como <em>interes publico</em>, <em>urgencia</em>,
+        <em>riesgo grave</em> o <em>idoneidad tecnica</em>, que requieren una valoracion juridica del caso concreto.
+      </p>
+      <p>
+        Es importante no confundir ambos planos: la discrecionalidad deja elegir entre varias opciones validas; el
+        concepto juridico indeterminado exige concretar, con arreglo al caso, el significado juridico correcto de una
+        expresion abierta.
+      </p>
+    </section>
+
+    <section id="principios" class="block">
+      <h2>8. Principios generales y lagunas</h2>
+      <p>
+        La aplicacion del Derecho no siempre encuentra una respuesta completa en un precepto expreso. En esos supuestos
+        adquieren especial importancia los <strong>principios generales del Derecho</strong>, la interpretacion sistematica
+        y, con los limites que correspondan, la integracion del ordenamiento.
+      </p>
+      <ul>
+        <li><strong>Legalidad</strong>: toda actuacion debe tener cobertura normativa suficiente.</li>
+        <li><strong>Igualdad</strong>: casos iguales deben recibir un tratamiento igual salvo justificacion objetiva.</li>
+        <li><strong>Proporcionalidad</strong>: la decision no puede ser excesiva respecto del fin perseguido.</li>
+        <li><strong>Buena fe y confianza legitima</strong>: protegen ciertas expectativas razonables en las relaciones con la Administracion.</li>
+        <li><strong>Seguridad juridica</strong>: exige coherencia, previsibilidad y estabilidad interpretativa.</li>
+      </ul>
+      <p>
+        En Derecho administrativo, sin embargo, la integracion de lagunas no puede utilizarse para crear potestades no
+        previstas por la ley. Una cosa es interpretar e integrar; otra, muy distinta, es inventar poder administrativo.
+      </p>
+      <blockquote>
+        <p>
+          La Administracion puede interpretar, concretar e integrar el ordenamiento, pero <strong>no puede atribuirse a si
+          misma potestades que la ley no le ha reconocido</strong>.
+        </p>
+      </blockquote>
+    </section>
+
+    <section id="motivacion" class="block">
+      <h2>9. Motivacion, congruencia y control</h2>
+      <p>
+        Aplicar el Derecho correctamente no termina con adoptar una decision; es necesario <strong>explicarla</strong>. La
+        motivacion expresa el camino juridico seguido por la Administracion y permite al interesado comprender, discutir y,
+        en su caso, impugnar la resolucion.
+      </p>
+      <h3>9.1. Motivacion</h3>
+      <p>
+        Debe mostrar la relacion entre hechos, normas y conclusion. Una resolucion inmotivada o insuficientemente motivada
+        dificulta su control y puede resultar invalida en determinados supuestos.
+      </p>
+      <h3>9.2. Congruencia</h3>
+      <p>
+        La decision debe responder a lo planteado en el expediente y guardar coherencia con el objeto del procedimiento.
+      </p>
+      <h3>9.3. Control posterior</h3>
+      <p>
+        Recursos administrativos y control jurisdiccional permiten revisar si la norma elegida fue correcta, si la
+        interpretacion era razonable, si los hechos estaban acreditados y si la conclusion fue juridicamente valida.
+      </p>
+    </section>
+
+    <section id="ejemplos" class="block">
+      <h2>10. Ejemplos practicos</h2>
+      <ol>
+        <li><strong>Concesion de una ayuda publica</strong>: la Administracion debe comprobar la convocatoria aplicable, verificar requisitos, valorar la documentacion y motivar la concesion o denegacion.</li>
+        <li><strong>Resolucion de una licencia</strong>: se identifican las normas urbanisticas, se interpretan, se contrastan con los informes tecnicos y se decide si el proyecto se ajusta o no a Derecho.</li>
+        <li><strong>Expediente sancionador</strong>: se fijan hechos, se califica la conducta, se aplica el tipo infractor correspondiente y se determina la sancion proporcional.</li>
+        <li><strong>Recurso administrativo</strong>: se revisa si la resolucion recurrida aplico correctamente la norma, si valoro bien los hechos y si la motivacion es suficiente.</li>
+      </ol>
+      <p>
+        En todos estos casos se aprecia la misma secuencia: <strong>hechos, norma, interpretacion, encaje, decision y control</strong>.
+      </p>
+    </section>
+
+    <section id="estudio" class="note">
+      <h2>11. Sintesis final para estudio</h2>
+      <p>
+        <strong>Definicion util:</strong> la aplicacion del Derecho es el proceso por el que la Administracion identifica
+        la norma aplicable, la interpreta, fija los hechos relevantes, subsume esos hechos en el supuesto normativo y
+        adopta una decision motivada conforme a la legalidad y al interes general.
+      </p>
+      <ul>
+        <li>implica pasar de la <strong>norma abstracta al caso concreto</strong>;</li>
+        <li>exige atender a <strong>fuentes, jerarquia normativa e interpretacion</strong>;</li>
+        <li>depende de una correcta <strong>determinacion de los hechos</strong>;</li>
+        <li>puede moverse entre potestad reglada, discrecionalidad y conceptos juridicos indeterminados;</li>
+        <li>debe culminar en una <strong>decision motivada, congruente y controlable</strong>.</li>
+      </ul>
+      <p>
+        <strong>Formula corta para memorizar:</strong> <em>norma, interpretacion, hechos, subsuncion, motivacion y control</em>.
+      </p>
+    </section>
+
+    <section class="sources">
+      <h2>Base normativa y referencias</h2>
+      <p>
+        El contenido de esta pagina combina explicacion doctrinal y sistematizacion propia con apoyo en normas oficiales
+        del <strong>Boletin Oficial del Estado</strong>. La nocion de aplicacion del Derecho es una
+        <strong>sintesis explicativa</strong> construida a partir de principios generales del ordenamiento y del regimen
+        juridico administrativo.
+      </p>
+      <ul>
+        <li><a target="_blank" href="https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229" target="_blank" rel="noopener noreferrer">Constitucion Espanola, especialmente arts. 9.3, 103, 105 y 106</a>.</li>
+        <li><a target="_blank" href="https://www.boe.es/buscar/act.php?id=BOE-A-1889-4763" target="_blank" rel="noopener noreferrer">Codigo Civil, especialmente art. 3 sobre interpretacion de las normas</a>.</li>
+        <li><a target="_blank" href="https://www.boe.es/buscar/act.php?id=BOE-A-2015-10565" target="_blank" rel="noopener noreferrer">Ley 39/2015, del Procedimiento Administrativo Comun de las Administraciones Publicas</a>.</li>
+        <li><a target="_blank" href="https://www.boe.es/buscar/act.php?id=BOE-A-2015-10566" target="_blank" rel="noopener noreferrer">Ley 40/2015, de Regimen Juridico del Sector Publico</a>.</li>
+      </ul>
+      <p class="footer">Contenido redactado para estudio del punto 2.3 del Tema 1, con enfoque sistematico y de examen.</p>
+    </section>
+  </main>
+</body>
+</html>

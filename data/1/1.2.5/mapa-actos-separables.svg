@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="760" viewBox="0 0 960 760" role="img" aria-labelledby="title desc">
+  <title id="title">Mapa conceptual de la tecnica de los actos separables</title>
+  <desc id="desc">Esquema con una idea central y cuatro bloques: fase publica, fase privada, jurisdiccion y ambitos tipicos.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8fbff"/>
+      <stop offset="100%" stop-color="#edf4ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="760" rx="28" fill="url(#bg)"/>
+  <rect x="40" y="40" width="880" height="680" rx="24" fill="#ffffff" stroke="#d7dee8" stroke-width="2"/>
+  <text x="480" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#10203a">Tecnica de los actos separables</text>
+  <text x="480" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#5f6b7a">Separar decisiones administrativas dentro de operaciones mixtas</text>
+
+  <rect x="300" y="180" width="360" height="112" rx="20" fill="#1f6feb"/>
+  <text x="480" y="222" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#ffffff">Idea central</text>
+  <text x="480" y="254" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#eef5ff">Una operacion puede ser unica</text>
+  <text x="480" y="278" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#eef5ff">en lo economico, pero no en lo juridico</text>
+  <text x="480" y="302" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#eef5ff">cada acto puede tener su propio regimen</text>
+
+  <line x1="480" y1="292" x2="190" y2="390" stroke="#91b4ea" stroke-width="4"/>
+  <line x1="480" y1="292" x2="770" y2="390" stroke="#91b4ea" stroke-width="4"/>
+  <line x1="480" y1="292" x2="285" y2="580" stroke="#91b4ea" stroke-width="4"/>
+  <line x1="480" y1="292" x2="675" y2="580" stroke="#91b4ea" stroke-width="4"/>
+
+  <rect x="70" y="365" width="240" height="150" rx="18" fill="#f6f9fd" stroke="#d7dee8" stroke-width="2"/>
+  <text x="190" y="400" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#123e7c">Fase publica</text>
+  <text x="100" y="435" font-family="Arial, sans-serif" font-size="18" fill="#18212f">• expediente</text>
+  <text x="100" y="463" font-family="Arial, sans-serif" font-size="18" fill="#18212f">• adjudicacion o aprobacion</text>
+  <text x="100" y="491" font-family="Arial, sans-serif" font-size="18" fill="#18212f">• control contencioso</text>
+
+  <rect x="650" y="365" width="240" height="150" rx="18" fill="#f6f9fd" stroke="#d7dee8" stroke-width="2"/>
+  <text x="770" y="400" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#123e7c">Fase privada</text>
+  <text x="680" y="435" font-family="Arial, sans-serif" font-size="18" fill="#18212f">• contrato o negocio</text>
+  <text x="680" y="463" font-family="Arial, sans-serif" font-size="18" fill="#18212f">• ejecucion material</text>
+  <text x="680" y="491" font-family="Arial, sans-serif" font-size="18" fill="#18212f">• orden civil/social segun caso</text>
+
+  <rect x="135" y="545" width="300" height="130" rx="18" fill="#f6f9fd" stroke="#d7dee8" stroke-width="2"/>
+  <text x="285" y="580" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#123e7c">Ambitos tipicos</text>
+  <text x="163" y="615" font-family="Arial, sans-serif" font-size="18" fill="#18212f">• contratacion y patrimonio</text>
+  <text x="163" y="643" font-family="Arial, sans-serif" font-size="18" fill="#18212f">• entes instrumentales y personal</text>
+
+  <rect x="525" y="545" width="300" height="130" rx="18" fill="#f6f9fd" stroke="#d7dee8" stroke-width="2"/>
+  <text x="675" y="580" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#123e7c">Finalidad</text>
+  <text x="553" y="615" font-family="Arial, sans-serif" font-size="18" fill="#18212f">• mantener la legalidad publica</text>
+  <text x="553" y="643" font-family="Arial, sans-serif" font-size="18" fill="#18212f">• asegurar tutela judicial efectiva</text>
+</svg>

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oposición Ley 39/2015</title>
+  <link rel="icon" type="image/svg+xml" href="resources/favicon.svg">
+  <link rel="stylesheet" href="resources/font-awesome-6.5.1-pro/css/all.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+      background: rgba(15, 23, 35, 0.42);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 180ms ease, visibility 180ms ease;
+      z-index: 9999;
+    }
+
+    .lightbox.is-open {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .lightbox__dialog {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: min(92vw, 1400px);
+      max-height: 92vh;
+    }
+
+    .lightbox__image {
+      display: block;
+      max-width: 100%;
+      max-height: 92vh;
+      width: auto;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.28);
+      background: #fff;
+    }
+
+    .lightbox__close {
+      position: absolute;
+      top: -12px;
+      right: -12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(16, 32, 58, 0.92);
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.24);
+    }
+
+    .lightbox__close:hover {
+      background: rgba(19, 56, 107, 0.96);
+    }
+
+    @media (max-width: 720px) {
+      .lightbox {
+        padding: 18px;
+      }
+
+      .lightbox__close {
+        top: -8px;
+        right: -8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button
+    id="mobile-menu-open"
+    class="mobile-menu-toggle"
+    type="button"
+    aria-label="Abrir menú"
+    aria-controls="sidebar"
+    aria-expanded="false"
+  >
+    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+  </button>
+  <div class="app-shell">
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar__mobile-actions">
+        <button
+          id="mobile-menu-close"
+          class="sidebar__close"
+          type="button"
+          aria-label="Cerrar menú"
+        >
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="sidebar__header">
+        <p class="sidebar__eyebrow">Ley 39/2015</p>
+        <h1>Temario de oposición</h1>
+      </div>
+      <div class="sidebar__theme-picker">
+        <label class="sidebar__search-label" for="theme-select">Tema</label>
+        <select id="theme-select" class="sidebar__theme-select"></select>
+      </div>
+      <div class="sidebar__search">
+        <label class="sidebar__search-label" for="topic-search">Buscar tema</label>
+        <input
+          id="topic-search"
+          class="sidebar__search-input"
+          type="search"
+          placeholder="Busca por título"
+          autocomplete="off"
+        >
+      </div>
+      <nav class="topics-nav" aria-label="Temas del temario">
+        <div id="topics-list" class="topics-list"></div>
+      </nav>
+    </aside>
+
+    <section id="topic-progress" class="topic-progress" hidden aria-label="Progreso del tema">
+      <div class="topic-progress__header">
+        <p class="topic-progress__label">Unidades completadas</p>
+        <p id="topic-progress-count" class="topic-progress__count">0/0</p>
+      </div>
+      <div id="topic-progress-nav" class="topic-progress__nav"></div>
+    </section>
+
+    <main class="content">
+      <section class="content__panel">
+        <p class="content__eyebrow">Plan de estudio</p>
+        <h2 id="topic-title">Selecciona un tema</h2>
+        <p id="topic-description" class="content__description">
+          Pulsa sobre cualquier tema del menú lateral para ver sus secciones.
+        </p>
+        <div id="section-toolbar" class="content-viewer__toolbar content-viewer__toolbar--standalone" hidden>
+          <p id="content-viewer-label" class="content-viewer__label">Contenido</p>
+          <div class="content-viewer__actions">
+            <a
+              id="completion-toggle"
+              class="completion-toggle"
+              href="#"
+              aria-label="Marcar como completado"
+              title="Marcar como completado"
+            >
+              <i class="fa-solid fa-check" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+        <div id="content-viewer" class="content-viewer" hidden>
+          <iframe
+            id="content-frame"
+            class="content-viewer__frame"
+            title="Contenido del tema"
+            loading="lazy"
+          ></iframe>
+        </div>
+        <section id="quiz-viewer" class="quiz-viewer" hidden>
+          <div class="quiz-stats" aria-label="Estado del cuestionario">
+            <article class="quiz-stat quiz-stat--timer">
+              <p class="quiz-stat__label">Tiempo restante</p>
+              <p id="quiz-timer" class="quiz-stat__value quiz-stat__value--timer">00:30</p>
+            </article>
+            <article class="quiz-progress-track" aria-label="Progreso del cuestionario">
+              <div class="quiz-progress-track__header">
+                <p class="quiz-stat__label">Resultado por pregunta</p>
+              </div>
+              <div id="quiz-question-track" class="quiz-progress-track__segments"></div>
+            </article>
+          </div>
+
+          <div class="quiz-card">
+            <div id="quiz-intro-screen" class="quiz-intro">
+              <p class="quiz-card__eyebrow">Cuestionario</p>
+              <h3 class="quiz-card__title">Preparado para empezar</h3>
+              <p id="quiz-intro-description" class="quiz-complete__summary">Elige cómo quieres practicar. El tiempo empezará a contar en la primera pregunta.</p>
+              <div class="quiz-intro__actions">
+                <button id="quiz-start-button" class="quiz-feedback__button" type="button">Empezar Test</button>
+                <button id="quiz-review-button" class="quiz-feedback__button quiz-feedback__button--secondary" type="button">Revisar preguntas falladas</button>
+              </div>
+            </div>
+
+            <div id="quiz-question-screen">
+              <p class="quiz-card__eyebrow">Cuestionario</p>
+              <h3 id="quiz-question-title" class="quiz-card__title">Selecciona una pregunta</h3>
+              <div id="quiz-options" class="quiz-options" role="list"></div>
+            </div>
+
+            <div id="quiz-feedback-screen" class="quiz-feedback" hidden>
+              <p id="quiz-feedback-status" class="quiz-feedback__status">Respuesta correcta</p>
+              <div class="quiz-feedback__body">
+                <div id="quiz-feedback-answer-block">
+                  <p class="quiz-feedback__label">Tu respuesta</p>
+                  <p id="quiz-feedback-answer" class="quiz-feedback__answer"></p>
+                </div>
+                <div id="quiz-feedback-option-block">
+                  <p class="quiz-feedback__label">Explicacion de la respuesta</p>
+                  <p id="quiz-feedback-option-explanation" class="quiz-feedback__text"></p>
+                </div>
+                <div id="quiz-feedback-question-block" hidden>
+                  <p class="quiz-feedback__label">Explicacion de la pregunta</p>
+                  <p id="quiz-feedback-question-explanation" class="quiz-feedback__text"></p>
+                </div>
+              </div>
+              <div class="quiz-feedback__actions">
+                <button id="quiz-next-button" class="quiz-feedback__button" type="button">Aceptar</button>
+              </div>
+            </div>
+
+            <div id="quiz-complete-screen" class="quiz-complete" hidden>
+              <p class="quiz-card__eyebrow">Cuestionario completado</p>
+              <h3 class="quiz-card__title">Has terminado la sesion</h3>
+              <p id="quiz-complete-summary" class="quiz-complete__summary"></p>
+              <div id="quiz-complete-errors" class="quiz-complete-errors" hidden>
+                <p class="quiz-feedback__label">Resumen de fallos</p>
+                <div id="quiz-complete-errors-list" class="quiz-complete-errors__list"></div>
+              </div>
+              <button id="quiz-restart-button" class="quiz-feedback__button" type="button">Reiniciar test</button>
+            </div>
+          </div>
+        </section>
+
+        <section id="errors-viewer" class="quiz-viewer" hidden>
+          <div class="quiz-card">
+            <div class="quiz-complete">
+              <p class="quiz-card__eyebrow">Preguntas falladas</p>
+              <h3 class="quiz-card__title">Revisar errores</h3>
+              <div id="errors-complete-errors" class="quiz-complete-errors" hidden>
+                <p class="quiz-feedback__label">Listado de errores</p>
+                <div id="errors-complete-errors-list" class="quiz-complete-errors__list"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <div id="image-lightbox" class="lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Vista ampliada de imagen">
+    <div class="lightbox__dialog">
+      <button id="image-lightbox-close" class="lightbox__close" type="button" aria-label="Cerrar imagen ampliada">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+      <img id="image-lightbox-image" class="lightbox__image" alt="">
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    (function () {
+      const contentFrame = document.querySelector("#content-frame");
+      const lightbox = document.querySelector("#image-lightbox");
+      const lightboxImage = document.querySelector("#image-lightbox-image");
+      const lightboxClose = document.querySelector("#image-lightbox-close");
+      const iframeImageSelector = "img";
+
+      function openLightbox(src, alt) {
+        if (!src) {
+          return;
+        }
+
+        lightboxImage.src = src;
+        lightboxImage.alt = alt || "";
+        lightbox.hidden = false;
+        lightbox.classList.add("is-open");
+        lightbox.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove("is-open");
+        lightbox.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+        window.setTimeout(() => {
+          if (lightbox.classList.contains("is-open")) {
+            return;
+          }
+
+          lightbox.hidden = true;
+          lightboxImage.removeAttribute("src");
+          lightboxImage.alt = "";
+        }, 180);
+      }
+
+      function enhanceFrameImages() {
+        let frameDocument;
+
+        try {
+          frameDocument = contentFrame.contentDocument;
+        } catch (error) {
+          return;
+        }
+
+        if (!frameDocument || !frameDocument.body) {
+          return;
+        }
+
+        const previousStyle = frameDocument.getElementById("frame-lightbox-style");
+
+        if (!previousStyle) {
+          const style = frameDocument.createElement("style");
+          style.id = "frame-lightbox-style";
+          style.textContent = `
+            ${iframeImageSelector} {
+              cursor: zoom-in;
+            }
+          `;
+          frameDocument.head.appendChild(style);
+        }
+
+        frameDocument.querySelectorAll(iframeImageSelector).forEach((image) => {
+          if (image.dataset.lightboxBound === "true") {
+            return;
+          }
+
+          image.dataset.lightboxBound = "true";
+          image.addEventListener("click", (event) => {
+            event.preventDefault();
+            openLightbox(image.currentSrc || image.src, image.alt);
+          });
+        });
+      }
+
+      contentFrame.addEventListener("load", () => {
+        closeLightbox();
+        enhanceFrameImages();
+      });
+
+      lightbox.addEventListener("click", (event) => {
+        if (event.target === lightbox) {
+          closeLightbox();
+        }
+      });
+
+      lightboxClose.addEventListener("click", closeLightbox);
+
+      window.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
+          closeLightbox();
+        }
+      });
+    }());
+  </script>
+</body>
+</html>
