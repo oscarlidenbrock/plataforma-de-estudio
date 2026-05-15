@@ -3898,5 +3898,1705 @@
         "tipo": "pregunta verdadero-falso",
         "respuestaCorrecta": "falso",
         "explicacion": "Es falso porque la anulabilidad es solo una categoria de invalidez de actos. El concepto del tema es mucho mas amplio e incluye organizacion, actividad, potestades y controles."
+    },
+    {
+        "id": 201,
+        "enunciado": "El Derecho administrativo es la rama del Derecho ____ que regula la organizacion, actividad, potestades y controles de las Administraciones Publicas.",
+        "tipo": "completar frase",
+        "respuesta": "publico",
+        "explicacion": "La respuesta correcta es 'publico' porque la teoria presenta el Derecho administrativo como una rama del Derecho publico, no del privado."
+    },
+    {
+        "id": 202,
+        "enunciado": "La Administracion actua sometida al interes general y a la ____.",
+        "tipo": "completar frase",
+        "respuesta": "legalidad",
+        "explicacion": "La respuesta correcta es 'legalidad' porque el tema insiste en que la actuacion administrativa debe quedar siempre sometida a la ley y al Derecho."
+    },
+    {
+        "id": 203,
+        "enunciado": "La idea central del tema es que la Administracion no actua como un ____ mas.",
+        "tipo": "completar frase",
+        "respuesta": "particular",
+        "explicacion": "La respuesta correcta es 'particular' porque la teoria subraya que la Administracion dispone de poderes juridicos propios y no ocupa la posicion de un sujeto privado ordinario."
+    },
+    {
+        "id": 204,
+        "enunciado": "Los poderes de la Administracion solo existen porque la ____ los atribuye.",
+        "tipo": "completar frase",
+        "respuesta": "ley",
+        "explicacion": "La respuesta correcta es 'ley' porque una de las ideas mas repetidas del tema es que las potestades administrativas no se presumen y deben tener cobertura legal."
+    },
+    {
+        "id": 205,
+        "enunciado": "El Derecho administrativo no solo da poder a la Administracion, tambien debe encauzarlo y ____.",
+        "tipo": "completar frase",
+        "respuesta": "limitarlo",
+        "explicacion": "La respuesta correcta es 'limitarlo' porque el bloque inicial explica que la funcion del Derecho administrativo es habilitante y al mismo tiempo garantista."
+    },
+    {
+        "id": 206,
+        "enunciado": "La base constitucional del tema destaca el servicio objetivo al interes ____.",
+        "tipo": "completar frase",
+        "respuesta": "general",
+        "explicacion": "La respuesta correcta es 'general' porque el articulo 103.1 CE aparece en la teoria como fundamento del servicio objetivo a los intereses generales."
+    },
+    {
+        "id": 207,
+        "enunciado": "El Derecho administrativo se conecta con el acto administrativo, el procedimiento administrativo, la potestad reglamentaria y el control ____.",
+        "tipo": "completar frase",
+        "respuesta": "judicial",
+        "explicacion": "La respuesta correcta es 'judicial' porque el tema remarca que el control de los tribunales es una garantia esencial frente a la actuacion administrativa."
+    },
+    {
+        "id": 208,
+        "enunciado": "La Administracion es un poder publico ____.",
+        "tipo": "completar frase",
+        "respuesta": "organizado",
+        "explicacion": "La respuesta correcta es 'organizado' porque la definicion doctrinal del tema se refiere a la Administracion Publica en cuanto poder publico organizado."
+    },
+    {
+        "id": 209,
+        "enunciado": "El Derecho administrativo permite que la Administracion actue para satisfacer necesidades ____.",
+        "tipo": "completar frase",
+        "respuesta": "colectivas",
+        "explicacion": "La respuesta correcta es 'colectivas' porque la teoria explica que esta rama juridica sirve para canalizar la accion publica al servicio de necesidades de la comunidad."
+    },
+    {
+        "id": 210,
+        "enunciado": "El concepto doctrinal del tema presenta al Derecho administrativo como el Derecho propio y ____ de las Administraciones Publicas.",
+        "tipo": "completar frase",
+        "respuesta": "especifico",
+        "explicacion": "La respuesta correcta es 'especifico' porque la formulacion doctrinal lo define como el Derecho propio y especifico de las Administraciones Publicas."
+    },
+    {
+        "id": 211,
+        "enunciado": "La formula doctrinal del tema se califica como una sintesis ____ construida a partir del marco constitucional y legal.",
+        "tipo": "completar frase",
+        "respuesta": "doctrinal",
+        "explicacion": "La respuesta correcta es 'doctrinal' porque el texto aclara que no procede literalmente de un solo precepto, sino de una sintesis elaborada por la doctrina."
+    },
+    {
+        "id": 212,
+        "enunciado": "El Derecho administrativo tiene una doble cara: funcional o instrumental, y otra cara ____.",
+        "tipo": "completar frase",
+        "respuesta": "garantista",
+        "explicacion": "La respuesta correcta es 'garantista' porque el tema contrapone la funcion de habilitar la accion publica con la de asegurar limites y garantias."
+    },
+    {
+        "id": 213,
+        "enunciado": "La funcion funcional o instrumental dota a la Administracion de tecnicas ____ para actuar.",
+        "tipo": "completar frase",
+        "respuesta": "juridicas",
+        "explicacion": "La respuesta correcta es 'juridicas' porque el tema explica que esta rama del Derecho proporciona instrumentos juridicos para que la Administracion pueda actuar."
+    },
+    {
+        "id": 214,
+        "enunciado": "La funcion garantista impide que el poder se ejerza fuera de la ley o de manera ____.",
+        "tipo": "completar frase",
+        "respuesta": "arbitraria",
+        "explicacion": "La respuesta correcta es 'arbitraria' porque la teoria enlaza el Derecho administrativo con la prohibicion de arbitrariedad propia del Estado de Derecho."
+    },
+    {
+        "id": 215,
+        "enunciado": "El Derecho administrativo pertenece al Derecho publico porque interviene una Administracion investida de potestades ____.",
+        "tipo": "completar frase",
+        "respuesta": "publicas",
+        "explicacion": "La respuesta correcta es 'publicas' porque ese es el rasgo que justifica su insercion dentro del Derecho publico."
+    },
+    {
+        "id": 216,
+        "enunciado": "En el Derecho administrativo no existe una situacion de plena igualdad ____ entre las partes.",
+        "tipo": "completar frase",
+        "respuesta": "material",
+        "explicacion": "La respuesta correcta es 'material' porque la teoria distingue esta rama del Derecho privado precisamente por la ausencia de igualdad material plena."
+    },
+    {
+        "id": 217,
+        "enunciado": "La Administracion puede dictar actos ____ cuando la ley se lo permite.",
+        "tipo": "completar frase",
+        "respuesta": "unilaterales",
+        "explicacion": "La respuesta correcta es 'unilaterales' porque el tema utiliza esta caracteristica para diferenciar la posicion juridica de la Administracion."
+    },
+    {
+        "id": 218,
+        "enunciado": "Cuanto mayores son los poderes de la Administracion, mas intensa debe ser su ____ al ordenamiento.",
+        "tipo": "completar frase",
+        "respuesta": "sujecion",
+        "explicacion": "La respuesta correcta es 'sujecion' porque el texto insiste en que el incremento de prerrogativas exige un sometimiento mas estricto al Derecho."
+    },
+    {
+        "id": 219,
+        "enunciado": "En el Derecho publico predomina la tutela del interes ____.",
+        "tipo": "completar frase",
+        "respuesta": "general",
+        "explicacion": "La respuesta correcta es 'general' porque ese es el fin institucional que justifica la actuacion administrativa."
+    },
+    {
+        "id": 220,
+        "enunciado": "En el Derecho privado predomina la igualdad juridica entre las partes y la autonomia de la ____.",
+        "tipo": "completar frase",
+        "respuesta": "voluntad",
+        "explicacion": "La respuesta correcta es 'voluntad' porque la teoria contrapone la autonomia de la voluntad propia del Derecho privado con las potestades publicas."
+    },
+    {
+        "id": 221,
+        "enunciado": "El objeto del Derecho administrativo abarca la organizacion administrativa, la actividad administrativa, las relaciones con los ciudadanos y los mecanismos de ____.",
+        "tipo": "completar frase",
+        "respuesta": "control",
+        "explicacion": "La respuesta correcta es 'control' porque esa es una de las cuatro grandes piezas del objeto regulado por esta rama del Derecho."
+    },
+    {
+        "id": 222,
+        "enunciado": "La organizacion administrativa comprende organos, competencias, jerarquia, delegacion y ____.",
+        "tipo": "completar frase",
+        "respuesta": "coordinacion",
+        "explicacion": "La respuesta correcta es 'coordinacion' porque aparece expresamente en el listado de elementos de la organizacion administrativa."
+    },
+    {
+        "id": 223,
+        "enunciado": "Dentro de la actividad administrativa, el tema incluye actos, reglamentos, convenios, ejecucion, inspeccion, sancion y responsabilidad ____.",
+        "tipo": "completar frase",
+        "respuesta": "patrimonial",
+        "explicacion": "La respuesta correcta es 'patrimonial' porque la responsabilidad patrimonial forma parte del bloque de actividad y control de la Administracion."
+    },
+    {
+        "id": 224,
+        "enunciado": "Entre las relaciones con los ciudadanos se mencionan derechos, obligaciones, participacion, acceso, audiencia y ____.",
+        "tipo": "completar frase",
+        "respuesta": "recursos",
+        "explicacion": "La respuesta correcta es 'recursos' porque el tema destaca que el ciudadano puede impugnar la actuacion administrativa."
+    },
+    {
+        "id": 225,
+        "enunciado": "Entre las garantias y controles aparecen la motivacion, la revision, la invalidez de actos y el control ____.",
+        "tipo": "completar frase",
+        "respuesta": "judicial",
+        "explicacion": "La respuesta correcta es 'judicial' porque el control de los tribunales es una garantia estructural del sistema administrativo."
+    },
+    {
+        "id": 226,
+        "enunciado": "Uno de los rasgos esenciales del Derecho administrativo es que tiene por sujeto central a la ____ publica.",
+        "tipo": "completar frase",
+        "respuesta": "Administracion",
+        "explicacion": "La respuesta correcta es 'Administracion' porque la teoria presenta esta rama juridica como el Derecho propio de la Administracion Publica."
+    },
+    {
+        "id": 227,
+        "enunciado": "El Derecho administrativo es un Derecho de ____ porque reconoce poderes singulares a la Administracion.",
+        "tipo": "completar frase",
+        "respuesta": "potestades",
+        "explicacion": "La respuesta correcta es 'potestades' porque una de las notas esenciales del tema es la existencia de prerrogativas publicas atribuidas por ley."
+    },
+    {
+        "id": 228,
+        "enunciado": "Las potestades administrativas no se presumen: solo existen si la ley las ____.",
+        "tipo": "completar frase",
+        "respuesta": "atribuye",
+        "explicacion": "La respuesta correcta es 'atribuye' porque el tema insiste en el principio de habilitacion legal expresa de las potestades publicas."
+    },
+    {
+        "id": 229,
+        "enunciado": "El poder administrativo esta subordinado a la competencia del organo, a la finalidad publica, al procedimiento, a la motivacion y a la ____.",
+        "tipo": "completar frase",
+        "respuesta": "proporcionalidad",
+        "explicacion": "La respuesta correcta es 'proporcionalidad' porque el texto la cita como uno de los limites internos de la actuacion administrativa."
+    },
+    {
+        "id": 230,
+        "enunciado": "El Derecho administrativo es inseparable de la idea de garantia del ____.",
+        "tipo": "completar frase",
+        "respuesta": "administrado",
+        "explicacion": "La respuesta correcta es 'administrado' porque el tema remarca que esta rama juridica no se entiende sin las garantias del ciudadano."
+    },
+    {
+        "id": 231,
+        "enunciado": "La teoria afirma que el Derecho administrativo es un Derecho ____ porque evoluciona con la digitalizacion, la transparencia y la descentralizacion.",
+        "tipo": "completar frase",
+        "respuesta": "dinamico",
+        "explicacion": "La respuesta correcta es 'dinamico' porque uno de sus rasgos esenciales es la capacidad de adaptarse a nuevas formas de accion publica."
+    },
+    {
+        "id": 232,
+        "enunciado": "El armazon esencial del tema parte de la ____ y se desarrolla en la legislacion basica.",
+        "tipo": "completar frase",
+        "respuesta": "Constitucion",
+        "explicacion": "La respuesta correcta es 'Constitucion' porque el tema sitúa su punto de apoyo principal en la Constitucion Espanola."
+    },
+    {
+        "id": 233,
+        "enunciado": "El nucleo constitucional de la posicion de la Administracion en el tema se encuentra en el articulo ____ .1.",
+        "tipo": "completar frase",
+        "respuesta": "103",
+        "explicacion": "La respuesta correcta es '103' porque el articulo 103.1 CE se cita como precepto central para entender el servicio objetivo al interes general."
+    },
+    {
+        "id": 234,
+        "enunciado": "El articulo 103.1 CE situa a la Administracion al servicio objetivo de los intereses ____.",
+        "tipo": "completar frase",
+        "respuesta": "generales",
+        "explicacion": "La respuesta correcta es 'generales' porque esa es la formula constitucional clave para explicar la funcion de la Administracion."
+    },
+    {
+        "id": 235,
+        "enunciado": "El articulo 105 CE se destaca por las garantias ____.",
+        "tipo": "completar frase",
+        "respuesta": "procedimentales",
+        "explicacion": "La respuesta correcta es 'procedimentales' porque el tema usa el articulo 105 CE como anclaje para audiencia, participacion y tramite."
+    },
+    {
+        "id": 236,
+        "enunciado": "El articulo 106 CE se destaca por el control judicial y la responsabilidad ____.",
+        "tipo": "completar frase",
+        "respuesta": "patrimonial",
+        "explicacion": "La respuesta correcta es 'patrimonial' porque el articulo 106 CE conecta el control judicial con la responsabilidad de la Administracion."
+    },
+    {
+        "id": 237,
+        "enunciado": "La Ley 40/2015 perfila que es Administracion publica y fija principios generales de ____.",
+        "tipo": "completar frase",
+        "respuesta": "actuacion",
+        "explicacion": "La respuesta correcta es 'actuacion' porque la teoria menciona esta ley como base del regimen juridico y de los principios de comportamiento administrativo."
+    },
+    {
+        "id": 238,
+        "enunciado": "La Ley 39/2015 muestra como actua juridicamente la Administracion ante los ____.",
+        "tipo": "completar frase",
+        "respuesta": "ciudadanos",
+        "explicacion": "La respuesta correcta es 'ciudadanos' porque esta ley organiza la relacion procedimental entre Administracion e interesados."
+    },
+    {
+        "id": 239,
+        "enunciado": "Una de las potestades mencionadas en la teoria es la potestad ____ para aprobar disposiciones generales.",
+        "tipo": "completar frase",
+        "respuesta": "reglamentaria",
+        "explicacion": "La respuesta correcta es 'reglamentaria' porque la Administracion puede aprobar reglamentos dentro del marco legal."
+    },
+    {
+        "id": 240,
+        "enunciado": "La autotutela declarativa permite a la Administracion dictar ____ que producen efectos sin acudir antes a un juez.",
+        "tipo": "completar frase",
+        "respuesta": "actos",
+        "explicacion": "La respuesta correcta es 'actos' porque la autotutela declarativa se define por la capacidad de dictar actos eficaces por si mismos."
+    },
+    {
+        "id": 241,
+        "enunciado": "La autotutela ____ permite a la Administracion ejecutar por si misma determinadas decisiones.",
+        "tipo": "completar frase",
+        "respuesta": "ejecutiva",
+        "explicacion": "La respuesta correcta es 'ejecutiva' porque la teoria distingue la autotutela declarativa de la ejecutiva."
+    },
+    {
+        "id": 242,
+        "enunciado": "La potestad ____ permite corregir infracciones administrativas con respeto al principio de legalidad.",
+        "tipo": "completar frase",
+        "respuesta": "sancionadora",
+        "explicacion": "La respuesta correcta es 'sancionadora' porque el tema identifica esa potestad como una de las prerrogativas tipicas de la Administracion."
+    },
+    {
+        "id": 243,
+        "enunciado": "La potestad ____ permite privar de bienes o derechos por utilidad publica o interes social y con indemnizacion.",
+        "tipo": "completar frase",
+        "respuesta": "expropiatoria",
+        "explicacion": "La respuesta correcta es 'expropiatoria' porque asi se denomina la potestad administrativa de expropiar con causa legitima e indemnizacion."
+    },
+    {
+        "id": 244,
+        "enunciado": "La potestad de ____ permite revisar ciertos actos en los supuestos legalmente previstos.",
+        "tipo": "completar frase",
+        "respuesta": "revision",
+        "explicacion": "La respuesta correcta es 'revision' porque la teoria incluye expresamente la potestad de revision entre las prerrogativas administrativas."
+    },
+    {
+        "id": 245,
+        "enunciado": "Una definicion correcta del Derecho administrativo debe incluir no solo prerrogativas, sino tambien las ____ de los ciudadanos.",
+        "tipo": "completar frase",
+        "respuesta": "garantias",
+        "explicacion": "La respuesta correcta es 'garantias' porque el texto insiste en que esta rama juridica protege al ciudadano frente al poder."
+    },
+    {
+        "id": 246,
+        "enunciado": "Entre las garantias del ciudadano aparece en primer lugar el principio de ____.",
+        "tipo": "completar frase",
+        "respuesta": "legalidad",
+        "explicacion": "La respuesta correcta es 'legalidad' porque la sujecion plena a la ley es la garantia basica de toda actuacion administrativa."
+    },
+    {
+        "id": 247,
+        "enunciado": "Otra garantia esencial es la ____ del organo que actua.",
+        "tipo": "completar frase",
+        "respuesta": "competencia",
+        "explicacion": "La respuesta correcta es 'competencia' porque ningun organo puede actuar validamente fuera del ambito de atribuciones que le corresponde."
+    },
+    {
+        "id": 248,
+        "enunciado": "El tema menciona la tramitacion procedimental con audiencia y ____ cuando proceda.",
+        "tipo": "completar frase",
+        "respuesta": "participacion",
+        "explicacion": "La respuesta correcta es 'participacion' porque la audiencia y la participacion son manifestaciones de las garantias procedimentales del ciudadano."
+    },
+    {
+        "id": 249,
+        "enunciado": "La posibilidad de recurrir en via administrativa y ____ tambien es una garantia del ciudadano.",
+        "tipo": "completar frase",
+        "respuesta": "jurisdiccional",
+        "explicacion": "La respuesta correcta es 'jurisdiccional' porque la impugnacion ante tribunales completa la proteccion frente a decisiones administrativas."
+    },
+    {
+        "id": 250,
+        "enunciado": "Cuando la Administracion causa danos antijuridicos puede surgir su responsabilidad ____.",
+        "tipo": "completar frase",
+        "respuesta": "patrimonial",
+        "explicacion": "La respuesta correcta es 'patrimonial' porque esa es la forma de responsabilidad tratada en la teoria."
+    },
+    {
+        "id": 251,
+        "enunciado": "La teoria afirma que la Administracion esta juridicamente habilitada, pero nunca juridicamente ____.",
+        "tipo": "completar frase",
+        "respuesta": "desatada",
+        "explicacion": "La respuesta correcta es 'desatada' porque esa formula resume la idea de poder sujeto a limites."
+    },
+    {
+        "id": 252,
+        "enunciado": "Entre los limites externos del poder administrativo se citan la Constitucion, las leyes y los derechos ____.",
+        "tipo": "completar frase",
+        "respuesta": "fundamentales",
+        "explicacion": "La respuesta correcta es 'fundamentales' porque los derechos fundamentales operan como limite superior de toda actuacion administrativa."
+    },
+    {
+        "id": 253,
+        "enunciado": "Entre los limites internos se citan la competencia, el procedimiento, la forma, la motivacion y la ____.",
+        "tipo": "completar frase",
+        "respuesta": "finalidad",
+        "explicacion": "La respuesta correcta es 'finalidad' porque la Administracion debe orientar su actuacion al fin publico previsto por la norma."
+    },
+    {
+        "id": 254,
+        "enunciado": "La buena ____ aparece entre los limites internos de la actuacion administrativa.",
+        "tipo": "completar frase",
+        "respuesta": "administracion",
+        "explicacion": "La respuesta correcta es 'administracion' porque el tema menciona la buena administracion como criterio limitador de la actividad publica."
+    },
+    {
+        "id": 255,
+        "enunciado": "El Derecho constitucional establece las bases del Estado y los derechos ____, mientras el administrativo desarrolla la actividad cotidiana de las Administraciones.",
+        "tipo": "completar frase",
+        "respuesta": "fundamentales",
+        "explicacion": "La respuesta correcta es 'fundamentales' porque esa es una de las diferencias que la teoria marca frente al Derecho constitucional."
+    },
+    {
+        "id": 256,
+        "enunciado": "El Derecho civil se apoya en la igualdad de las partes y en la autonomia de la ____.",
+        "tipo": "completar frase",
+        "respuesta": "voluntad",
+        "explicacion": "La respuesta correcta es 'voluntad' porque la teoria usa esa expresion clasica para diferenciar el Derecho civil del administrativo."
+    },
+    {
+        "id": 257,
+        "enunciado": "El Derecho procesal regula la actuacion de los ____, no la de la Administracion.",
+        "tipo": "completar frase",
+        "respuesta": "tribunales",
+        "explicacion": "La respuesta correcta es 'tribunales' porque el Derecho procesal se refiere al funcionamiento de la jurisdiccion."
+    },
+    {
+        "id": 258,
+        "enunciado": "El Derecho penal sanciona conductas delictivas con ____ impuestas por jueces o tribunales.",
+        "tipo": "completar frase",
+        "respuesta": "penas",
+        "explicacion": "La respuesta correcta es 'penas' porque esa es la consecuencia propia del Derecho penal, distinta de la sancion administrativa."
+    },
+    {
+        "id": 259,
+        "enunciado": "Una multa de trafico es ejemplo de potestad ____.",
+        "tipo": "completar frase",
+        "respuesta": "sancionadora",
+        "explicacion": "La respuesta correcta es 'sancionadora' porque la multa de trafico es el ejemplo practico clasico de ejercicio de esa potestad."
+    },
+    {
+        "id": 260,
+        "enunciado": "La denegacion de una licencia pone en juego la competencia, la motivacion, el control de legalidad y la ____ judicial.",
+        "tipo": "completar frase",
+        "respuesta": "revision",
+        "explicacion": "La respuesta correcta es 'revision' porque la teoria enlaza la denegacion de licencias con la posibilidad de control y revision ante los tribunales."
+    },
+    {
+        "id": 261,
+        "enunciado": "La aprobacion de una ordenanza municipal es ejemplo de potestad ____.",
+        "tipo": "completar frase",
+        "respuesta": "reglamentaria",
+        "explicacion": "La respuesta correcta es 'reglamentaria' porque una ordenanza municipal es una disposicion general aprobada por una Administracion."
+    },
+    {
+        "id": 262,
+        "enunciado": "La reclamacion por danos causados por un servicio publico remite a la responsabilidad ____ de la Administracion.",
+        "tipo": "completar frase",
+        "respuesta": "patrimonial",
+        "explicacion": "La respuesta correcta es 'patrimonial' porque ese es el cauce juridico para reclamar danos antijuridicos causados por la actividad administrativa."
+    },
+    {
+        "id": 263,
+        "enunciado": "La sintesis final del tema dice que el Derecho administrativo regula la organizacion y la ____ de las Administraciones Publicas.",
+        "tipo": "completar frase",
+        "respuesta": "actividad",
+        "explicacion": "La respuesta correcta es 'actividad' porque esa palabra forma parte de la formula final de arrastre del tema."
+    },
+    {
+        "id": 264,
+        "enunciado": "La definicion final del tema incluye tambien las relaciones con los ____.",
+        "tipo": "completar frase",
+        "respuesta": "ciudadanos",
+        "explicacion": "La respuesta correcta es 'ciudadanos' porque el Derecho administrativo ordena la relacion entre Administracion e interesados."
+    },
+    {
+        "id": 265,
+        "enunciado": "La formula corta para memorizar termina con legalidad, procedimiento y ____.",
+        "tipo": "completar frase",
+        "respuesta": "control",
+        "explicacion": "La respuesta correcta es 'control' porque la sintesis final propone la secuencia: poder publico, interes general, legalidad, procedimiento y control."
+    },
+    {
+        "id": 266,
+        "enunciado": "La formula corta para memorizar empieza por poder publico e interes ____.",
+        "tipo": "completar frase",
+        "respuesta": "general",
+        "explicacion": "La respuesta correcta es 'general' porque el interes general es el eje material que justifica la actuacion administrativa."
+    },
+    {
+        "id": 267,
+        "enunciado": "No todo el Derecho que afecta a la Administracion es Derecho administrativo, pero si lo es el ____ de su organizacion y actuacion publica.",
+        "tipo": "completar frase",
+        "respuesta": "nucleo",
+        "explicacion": "La respuesta correcta es 'nucleo' porque el bloque inicial explica que esta rama recoge el nucleo de la organizacion y de la accion administrativa."
+    },
+    {
+        "id": 268,
+        "enunciado": "El servicio al interes general aparece unido al sometimiento pleno a la Constitucion, la ley y al ____.",
+        "tipo": "completar frase",
+        "respuesta": "Derecho",
+        "explicacion": "La respuesta correcta es 'Derecho' porque esa es la formula constitucional completa citada en el tema."
+    },
+    {
+        "id": 269,
+        "enunciado": "La teoria destaca que la Administracion tiene poderes juridicos propios, pero estan sometidos a limites, procedimiento, motivacion y ____.",
+        "tipo": "completar frase",
+        "respuesta": "control",
+        "explicacion": "La respuesta correcta es 'control' porque esa cadena de garantias resume la forma correcta de entender las prerrogativas administrativas."
+    },
+    {
+        "id": 270,
+        "enunciado": "El Derecho administrativo no gira alrededor del contrato entre iguales, sino alrededor de una organizacion ____.",
+        "tipo": "completar frase",
+        "respuesta": "publica",
+        "explicacion": "La respuesta correcta es 'publica' porque el sujeto central de esta rama no es el particular, sino la organizacion administrativa."
+    },
+    {
+        "id": 271,
+        "enunciado": "Una Administracion investida de potestades publicas esta orientada al interes ____.",
+        "tipo": "completar frase",
+        "respuesta": "general",
+        "explicacion": "La respuesta correcta es 'general' porque la finalidad de la Administracion es el servicio objetivo a los intereses generales."
+    },
+    {
+        "id": 272,
+        "enunciado": "La teoria contrapone Derecho publico y Derecho privado a partir de la existencia de ____ publicas.",
+        "tipo": "completar frase",
+        "respuesta": "potestades",
+        "explicacion": "La respuesta correcta es 'potestades' porque la presencia de potestades publicas explica la singularidad del Derecho administrativo."
+    },
+    {
+        "id": 273,
+        "enunciado": "En la tabla de ambitos, la pregunta '¿Que organo es competente?' pertenece al bloque de ____.",
+        "tipo": "completar frase",
+        "respuesta": "organizacion",
+        "explicacion": "La respuesta correcta es 'organizacion' porque la competencia y la estructura organica forman parte de la organizacion administrativa."
+    },
+    {
+        "id": 274,
+        "enunciado": "En la tabla de ambitos, la pregunta '¿Como se dicta un acto?' pertenece al bloque de ____.",
+        "tipo": "completar frase",
+        "respuesta": "actuacion",
+        "explicacion": "La respuesta correcta es 'actuacion' porque ese bloque explica como se manifiesta juridicamente la actividad administrativa."
+    },
+    {
+        "id": 275,
+        "enunciado": "En la tabla de ambitos, la pregunta '¿Que derechos tiene el interesado?' pertenece a la relacion con los ____.",
+        "tipo": "completar frase",
+        "respuesta": "ciudadanos",
+        "explicacion": "La respuesta correcta es 'ciudadanos' porque ese apartado trata de derechos, alegaciones, recursos y posicion del administrado."
+    },
+    {
+        "id": 276,
+        "enunciado": "En la tabla de ambitos, la pregunta '¿Que ocurre si el acto es invalido?' pertenece al bloque de ____.",
+        "tipo": "completar frase",
+        "respuesta": "control",
+        "explicacion": "La respuesta correcta es 'control' porque invalidez, revision y control judicial son tecnicas de control de la actividad administrativa."
+    },
+    {
+        "id": 277,
+        "enunciado": "El Derecho administrativo es un Derecho de la Administracion publica cuando actua como tal y no como simple sujeto ____.",
+        "tipo": "completar frase",
+        "respuesta": "privado",
+        "explicacion": "La respuesta correcta es 'privado' porque la teoria distingue la actuacion administrativa de las relaciones privadas ordinarias."
+    },
+    {
+        "id": 278,
+        "enunciado": "La descentralizacion territorial se menciona como una de las transformaciones que explican el caracter ____ del Derecho administrativo.",
+        "tipo": "completar frase",
+        "respuesta": "dinamico",
+        "explicacion": "La respuesta correcta es 'dinamico' porque el Derecho administrativo evoluciona con las transformaciones del Estado y de la sociedad."
+    },
+    {
+        "id": 279,
+        "enunciado": "La transparencia y la digitalizacion aparecen en la teoria como factores de evolucion del Derecho administrativo, no como ruptura de su base de ____.",
+        "tipo": "completar frase",
+        "respuesta": "legalidad",
+        "explicacion": "La respuesta correcta es 'legalidad' porque los cambios tecnologicos no eliminan la exigencia de sometimiento a la ley."
+    },
+    {
+        "id": 280,
+        "enunciado": "El titulo preliminar de la Ley 40/2015 ayuda a perfilar que es Administracion publica y que principios deben informar su ____.",
+        "tipo": "completar frase",
+        "respuesta": "comportamiento",
+        "explicacion": "La respuesta correcta es 'comportamiento' porque la teoria dice que esa ley perfila los principios de actuacion de las Administraciones Publicas."
+    },
+    {
+        "id": 281,
+        "enunciado": "La Ley 39/2015 completa la vision conceptual porque muestra como actua juridicamente la Administracion ante los ciudadanos mediante el ____.",
+        "tipo": "completar frase",
+        "respuesta": "procedimiento",
+        "explicacion": "La respuesta correcta es 'procedimiento' porque la Ley 39/2015 organiza el cauce formal de la actuacion administrativa."
+    },
+    {
+        "id": 282,
+        "enunciado": "La potestad reglamentaria permite aprobar disposiciones ____ dentro del marco legal.",
+        "tipo": "completar frase",
+        "respuesta": "generales",
+        "explicacion": "La respuesta correcta es 'generales' porque los reglamentos son normas generales y abstractas dictadas por la Administracion."
+    },
+    {
+        "id": 283,
+        "enunciado": "La autotutela declarativa y la autotutela ejecutiva son dos manifestaciones de la posicion juridica ____ de la Administracion.",
+        "tipo": "completar frase",
+        "respuesta": "singular",
+        "explicacion": "La respuesta correcta es 'singular' porque esas potestades muestran que la Administracion ocupa una posicion especial frente al ciudadano."
+    },
+    {
+        "id": 284,
+        "enunciado": "La potestad sancionadora debe ejercerse con respeto al principio de ____.",
+        "tipo": "completar frase",
+        "respuesta": "legalidad",
+        "explicacion": "La respuesta correcta es 'legalidad' porque no puede haber sancion administrativa valida sin cobertura normativa previa."
+    },
+    {
+        "id": 285,
+        "enunciado": "La expropiacion exige causa de utilidad publica o interes social y una ____ al afectado.",
+        "tipo": "completar frase",
+        "respuesta": "indemnizacion",
+        "explicacion": "La respuesta correcta es 'indemnizacion' porque la potestad expropiatoria requiere compensar economicamente la privacion."
+    },
+    {
+        "id": 286,
+        "enunciado": "La revision de actos solo procede en los supuestos legalmente ____.",
+        "tipo": "completar frase",
+        "respuesta": "previstos",
+        "explicacion": "La respuesta correcta es 'previstos' porque la Administracion no puede revisar sus actos al margen de los cauces y supuestos de la ley."
+    },
+    {
+        "id": 287,
+        "enunciado": "Seria un error definir el Derecho administrativo solo por las ____ de la Administracion.",
+        "tipo": "completar frase",
+        "respuesta": "prerrogativas",
+        "explicacion": "La respuesta correcta es 'prerrogativas' porque la teoria insiste en que tambien deben incluirse las garantias del ciudadano."
+    },
+    {
+        "id": 288,
+        "enunciado": "El ordenamiento debe ofrecer un itinerario claro para discutir, revisar y ____ una decision administrativa.",
+        "tipo": "completar frase",
+        "respuesta": "controlar",
+        "explicacion": "La respuesta correcta es 'controlar' porque la idea del bloque de garantias es que toda decision administrativa pueda ser sometida a control."
+    },
+    {
+        "id": 289,
+        "enunciado": "Entre los limites externos del poder administrativo se cita expresamente la ____ judicial.",
+        "tipo": "completar frase",
+        "respuesta": "revision",
+        "explicacion": "La respuesta correcta es 'revision' porque el control de los tribunales forma parte del bloque de limites externos."
+    },
+    {
+        "id": 290,
+        "enunciado": "La motivacion es un limite interno de la actuacion administrativa vinculado a la transparencia y al ____ de legalidad.",
+        "tipo": "completar frase",
+        "respuesta": "control",
+        "explicacion": "La respuesta correcta es 'control' porque motivar las decisiones permite fiscalizar si se ajustan a la ley y a su finalidad."
+    },
+    {
+        "id": 291,
+        "enunciado": "Frente al Derecho constitucional, el Derecho administrativo desarrolla ese marco en la actividad ____ de las Administraciones.",
+        "tipo": "completar frase",
+        "respuesta": "cotidiana",
+        "explicacion": "La respuesta correcta es 'cotidiana' porque la teoria subraya que el administrativo desciende al funcionamiento diario de la Administracion."
+    },
+    {
+        "id": 292,
+        "enunciado": "Frente al Derecho civil, el Derecho administrativo se apoya en potestades publicas, interes general y normas de competencia y ____.",
+        "tipo": "completar frase",
+        "respuesta": "procedimiento",
+        "explicacion": "La respuesta correcta es 'procedimiento' porque esa es una de las claves diferenciales respecto del Derecho privado."
+    },
+    {
+        "id": 293,
+        "enunciado": "La via contencioso-____ se menciona como cauce para el control de la Administracion.",
+        "tipo": "completar frase",
+        "respuesta": "administrativa",
+        "explicacion": "La respuesta correcta es 'administrativa' porque la jurisdiccion contencioso-administrativa es la encargada de revisar la actuacion de la Administracion."
+    },
+    {
+        "id": 294,
+        "enunciado": "La potestad sancionadora administrativa se diferencia del Derecho penal, aunque ambas respuestas tienen una funcion de ____.",
+        "tipo": "completar frase",
+        "respuesta": "correccion",
+        "explicacion": "La respuesta correcta es 'correccion' porque ambas tecnicas reaccionan frente a conductas ilicitas, aunque con naturaleza juridica distinta."
+    },
+    {
+        "id": 295,
+        "enunciado": "En todos los ejemplos practicos del tema aparece una constante: hay Administracion, hay poder publico y hay sometimiento al ____.",
+        "tipo": "completar frase",
+        "respuesta": "Derecho",
+        "explicacion": "La respuesta correcta es 'Derecho' porque esa frase resume la idea comun de todos los ejemplos practicos recogidos por la teoria."
+    },
+    {
+        "id": 296,
+        "enunciado": "La sintesis final presenta el Derecho administrativo como rama del Derecho publico que regula la organizacion, la actividad, las potestades y los mecanismos de ____.",
+        "tipo": "completar frase",
+        "respuesta": "control",
+        "explicacion": "La respuesta correcta es 'control' porque esa palabra cierra la definicion de arrastre propuesta al final del tema."
+    },
+    {
+        "id": 297,
+        "enunciado": "El Derecho administrativo combina eficacia administrativa con garantias del ____.",
+        "tipo": "completar frase",
+        "respuesta": "ciudadano",
+        "explicacion": "La respuesta correcta es 'ciudadano' porque el tema contrapone poder publico y garantias del administrado como elementos inseparables."
+    },
+    {
+        "id": 298,
+        "enunciado": "La formula corta para memorizar incluye cinco ideas: poder publico, interes general, legalidad, procedimiento y ____.",
+        "tipo": "completar frase",
+        "respuesta": "control",
+        "explicacion": "La respuesta correcta es 'control' porque la propia teoria propone esa secuencia como sintesis memoristica."
+    },
+    {
+        "id": 299,
+        "enunciado": "La palabra que mejor resume la necesidad de justificar juridicamente las decisiones administrativas es ____.",
+        "tipo": "completar frase",
+        "respuesta": "motivacion",
+        "explicacion": "La respuesta correcta es 'motivacion' porque la teoria la presenta como limite interno y garantia esencial frente al poder."
+    },
+    {
+        "id": 300,
+        "enunciado": "El termino que mejor resume la idea de que la Administracion puede actuar, pero siempre dentro de la ley, es ____.",
+        "tipo": "completar frase",
+        "respuesta": "legalidad",
+        "explicacion": "La respuesta correcta es 'legalidad' porque todo el tema gira alrededor del sometimiento pleno de la Administracion a la Constitucion, la ley y al Derecho."
+    },
+    {
+        "id": 301,
+        "enunciado": "Relaciona los siguientes terminos del concepto de Derecho administrativo.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Derecho administrativo", "derecha": "Derecho publico" },
+            { "izquierda": "Administracion", "derecha": "Interes general" },
+            { "izquierda": "Potestades", "derecha": "Control" }
+        ]
+    },
+    {
+        "id": 302,
+        "enunciado": "Relaciona los siguientes terminos esenciales de la definicion inicial.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Organizacion", "derecha": "Administraciones Publicas" },
+            { "izquierda": "Actividad", "derecha": "Actuacion juridica" },
+            { "izquierda": "Controles", "derecha": "Revision judicial" }
+        ]
+    },
+    {
+        "id": 303,
+        "enunciado": "Relaciona los terminos basicos sobre la posicion juridica de la Administracion.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Poderes juridicos propios", "derecha": "Ley" },
+            { "izquierda": "Procedimiento", "derecha": "Garantia" },
+            { "izquierda": "Motivacion", "derecha": "Limite" }
+        ]
+    },
+    {
+        "id": 304,
+        "enunciado": "Relaciona los siguientes terminos sobre la doble funcion del Derecho administrativo.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Funcion instrumental", "derecha": "Permitir actuar" },
+            { "izquierda": "Funcion garantista", "derecha": "Evitar arbitrariedad" },
+            { "izquierda": "Estado de Derecho", "derecha": "Control del poder" }
+        ]
+    },
+    {
+        "id": 305,
+        "enunciado": "Relaciona los terminos sobre Derecho publico y Derecho privado.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Derecho publico", "derecha": "Potestades publicas" },
+            { "izquierda": "Derecho privado", "derecha": "Autonomia de la voluntad" },
+            { "izquierda": "Interes general", "derecha": "Administracion" }
+        ]
+    },
+    {
+        "id": 306,
+        "enunciado": "Relaciona los siguientes terminos sobre el objeto del Derecho administrativo.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Organizacion administrativa", "derecha": "Competencias" },
+            { "izquierda": "Actividad administrativa", "derecha": "Actos" },
+            { "izquierda": "Garantias y controles", "derecha": "Invalidez" }
+        ]
+    },
+    {
+        "id": 307,
+        "enunciado": "Relaciona los terminos del bloque de organizacion administrativa.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Organos", "derecha": "Estructura" },
+            { "izquierda": "Jerarquia", "derecha": "Orden interno" },
+            { "izquierda": "Delegacion", "derecha": "Ejercicio de competencias" }
+        ]
+    },
+    {
+        "id": 308,
+        "enunciado": "Relaciona los terminos del bloque de actividad administrativa.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Reglamentos", "derecha": "Disposiciones generales" },
+            { "izquierda": "Convenios", "derecha": "Cooperacion" },
+            { "izquierda": "Inspeccion", "derecha": "Supervision" }
+        ]
+    },
+    {
+        "id": 309,
+        "enunciado": "Relaciona los terminos del bloque de relaciones con los ciudadanos.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Audiencia", "derecha": "Ser oido" },
+            { "izquierda": "Recursos", "derecha": "Impugnacion" },
+            { "izquierda": "Acceso", "derecha": "Informacion" }
+        ]
+    },
+    {
+        "id": 310,
+        "enunciado": "Relaciona los siguientes terminos sobre control administrativo.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Revision", "derecha": "Reconsideracion del acto" },
+            { "izquierda": "Control judicial", "derecha": "Tribunales" },
+            { "izquierda": "Motivacion", "derecha": "Justificacion" }
+        ]
+    },
+    {
+        "id": 311,
+        "enunciado": "Relaciona los rasgos esenciales del Derecho administrativo.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Derecho de la Administracion publica", "derecha": "Sujeto central" },
+            { "izquierda": "Derecho de potestades", "derecha": "Prerrogativas" },
+            { "izquierda": "Derecho dinamico", "derecha": "Evolucion" }
+        ]
+    },
+    {
+        "id": 312,
+        "enunciado": "Relaciona las siguientes potestades con su contenido.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Potestad reglamentaria", "derecha": "Aprobar reglamentos" },
+            { "izquierda": "Potestad sancionadora", "derecha": "Corregir infracciones" },
+            { "izquierda": "Potestad expropiatoria", "derecha": "Privar de bienes" }
+        ]
+    },
+    {
+        "id": 313,
+        "enunciado": "Relaciona las siguientes potestades con su finalidad principal.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Autotutela declarativa", "derecha": "Dictar actos eficaces" },
+            { "izquierda": "Autotutela ejecutiva", "derecha": "Ejecutar decisiones" },
+            { "izquierda": "Potestad de revision", "derecha": "Revisar actos" }
+        ]
+    },
+    {
+        "id": 314,
+        "enunciado": "Relaciona las fuentes normativas basicas del tema.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Constitucion", "derecha": "Marco superior" },
+            { "izquierda": "Ley 40/2015", "derecha": "Regimen juridico del sector publico" },
+            { "izquierda": "Ley 39/2015", "derecha": "Procedimiento administrativo comun" }
+        ]
+    },
+    {
+        "id": 315,
+        "enunciado": "Relaciona cada articulo constitucional con la idea que subraya en la teoria.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Articulo 103", "derecha": "Interes general" },
+            { "izquierda": "Articulo 105", "derecha": "Garantias procedimentales" },
+            { "izquierda": "Articulo 106", "derecha": "Control judicial" }
+        ]
+    },
+    {
+        "id": 316,
+        "enunciado": "Relaciona los terminos vinculados a las garantias del ciudadano.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Legalidad", "derecha": "Sometimiento a la ley" },
+            { "izquierda": "Competencia", "derecha": "Organo habilitado" },
+            { "izquierda": "Responsabilidad patrimonial", "derecha": "Daño antijuridico" }
+        ]
+    },
+    {
+        "id": 317,
+        "enunciado": "Relaciona los limites internos del poder administrativo.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Finalidad", "derecha": "Fin publico" },
+            { "izquierda": "Proporcionalidad", "derecha": "Adecuacion de la medida" },
+            { "izquierda": "Buena administracion", "derecha": "Correcta actuacion" }
+        ]
+    },
+    {
+        "id": 318,
+        "enunciado": "Relaciona los limites externos del poder administrativo.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Constitucion", "derecha": "Norma suprema" },
+            { "izquierda": "Derechos fundamentales", "derecha": "Limite superior" },
+            { "izquierda": "Control judicial", "derecha": "Fiscalizacion externa" }
+        ]
+    },
+    {
+        "id": 319,
+        "enunciado": "Relaciona las diferencias entre Derecho administrativo y otras ramas.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Derecho constitucional", "derecha": "Bases del Estado" },
+            { "izquierda": "Derecho civil", "derecha": "Igualdad entre partes" },
+            { "izquierda": "Derecho procesal", "derecha": "Actuacion de tribunales" }
+        ]
+    },
+    {
+        "id": 320,
+        "enunciado": "Relaciona los ejemplos practicos con la potestad o tecnica implicada.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Multa de trafico", "derecha": "Potestad sancionadora" },
+            { "izquierda": "Ordenanza municipal", "derecha": "Potestad reglamentaria" },
+            { "izquierda": "Reclamacion por daños", "derecha": "Responsabilidad patrimonial" }
+        ]
+    },
+    {
+        "id": 321,
+        "enunciado": "Relaciona los siguientes terminos del resumen final del tema.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Poder publico", "derecha": "Prerrogativas" },
+            { "izquierda": "Procedimiento", "derecha": "Cauce formal" },
+            { "izquierda": "Control", "derecha": "Garantia del ciudadano" }
+        ]
+    },
+    {
+        "id": 322,
+        "enunciado": "Relaciona conceptos del bloque inicial con su idea asociada.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Particular", "derecha": "No equivale a la Administracion" },
+            { "izquierda": "Ley", "derecha": "Atribuye potestades" },
+            { "izquierda": "Interes general", "derecha": "Finalidad publica" }
+        ]
+    },
+    {
+        "id": 323,
+        "enunciado": "Relaciona terminos sobre la posicion singular de la Administracion.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Actos unilaterales", "derecha": "Decision administrativa" },
+            { "izquierda": "Cobertura legal", "derecha": "Validez de la potestad" },
+            { "izquierda": "Sujecion al ordenamiento", "derecha": "Limite al poder" }
+        ]
+    },
+    {
+        "id": 324,
+        "enunciado": "Relaciona cada termino con su papel en el Estado de Derecho.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Arbitrariedad", "derecha": "Lo que debe evitarse" },
+            { "izquierda": "Garantia", "derecha": "Proteccion del administrado" },
+            { "izquierda": "Control", "derecha": "Fiscalizacion del poder" }
+        ]
+    },
+    {
+        "id": 325,
+        "enunciado": "Relaciona terminos del bloque de organizacion publica.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Competencia", "derecha": "Atribucion juridica" },
+            { "izquierda": "Coordinacion", "derecha": "Relacion entre organos" },
+            { "izquierda": "Jerarquia", "derecha": "Orden interno" }
+        ]
+    },
+    {
+        "id": 326,
+        "enunciado": "Relaciona terminos del bloque de actividad administrativa.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Actos", "derecha": "Decisiones individuales" },
+            { "izquierda": "Reglamentos", "derecha": "Normas generales" },
+            { "izquierda": "Sancion", "derecha": "Respuesta a infraccion" }
+        ]
+    },
+    {
+        "id": 327,
+        "enunciado": "Relaciona cada garantia con la idea que protege.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Audiencia", "derecha": "Defensa del interesado" },
+            { "izquierda": "Motivacion", "derecha": "Justificacion de la decision" },
+            { "izquierda": "Recurso", "derecha": "Impugnacion del acto" }
+        ]
+    },
+    {
+        "id": 328,
+        "enunciado": "Relaciona terminos sobre el control administrativo y judicial.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Revision administrativa", "derecha": "Control interno" },
+            { "izquierda": "Jurisdiccion contencioso-administrativa", "derecha": "Control externo" },
+            { "izquierda": "Invalidez", "derecha": "Defecto del acto" }
+        ]
+    },
+    {
+        "id": 329,
+        "enunciado": "Relaciona conceptos sobre las potestades publicas.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Potestad", "derecha": "Poder juridico" },
+            { "izquierda": "Atribucion legal", "derecha": "Fuente de la potestad" },
+            { "izquierda": "Limite", "derecha": "Condicion de ejercicio" }
+        ]
+    },
+    {
+        "id": 330,
+        "enunciado": "Relaciona los siguientes terminos sobre autotutela.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Autotutela declarativa", "derecha": "Produccion de efectos" },
+            { "izquierda": "Autotutela ejecutiva", "derecha": "Ejecucion propia" },
+            { "izquierda": "Juez", "derecha": "No es previo en esos casos" }
+        ]
+    },
+    {
+        "id": 331,
+        "enunciado": "Relaciona terminos sobre expropiacion y responsabilidad.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Expropiacion", "derecha": "Privacion de bienes" },
+            { "izquierda": "Indemnizacion", "derecha": "Compensacion economica" },
+            { "izquierda": "Responsabilidad patrimonial", "derecha": "Reparacion del daño" }
+        ]
+    },
+    {
+        "id": 332,
+        "enunciado": "Relaciona conceptos sobre el caracter dinamico del Derecho administrativo.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Digitalizacion", "derecha": "Transformacion administrativa" },
+            { "izquierda": "Transparencia", "derecha": "Nueva exigencia publica" },
+            { "izquierda": "Descentralizacion", "derecha": "Cambio del Estado" }
+        ]
+    },
+    {
+        "id": 333,
+        "enunciado": "Relaciona terminos sobre el fundamento constitucional del tema.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Articulo 103.1 CE", "derecha": "Servicio objetivo" },
+            { "izquierda": "Articulo 105 CE", "derecha": "Participacion y audiencia" },
+            { "izquierda": "Articulo 106 CE", "derecha": "Control de tribunales" }
+        ]
+    },
+    {
+        "id": 334,
+        "enunciado": "Relaciona las leyes basicas con el contenido que aportan al tema.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Ley 40/2015", "derecha": "Organizacion y principios" },
+            { "izquierda": "Ley 39/2015", "derecha": "Procedimiento y actos" },
+            { "izquierda": "Constitucion", "derecha": "Base del sistema" }
+        ]
+    },
+    {
+        "id": 335,
+        "enunciado": "Relaciona terminos sobre la definicion doctrinal del concepto.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Sintesis doctrinal", "derecha": "No procede de un unico precepto" },
+            { "izquierda": "Administracion publica", "derecha": "Poder publico organizado" },
+            { "izquierda": "Funciones administrativas", "derecha": "Interes general" }
+        ]
+    },
+    {
+        "id": 336,
+        "enunciado": "Relaciona conceptos sobre la doble cara del Derecho administrativo.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Habilitar", "derecha": "Dar tecnicas juridicas" },
+            { "izquierda": "Limitar", "derecha": "Evitar exceso de poder" },
+            { "izquierda": "Garantizar", "derecha": "Proteger al ciudadano" }
+        ]
+    },
+    {
+        "id": 337,
+        "enunciado": "Relaciona cada termino con su funcion en la definicion general.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Organizacion", "derecha": "Estructura administrativa" },
+            { "izquierda": "Actividad", "derecha": "Actuacion publica" },
+            { "izquierda": "Control", "derecha": "Supervision juridica" }
+        ]
+    },
+    {
+        "id": 338,
+        "enunciado": "Relaciona conceptos sobre el papel de la ley en el tema.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Ley", "derecha": "Atribuye potestades" },
+            { "izquierda": "Procedimiento", "derecha": "Encauza la actuacion" },
+            { "izquierda": "Motivacion", "derecha": "Explica la decision" }
+        ]
+    },
+    {
+        "id": 339,
+        "enunciado": "Relaciona terminos sobre la diferencia entre poder y garantia.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Potestad sancionadora", "derecha": "Poder de corregir" },
+            { "izquierda": "Recurso", "derecha": "Garantia de reaccion" },
+            { "izquierda": "Control judicial", "derecha": "Garantia ultima" }
+        ]
+    },
+    {
+        "id": 340,
+        "enunciado": "Relaciona cada concepto con el bloque tematico al que pertenece.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Delegacion", "derecha": "Organizacion administrativa" },
+            { "izquierda": "Notificaciones", "derecha": "Procedimiento" },
+            { "izquierda": "Responsabilidad patrimonial", "derecha": "Control y garantias" }
+        ]
+    },
+    {
+        "id": 341,
+        "enunciado": "Relaciona terminos sobre la finalidad de la actuacion administrativa.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Interes general", "derecha": "Finalidad publica" },
+            { "izquierda": "Legalidad", "derecha": "Limite juridico" },
+            { "izquierda": "Control", "derecha": "Fiscalizacion posterior" }
+        ]
+    },
+    {
+        "id": 342,
+        "enunciado": "Relaciona conceptos sobre la formula final de estudio.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Poder publico", "derecha": "Capacidad de actuar" },
+            { "izquierda": "Procedimiento", "derecha": "Camino formal" },
+            { "izquierda": "Control", "derecha": "Revisabilidad" }
+        ]
+    },
+    {
+        "id": 343,
+        "enunciado": "Relaciona cada termino con el concepto que ayuda a memorizar.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Administracion", "derecha": "Poder publico" },
+            { "izquierda": "Ciudadano", "derecha": "Garantias" },
+            { "izquierda": "Ley", "derecha": "Habilitacion" }
+        ]
+    },
+    {
+        "id": 344,
+        "enunciado": "Relaciona terminos sobre la idea de sujecion al Derecho.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Competencia", "derecha": "Limite organico" },
+            { "izquierda": "Proporcionalidad", "derecha": "Limite material" },
+            { "izquierda": "Motivacion", "derecha": "Limite formal" }
+        ]
+    },
+    {
+        "id": 345,
+        "enunciado": "Relaciona conceptos sobre prerrogativas y limites.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Prerrogativa", "derecha": "Ventaja juridica publica" },
+            { "izquierda": "Limite", "derecha": "Condicion de validez" },
+            { "izquierda": "Garantia", "derecha": "Proteccion del administrado" }
+        ]
+    },
+    {
+        "id": 346,
+        "enunciado": "Relaciona terminos sobre la estructura general del tema.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Definicion", "derecha": "Sentido del concepto" },
+            { "izquierda": "Fuentes", "derecha": "Base normativa" },
+            { "izquierda": "Sintesis", "derecha": "Formula de arrastre" }
+        ]
+    },
+    {
+        "id": 347,
+        "enunciado": "Relaciona terminos sobre la actuacion juridica de la Administracion.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Acto administrativo", "derecha": "Decision unilateral" },
+            { "izquierda": "Procedimiento", "derecha": "Secuencia formal" },
+            { "izquierda": "Recurso", "derecha": "Impugnacion" }
+        ]
+    },
+    {
+        "id": 348,
+        "enunciado": "Relaciona conceptos sobre control y responsabilidad.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Control judicial", "derecha": "Tribunales" },
+            { "izquierda": "Responsabilidad patrimonial", "derecha": "Indemnizar daños" },
+            { "izquierda": "Revision", "derecha": "Control administrativo" }
+        ]
+    },
+    {
+        "id": 349,
+        "enunciado": "Relaciona las siguientes nociones sobre la posicion de la Administracion.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Administracion", "derecha": "No es un particular" },
+            { "izquierda": "Potestades", "derecha": "No se presumen" },
+            { "izquierda": "Control", "derecha": "Es inseparable" }
+        ]
+    },
+    {
+        "id": 350,
+        "enunciado": "Relaciona cada termino con su idea-clave de estudio.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Legalidad", "derecha": "Sometimiento pleno" },
+            { "izquierda": "Interes general", "derecha": "Fin institucional" },
+            { "izquierda": "Procedimiento", "derecha": "Garantia formal" }
+        ]
+    },
+    {
+        "id": 351,
+        "enunciado": "Relaciona los terminos sobre las relaciones de la Administracion con el ciudadano.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Alegaciones", "derecha": "Defensa del interesado" },
+            { "izquierda": "Notificacion", "derecha": "Comunicacion del acto" },
+            { "izquierda": "Recurso", "derecha": "Reaccion juridica" }
+        ]
+    },
+    {
+        "id": 352,
+        "enunciado": "Relaciona conceptos sobre la funcion de las garantias.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Audiencia", "derecha": "Participacion" },
+            { "izquierda": "Motivacion", "derecha": "Transparencia" },
+            { "izquierda": "Control judicial", "derecha": "Tutela efectiva" }
+        ]
+    },
+    {
+        "id": 353,
+        "enunciado": "Relaciona terminos sobre la articulacion del poder administrativo.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Competencia", "derecha": "Quien puede actuar" },
+            { "izquierda": "Finalidad", "derecha": "Para que se actua" },
+            { "izquierda": "Procedimiento", "derecha": "Como se actua" }
+        ]
+    },
+    {
+        "id": 354,
+        "enunciado": "Relaciona cada concepto con la tecnica administrativa correspondiente.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Inspeccion", "derecha": "Comprobacion" },
+            { "izquierda": "Sancion", "derecha": "Reaccion frente a infraccion" },
+            { "izquierda": "Expropiacion", "derecha": "Privacion indemnizada" }
+        ]
+    },
+    {
+        "id": 355,
+        "enunciado": "Relaciona conceptos sobre la diferencia con el Derecho civil.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Autonomia de la voluntad", "derecha": "Derecho civil" },
+            { "izquierda": "Potestades publicas", "derecha": "Derecho administrativo" },
+            { "izquierda": "Igualdad material plena", "derecha": "No es rasgo administrativo" }
+        ]
+    },
+    {
+        "id": 356,
+        "enunciado": "Relaciona conceptos sobre la diferencia con el Derecho constitucional.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Bases del Estado", "derecha": "Derecho constitucional" },
+            { "izquierda": "Actividad cotidiana administrativa", "derecha": "Derecho administrativo" },
+            { "izquierda": "Derechos fundamentales", "derecha": "Marco superior" }
+        ]
+    },
+    {
+        "id": 357,
+        "enunciado": "Relaciona conceptos sobre la diferencia con el Derecho penal.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Penas", "derecha": "Derecho penal" },
+            { "izquierda": "Sanciones administrativas", "derecha": "Potestad sancionadora" },
+            { "izquierda": "Jueces y tribunales", "derecha": "Imponen penas" }
+        ]
+    },
+    {
+        "id": 358,
+        "enunciado": "Relaciona conceptos sobre la diferencia con el Derecho procesal.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Tribunales", "derecha": "Derecho procesal" },
+            { "izquierda": "Administracion", "derecha": "Derecho administrativo" },
+            { "izquierda": "Contencioso-administrativo", "derecha": "Punto de conexion" }
+        ]
+    },
+    {
+        "id": 359,
+        "enunciado": "Relaciona terminos de la sintesis final para estudio.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Organizacion", "derecha": "Estructura publica" },
+            { "izquierda": "Potestades", "derecha": "Poderes juridicos" },
+            { "izquierda": "Controles", "derecha": "Revision de la actuacion" }
+        ]
+    },
+    {
+        "id": 360,
+        "enunciado": "Relaciona conceptos sobre la base normativa del tema.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "BOE", "derecha": "Fuente oficial" },
+            { "izquierda": "Ley 39/2015", "derecha": "Procedimiento" },
+            { "izquierda": "Ley 40/2015", "derecha": "Regimen juridico" }
+        ]
+    },
+    {
+        "id": 361,
+        "enunciado": "Relaciona terminos sobre la idea de interes general y control.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Interes general", "derecha": "Fin de la Administracion" },
+            { "izquierda": "Control", "derecha": "Contrapeso del poder" },
+            { "izquierda": "Legalidad", "derecha": "Marco de actuacion" }
+        ]
+    },
+    {
+        "id": 362,
+        "enunciado": "Relaciona conceptos sobre la estructura del poder administrativo.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Organos", "derecha": "Titulares de competencias" },
+            { "izquierda": "Potestades", "derecha": "Poderes atribuidos" },
+            { "izquierda": "Procedimiento", "derecha": "Forma de ejercicio" }
+        ]
+    },
+    {
+        "id": 363,
+        "enunciado": "Relaciona terminos sobre el ciudadano en el procedimiento.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Interesado", "derecha": "Sujeto procedimental" },
+            { "izquierda": "Audiencia", "derecha": "Derecho a ser oido" },
+            { "izquierda": "Recurso", "derecha": "Impugnacion del acto" }
+        ]
+    },
+    {
+        "id": 364,
+        "enunciado": "Relaciona conceptos sobre la funcion habilitante y la garantista.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Habilitante", "derecha": "Dar instrumentos" },
+            { "izquierda": "Garantista", "derecha": "Poner limites" },
+            { "izquierda": "Arbitrariedad", "derecha": "Lo que debe evitarse" }
+        ]
+    },
+    {
+        "id": 365,
+        "enunciado": "Relaciona conceptos sobre el servicio objetivo a los intereses generales.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Servicio objetivo", "derecha": "Articulo 103.1 CE" },
+            { "izquierda": "Intereses generales", "derecha": "Finalidad administrativa" },
+            { "izquierda": "Sometimiento pleno", "derecha": "Constitucion y ley" }
+        ]
+    },
+    {
+        "id": 366,
+        "enunciado": "Relaciona terminos sobre la potestad reglamentaria.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Ordenanza municipal", "derecha": "Ejemplo practico" },
+            { "izquierda": "Reglamento", "derecha": "Disposicion general" },
+            { "izquierda": "Marco legal", "derecha": "Limite de la potestad" }
+        ]
+    },
+    {
+        "id": 367,
+        "enunciado": "Relaciona conceptos sobre la potestad sancionadora.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Multa de trafico", "derecha": "Ejemplo practico" },
+            { "izquierda": "Infraccion administrativa", "derecha": "Presupuesto de la sancion" },
+            { "izquierda": "Legalidad", "derecha": "Principio de ejercicio" }
+        ]
+    },
+    {
+        "id": 368,
+        "enunciado": "Relaciona conceptos sobre la responsabilidad patrimonial.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Daño antijuridico", "derecha": "Presupuesto del resarcimiento" },
+            { "izquierda": "Servicio publico", "derecha": "Fuente posible del daño" },
+            { "izquierda": "Indemnizacion", "derecha": "Consecuencia reparadora" }
+        ]
+    },
+    {
+        "id": 369,
+        "enunciado": "Relaciona terminos sobre la autotutela administrativa.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Declarativa", "derecha": "Acto eficaz" },
+            { "izquierda": "Ejecutiva", "derecha": "Cumplimiento forzoso" },
+            { "izquierda": "Cobertura legal", "derecha": "Condicion de validez" }
+        ]
+    },
+    {
+        "id": 370,
+        "enunciado": "Relaciona conceptos sobre la idea de Administracion y control.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Administracion", "derecha": "Poder publico" },
+            { "izquierda": "Control judicial", "derecha": "Revision de la actuacion" },
+            { "izquierda": "Motivacion", "derecha": "Explicacion obligada" }
+        ]
+    },
+    {
+        "id": 371,
+        "enunciado": "Relaciona terminos sobre los cuatro grandes ambitos del tema.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Organizacion", "derecha": "Estructura" },
+            { "izquierda": "Actuacion", "derecha": "Actividad administrativa" },
+            { "izquierda": "Control", "derecha": "Garantias y revision" }
+        ]
+    },
+    {
+        "id": 372,
+        "enunciado": "Relaciona conceptos sobre la proteccion del administrado.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Administrado", "derecha": "Ciudadano frente al poder" },
+            { "izquierda": "Garantia", "derecha": "Defensa juridica" },
+            { "izquierda": "Revision", "derecha": "Mecanismo de proteccion" }
+        ]
+    },
+    {
+        "id": 373,
+        "enunciado": "Relaciona terminos sobre la idea de que el poder no esta desatado.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Competencia", "derecha": "Quien puede actuar" },
+            { "izquierda": "Proporcionalidad", "derecha": "Como debe actuarse" },
+            { "izquierda": "Finalidad", "derecha": "Para que se actua" }
+        ]
+    },
+    {
+        "id": 374,
+        "enunciado": "Relaciona conceptos sobre la articulacion del procedimiento.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Notificacion", "derecha": "Comunicacion formal" },
+            { "izquierda": "Acto administrativo", "derecha": "Resultado decisorio" },
+            { "izquierda": "Recurso", "derecha": "Impugnacion posterior" }
+        ]
+    },
+    {
+        "id": 375,
+        "enunciado": "Relaciona terminos sobre el contenido de la Ley 39/2015.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Interesados", "derecha": "Sujetos del procedimiento" },
+            { "izquierda": "Notificaciones", "derecha": "Comunicacion de actos" },
+            { "izquierda": "Recursos", "derecha": "Reaccion frente a decisiones" }
+        ]
+    },
+    {
+        "id": 376,
+        "enunciado": "Relaciona terminos sobre el contenido de la Ley 40/2015.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Sector publico", "derecha": "Ambito organizativo" },
+            { "izquierda": "Principios de actuacion", "derecha": "Comportamiento administrativo" },
+            { "izquierda": "Regimen juridico", "derecha": "Marco institucional" }
+        ]
+    },
+    {
+        "id": 377,
+        "enunciado": "Relaciona conceptos sobre la base constitucional del control.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Articulo 106 CE", "derecha": "Control de la actuacion administrativa" },
+            { "izquierda": "Tribunales", "derecha": "Organos de control" },
+            { "izquierda": "Responsabilidad patrimonial", "derecha": "Daños causados por servicios publicos" }
+        ]
+    },
+    {
+        "id": 378,
+        "enunciado": "Relaciona terminos sobre el caracter garantista del sistema.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Audiencia", "derecha": "Participacion del interesado" },
+            { "izquierda": "Motivacion", "derecha": "Razon explicita del acto" },
+            { "izquierda": "Control judicial", "derecha": "Revision por jueces" }
+        ]
+    },
+    {
+        "id": 379,
+        "enunciado": "Relaciona conceptos sobre los limites de la autotutela.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Ley", "derecha": "Atribuye la potestad" },
+            { "izquierda": "Procedimiento", "derecha": "Canaliza el ejercicio" },
+            { "izquierda": "Control", "derecha": "Corrige excesos" }
+        ]
+    },
+    {
+        "id": 380,
+        "enunciado": "Relaciona terminos sobre la relacion entre eficacia y garantia.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Eficacia administrativa", "derecha": "Capacidad de actuar" },
+            { "izquierda": "Garantias del ciudadano", "derecha": "Contrapeso del poder" },
+            { "izquierda": "Estado de Derecho", "derecha": "Equilibrio entre ambas" }
+        ]
+    },
+    {
+        "id": 381,
+        "enunciado": "Relaciona conceptos sobre la sintesis del tema 1.1.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Organizacion", "derecha": "Como se estructura la Administracion" },
+            { "izquierda": "Actividad", "derecha": "Como actua juridicamente" },
+            { "izquierda": "Control", "derecha": "Como se fiscaliza su actuacion" }
+        ]
+    },
+    {
+        "id": 382,
+        "enunciado": "Relaciona terminos sobre la sujecion al ordenamiento.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Constitucion", "derecha": "Norma suprema" },
+            { "izquierda": "Ley", "derecha": "Habilitacion y limite" },
+            { "izquierda": "Derecho", "derecha": "Marco juridico completo" }
+        ]
+    },
+    {
+        "id": 383,
+        "enunciado": "Relaciona conceptos sobre el ciudadano como centro de garantias.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Acceso", "derecha": "Informacion" },
+            { "izquierda": "Participacion", "derecha": "Intervencion del interesado" },
+            { "izquierda": "Recurso", "derecha": "Defensa juridica" }
+        ]
+    },
+    {
+        "id": 384,
+        "enunciado": "Relaciona terminos sobre la diferencia entre acto y reglamento.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Acto", "derecha": "Decision concreta" },
+            { "izquierda": "Reglamento", "derecha": "Norma general" },
+            { "izquierda": "Potestad reglamentaria", "derecha": "Fuente del reglamento" }
+        ]
+    },
+    {
+        "id": 385,
+        "enunciado": "Relaciona conceptos sobre el control de legalidad.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Legalidad", "derecha": "Conformidad con la ley" },
+            { "izquierda": "Invalidez", "derecha": "Consecuencia del defecto" },
+            { "izquierda": "Revision", "derecha": "Tecnica correctora" }
+        ]
+    },
+    {
+        "id": 386,
+        "enunciado": "Relaciona terminos sobre el interes general como fundamento del sistema.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Interes general", "derecha": "Finalidad publica" },
+            { "izquierda": "Administracion", "derecha": "Servicio objetivo" },
+            { "izquierda": "Derecho administrativo", "derecha": "Marco regulador" }
+        ]
+    },
+    {
+        "id": 387,
+        "enunciado": "Relaciona conceptos sobre los privilegios juridicos de la Administracion.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Autotutela", "derecha": "Privilegio de eficacia" },
+            { "izquierda": "Potestad reglamentaria", "derecha": "Produccion normativa" },
+            { "izquierda": "Expropiacion", "derecha": "Privacion por interes publico" }
+        ]
+    },
+    {
+        "id": 388,
+        "enunciado": "Relaciona conceptos sobre el sentido del procedimiento.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Procedimiento", "derecha": "Cauce formal de la decision" },
+            { "izquierda": "Audiencia", "derecha": "Garantia de defensa" },
+            { "izquierda": "Motivacion", "derecha": "Justificacion del resultado" }
+        ]
+    },
+    {
+        "id": 389,
+        "enunciado": "Relaciona terminos sobre la idea de control judicial.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Tribunales", "derecha": "Fiscalizan la actuacion" },
+            { "izquierda": "Contencioso-administrativo", "derecha": "Jurisdiccion competente" },
+            { "izquierda": "Articulo 106 CE", "derecha": "Base constitucional" }
+        ]
+    },
+    {
+        "id": 390,
+        "enunciado": "Relaciona conceptos sobre la responsabilidad patrimonial en el tema.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Daño antijuridico", "derecha": "Elemento de la responsabilidad" },
+            { "izquierda": "Servicio publico", "derecha": "Ambito posible del daño" },
+            { "izquierda": "Indemnizacion", "derecha": "Forma de reparacion" }
+        ]
+    },
+    {
+        "id": 391,
+        "enunciado": "Relaciona terminos sobre la vision doctrinal del concepto.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Doctrinal", "derecha": "Sintesis explicativa" },
+            { "izquierda": "Constitucional", "derecha": "Fundamento superior" },
+            { "izquierda": "Legal", "derecha": "Desarrollo normativo" }
+        ]
+    },
+    {
+        "id": 392,
+        "enunciado": "Relaciona conceptos sobre la relacion entre organizacion y actuacion.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Organizacion", "derecha": "Define organos y competencias" },
+            { "izquierda": "Actuacion", "derecha": "Se manifiesta en actos" },
+            { "izquierda": "Control", "derecha": "Corrige desviaciones" }
+        ]
+    },
+    {
+        "id": 393,
+        "enunciado": "Relaciona terminos sobre los pilares memoristicos del tema.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Poder publico", "derecha": "Prerrogativa" },
+            { "izquierda": "Interes general", "derecha": "Finalidad" },
+            { "izquierda": "Control", "derecha": "Garantia" }
+        ]
+    },
+    {
+        "id": 394,
+        "enunciado": "Relaciona conceptos sobre la idea de administracion sometida a Derecho.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Ley", "derecha": "Atribuye potestades" },
+            { "izquierda": "Procedimiento", "derecha": "Evita arbitrariedad" },
+            { "izquierda": "Tribunales", "derecha": "Controlan el poder" }
+        ]
+    },
+    {
+        "id": 395,
+        "enunciado": "Relaciona terminos sobre ejemplos practicos del tema.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Licencia", "derecha": "Motivacion y control de legalidad" },
+            { "izquierda": "Ordenanza", "derecha": "Potestad reglamentaria" },
+            { "izquierda": "Multa", "derecha": "Potestad sancionadora" }
+        ]
+    },
+    {
+        "id": 396,
+        "enunciado": "Relaciona conceptos sobre el ciudadano frente al poder administrativo.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Ciudadano", "derecha": "Titular de garantias" },
+            { "izquierda": "Administracion", "derecha": "Titular de potestades" },
+            { "izquierda": "Derecho administrativo", "derecha": "Marco de equilibrio" }
+        ]
+    },
+    {
+        "id": 397,
+        "enunciado": "Relaciona terminos sobre la esencia del concepto de Derecho administrativo.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Organizacion", "derecha": "Estructura de la Administracion" },
+            { "izquierda": "Potestades", "derecha": "Poderes juridicos especiales" },
+            { "izquierda": "Control", "derecha": "Sujecion al Derecho" }
+        ]
+    },
+    {
+        "id": 398,
+        "enunciado": "Relaciona conceptos sobre la formula corta para memorizar el tema.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Legalidad", "derecha": "Sometimiento a la ley" },
+            { "izquierda": "Procedimiento", "derecha": "Cauce formal" },
+            { "izquierda": "Control", "derecha": "Fiscalizacion" }
+        ]
+    },
+    {
+        "id": 399,
+        "enunciado": "Relaciona terminos sobre el sentido garantista del Derecho administrativo.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Garantias", "derecha": "Proteccion del ciudadano" },
+            { "izquierda": "Motivacion", "derecha": "Explicacion del acto" },
+            { "izquierda": "Revision", "derecha": "Correccion juridica" }
+        ]
+    },
+    {
+        "id": 400,
+        "enunciado": "Relaciona los siguientes terminos del tema 1.1 para fijar sus ideas centrales.",
+        "tipo": "relacionar",
+        "relaciones": [
+            { "izquierda": "Administracion Publica", "derecha": "Poder publico organizado" },
+            { "izquierda": "Interes general", "derecha": "Finalidad objetiva" },
+            { "izquierda": "Legalidad", "derecha": "Sometimiento pleno" }
+        ]
     }
 ]

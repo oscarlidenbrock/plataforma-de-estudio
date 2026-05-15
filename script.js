@@ -46,7 +46,9 @@ const errorsCompleteErrorsList = document.querySelector("#errors-complete-errors
 const topicEntries = [];
 const questionRenderers = {
   "pregunta abcd": renderAbcdQuestion,
-  "pregunta verdadero-falso": renderTrueFalseQuestion
+  "pregunta verdadero-falso": renderTrueFalseQuestion,
+  "completar frase": renderFillBlankQuestion,
+  "relacionar": renderMatchingQuestion
 };
 const SECTION_PRIORITY = ["teoria", "resumen", "preguntas", "revisar errores"];
 const LAST_SECTION_COOKIE = "oposicion_last_section";
@@ -370,6 +372,254 @@ function renderTrueFalseQuestion(question) {
     optionButton.addEventListener("click", () => handleAnswerSelection(option));
     quizOptions.appendChild(optionButton);
   });
+}
+
+function normalizeFillBlankValue(value) {
+  return String(value || "")
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+}
+
+function renderFillBlankQuestion(question) {
+  const expectedAnswer = String(question.respuesta || "").trim();
+  const answerLength = expectedAnswer.length;
+  const prompt = document.createElement("div");
+  const inputShell = document.createElement("div");
+  const hiddenInput = document.createElement("input");
+  const boxes = document.createElement("div");
+  let hasSubmitted = false;
+
+  prompt.className = "quiz-fill-blank";
+
+  inputShell.className = "quiz-fill-blank__input-shell";
+  inputShell.tabIndex = 0;
+
+  hiddenInput.type = "text";
+  hiddenInput.className = "quiz-fill-blank__native-input";
+  hiddenInput.autocomplete = "off";
+  hiddenInput.autocapitalize = "none";
+  hiddenInput.spellcheck = false;
+  hiddenInput.maxLength = answerLength;
+  hiddenInput.setAttribute("aria-label", "Respuesta");
+
+  boxes.className = "quiz-fill-blank__boxes";
+
+  function syncBoxes() {
+    const characters = hiddenInput.value.toUpperCase().slice(0, answerLength).split("");
+    boxes.innerHTML = "";
+
+    for (let index = 0; index < answerLength; index += 1) {
+      const box = document.createElement("span");
+      box.className = "quiz-fill-blank__box";
+      box.textContent = characters[index] || "";
+      boxes.appendChild(box);
+    }
+  }
+
+  function submitAnswer() {
+    if (hasSubmitted) {
+      return;
+    }
+
+    const typedValue = hiddenInput.value.trim();
+
+    if (typedValue.length !== answerLength) {
+      return;
+    }
+
+    hasSubmitted = true;
+    handleAnswerSelection({
+      texto: typedValue,
+      correcta: normalizeFillBlankValue(typedValue) === normalizeFillBlankValue(expectedAnswer)
+    });
+  }
+
+  hiddenInput.addEventListener("input", () => {
+    hiddenInput.value = hiddenInput.value.slice(0, answerLength);
+    syncBoxes();
+    if (hiddenInput.value.length === answerLength) {
+      submitAnswer();
+    }
+  });
+
+  inputShell.addEventListener("click", () => {
+    hiddenInput.focus();
+  });
+
+  inputShell.addEventListener("keydown", (event) => {
+    if (event.key.length === 1 || event.key === "Backspace" || event.key === "Delete") {
+      hiddenInput.focus();
+    }
+  });
+
+  inputShell.append(hiddenInput, boxes);
+  prompt.append(inputShell);
+  quizOptions.appendChild(prompt);
+  syncBoxes();
+  window.setTimeout(() => hiddenInput.focus(), 0);
+}
+
+function renderMatchingQuestion(question) {
+  const relationPairs = shuffleArray(
+    (Array.isArray(question.relaciones) ? question.relaciones : []).map((relation, index) => ({
+      id: `relation-${index}`,
+      izquierda: relation.izquierda,
+      derecha: relation.derecha
+    }))
+  );
+  const leftItems = shuffleArray(
+    relationPairs.map((pair) => ({
+      id: pair.id,
+      text: pair.izquierda
+    }))
+  );
+  const rightItems = shuffleArray(
+    relationPairs.map((pair) => ({
+      id: pair.id,
+      text: pair.derecha
+    }))
+  );
+  const container = document.createElement("div");
+  const leftColumn = document.createElement("div");
+  const rightColumn = document.createElement("div");
+  let selectedLeftButton = null;
+  let selectedRightButton = null;
+  let matchedCount = 0;
+  let isLocked = false;
+  let hasCompleted = false;
+
+  container.className = "quiz-match";
+  leftColumn.className = "quiz-match__column";
+  rightColumn.className = "quiz-match__column";
+
+  function clearSelection() {
+    if (selectedLeftButton) {
+      selectedLeftButton.classList.remove("is-selected");
+    }
+
+    if (selectedRightButton) {
+      selectedRightButton.classList.remove("is-selected");
+    }
+
+    selectedLeftButton = null;
+    selectedRightButton = null;
+  }
+
+  function finishMatchingQuestion() {
+    if (hasCompleted || !quizState) {
+      return;
+    }
+
+    hasCompleted = true;
+    clearQuizTimer();
+    quizState.correctCount += 1;
+    quizState.answerStatuses[quizState.currentIndex] = "correct";
+    updateQuizStats();
+    window.setTimeout(() => {
+      goToNextQuestion();
+    }, 250);
+  }
+
+  function evaluateSelection() {
+    if (!selectedLeftButton || !selectedRightButton || isLocked) {
+      return;
+    }
+
+    const isCorrectMatch = selectedLeftButton.dataset.relationId === selectedRightButton.dataset.relationId;
+
+    if (isCorrectMatch) {
+      selectedLeftButton.classList.remove("is-selected");
+      selectedRightButton.classList.remove("is-selected");
+      selectedLeftButton.classList.add("is-correct");
+      selectedRightButton.classList.add("is-correct");
+      selectedLeftButton.disabled = true;
+      selectedRightButton.disabled = true;
+      selectedLeftButton.dataset.matched = "true";
+      selectedRightButton.dataset.matched = "true";
+      matchedCount += 1;
+      clearSelection();
+
+      if (matchedCount === relationPairs.length) {
+        finishMatchingQuestion();
+      }
+
+      return;
+    }
+
+    isLocked = true;
+    selectedLeftButton.classList.add("is-wrong");
+    selectedRightButton.classList.add("is-wrong");
+
+    window.setTimeout(() => {
+      if (selectedLeftButton) {
+        selectedLeftButton.classList.remove("is-selected", "is-wrong");
+      }
+
+      if (selectedRightButton) {
+        selectedRightButton.classList.remove("is-selected", "is-wrong");
+      }
+
+      clearSelection();
+      isLocked = false;
+    }, 2000);
+  }
+
+  function buildRelationButton(item, side) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "quiz-match__item";
+    button.dataset.relationId = item.id;
+    button.dataset.side = side;
+    button.textContent = item.text;
+    button.addEventListener("click", () => {
+      if (isLocked || button.dataset.matched === "true") {
+        return;
+      }
+
+      const currentSelectedButton = side === "left" ? selectedLeftButton : selectedRightButton;
+
+      if (currentSelectedButton === button) {
+        button.classList.remove("is-selected");
+
+        if (side === "left") {
+          selectedLeftButton = null;
+        } else {
+          selectedRightButton = null;
+        }
+
+        return;
+      }
+
+      if (currentSelectedButton) {
+        currentSelectedButton.classList.remove("is-selected");
+      }
+
+      button.classList.add("is-selected");
+
+      if (side === "left") {
+        selectedLeftButton = button;
+      } else {
+        selectedRightButton = button;
+      }
+
+      evaluateSelection();
+    });
+
+    return button;
+  }
+
+  leftItems.forEach((item) => {
+    leftColumn.appendChild(buildRelationButton(item, "left"));
+  });
+
+  rightItems.forEach((item) => {
+    rightColumn.appendChild(buildRelationButton(item, "right"));
+  });
+
+  container.append(leftColumn, rightColumn);
+  quizOptions.appendChild(container);
 }
 
 function startQuestionTimer() {
