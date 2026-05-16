@@ -537,8 +537,10 @@ p {
   border-radius: 8px;
   background: rgba(31, 111, 235, 0.08);
   color: var(--accent);
+  font: inherit;
   font-size: 15px;
   text-decoration: none;
+  cursor: pointer;
   transition: background 160ms ease, border-color 160ms ease, color 160ms ease, opacity 160ms ease;
 }
 
@@ -558,6 +560,42 @@ p {
 .completion-toggle.is-busy {
   pointer-events: none;
   opacity: 0.65;
+}
+
+.completion-toggle:disabled {
+  pointer-events: none;
+  opacity: 0.45;
+}
+
+.highlight-toggle {
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.highlight-toggle__swatch {
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  box-shadow: inset 0 0 0 1px rgba(24, 33, 47, 0.16);
+}
+
+.highlight-toggle--yellow .highlight-toggle__swatch {
+  background: #fde047;
+}
+
+.highlight-toggle--orange .highlight-toggle__swatch {
+  background: #fb923c;
+}
+
+.highlight-toggle--pink .highlight-toggle__swatch {
+  background: #f472b6;
+}
+
+.highlight-toggle.is-completed {
+  border-color: rgba(24, 33, 47, 0.18);
+  background: rgba(24, 33, 47, 0.08);
+  color: inherit;
 }
 
 .content-viewer__frame {

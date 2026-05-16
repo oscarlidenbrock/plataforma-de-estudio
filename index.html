@@ -149,6 +149,33 @@
         <div id="section-toolbar" class="content-viewer__toolbar content-viewer__toolbar--standalone" hidden>
           <p id="content-viewer-label" class="content-viewer__label">Contenido</p>
           <div class="content-viewer__actions">
+            <button
+              class="completion-toggle highlight-toggle highlight-toggle--yellow"
+              type="button"
+              data-highlight-color="yellow"
+              aria-label="Marcar en amarillo"
+              title="Marcar en amarillo"
+            >
+              <span class="highlight-toggle__swatch" aria-hidden="true"></span>
+            </button>
+            <button
+              class="completion-toggle highlight-toggle highlight-toggle--orange"
+              type="button"
+              data-highlight-color="orange"
+              aria-label="Marcar en naranja"
+              title="Marcar en naranja"
+            >
+              <span class="highlight-toggle__swatch" aria-hidden="true"></span>
+            </button>
+            <button
+              class="completion-toggle highlight-toggle highlight-toggle--pink"
+              type="button"
+              data-highlight-color="pink"
+              aria-label="Marcar en rosa"
+              title="Marcar en rosa"
+            >
+              <span class="highlight-toggle__swatch" aria-hidden="true"></span>
+            </button>
             <a
               id="completion-toggle"
               class="completion-toggle"
@@ -257,7 +284,6 @@
       <img id="image-lightbox-image" class="lightbox__image" alt="">
     </div>
   </div>
-
   <script src="script.js"></script>
   <script>
     (function () {
@@ -265,7 +291,17 @@
       const lightbox = document.querySelector("#image-lightbox");
       const lightboxImage = document.querySelector("#image-lightbox-image");
       const lightboxClose = document.querySelector("#image-lightbox-close");
+      const highlightToggles = Array.from(document.querySelectorAll(".highlight-toggle"));
       const iframeImageSelector = "img";
+      const HIGHLIGHT_CLASS = "frame-highlight";
+      const HIGHLIGHTABLE_SELECTOR = "p, blockquote, li, td, h2, h3, div.callout";
+      const COMPLETION_ENDPOINT = "progress.php";
+      const HIGHLIGHT_COLORS = {
+        yellow: "yellow",
+        orange: "orange",
+        pink: "pink"
+      };
+      let frameSelectionState = null;
 
       function openLightbox(src, alt) {
         if (!src) {
@@ -295,31 +331,189 @@
         }, 180);
       }
 
-      function enhanceFrameImages() {
-        let frameDocument;
-
+      function getFrameDocument() {
         try {
-          frameDocument = contentFrame.contentDocument;
+          return contentFrame.contentDocument;
         } catch (error) {
+          return null;
+        }
+      }
+
+      function getSourceKey() {
+        return contentFrame.getAttribute("src") || "";
+      }
+
+      function resetFrameSelectionState() {
+        frameSelectionState = null;
+        highlightToggle.disabled = true;
+        highlightToggle.classList.remove("is-completed");
+        highlightToggle.setAttribute("aria-label", "Subrayar selección");
+        highlightToggle.setAttribute("title", "Selecciona texto dentro del contenido");
+        highlightToggle.querySelector("i").className = "fa-solid fa-underline";
+      }
+
+      function updateHighlightToggle(mode) {
+        const isRemoveMode = mode === "remove";
+
+        highlightToggle.disabled = false;
+        highlightToggle.classList.toggle("is-completed", isRemoveMode);
+        highlightToggle.setAttribute("aria-label", isRemoveMode ? "Desmarcar selección" : "Subrayar selección");
+        highlightToggle.setAttribute("title", isRemoveMode ? "Desmarcar selección" : "Subrayar selección");
+        highlightToggle.querySelector("i").className = isRemoveMode
+          ? "fa-solid fa-eraser"
+          : "fa-solid fa-underline";
+      }
+
+      function normalizeComparableText(value) {
+        return String(value || "")
+          .replace(/\s+/g, " ")
+          .trim();
+      }
+
+      function resetFrameSelectionState() {
+        frameSelectionState = null;
+        highlightToggles.forEach((button) => {
+          button.disabled = true;
+          button.classList.remove("is-completed");
+          button.setAttribute("title", `Selecciona texto para marcar en ${button.dataset.highlightColor}`);
+        });
+      }
+
+      function updateHighlightToggle(mode, activeColor = null) {
+        const isRemoveMode = mode === "remove";
+
+        highlightToggles.forEach((button) => {
+          const buttonColor = button.dataset.highlightColor || HIGHLIGHT_COLORS.yellow;
+          button.disabled = false;
+          button.classList.toggle("is-completed", isRemoveMode && buttonColor === activeColor);
+          button.setAttribute(
+            "title",
+            isRemoveMode && buttonColor === activeColor
+              ? "Desmarcar selección"
+              : `Marcar en ${buttonColor}`
+          );
+        });
+      }
+
+      async function fetchStoredHighlights() {
+        const sourceKey = getSourceKey();
+
+        if (!sourceKey) {
+          return [];
+        }
+
+        const response = await fetch(COMPLETION_ENDPOINT, {
+          headers: {
+            Accept: "application/json"
+          }
+        });
+
+        if (!response.ok) {
+          throw new Error(`No se pudieron cargar los subrayados (${response.status})`);
+        }
+
+        const payload = await response.json();
+        const highlights = Array.isArray(payload.highlights?.[sourceKey]) ? payload.highlights[sourceKey] : [];
+        return highlights.filter((highlight) => typeof highlight?.key === "string" && highlight.key.trim() !== "");
+      }
+
+      async function saveHighlight(paragraph) {
+        const response = await fetch(COMPLETION_ENDPOINT, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+          },
+          body: JSON.stringify({
+            action: "add_highlight",
+            item: {
+              sourceKey: getSourceKey(),
+              key: paragraph.key,
+              text: paragraph.text,
+              start: paragraph.index,
+              end: paragraph.index + 1,
+              color: paragraph.color || HIGHLIGHT_COLORS.yellow
+            }
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error(`No se pudo guardar el subrayado (${response.status})`);
+        }
+
+        return response.json();
+      }
+
+      async function deleteHighlight(highlightKey) {
+        const response = await fetch(COMPLETION_ENDPOINT, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+          },
+          body: JSON.stringify({
+            action: "delete_highlight",
+            item: {
+              sourceKey: getSourceKey(),
+              key: highlightKey
+            }
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error(`No se pudo borrar el subrayado (${response.status})`);
+        }
+
+        return response.json();
+      }
+
+      function injectFrameEnhancements(frameDocument) {
+        if (frameDocument.getElementById("frame-lightbox-style")) {
           return;
         }
+
+        const style = frameDocument.createElement("style");
+        style.id = "frame-lightbox-style";
+        style.textContent = `
+          ${iframeImageSelector} {
+            cursor: zoom-in;
+          }
+
+          .${HIGHLIGHT_CLASS} {
+            border-radius: 6px;
+            cursor: pointer;
+          }
+
+          .${HIGHLIGHT_CLASS}[data-highlight-color="yellow"] {
+            background: rgba(255, 229, 100, 0.42);
+            box-shadow: inset 0 0 0 1px rgba(161, 98, 7, 0.18);
+          }
+
+          .${HIGHLIGHT_CLASS}[data-highlight-color="orange"] {
+            background: rgba(251, 146, 60, 0.30);
+            box-shadow: inset 0 0 0 1px rgba(194, 65, 12, 0.20);
+          }
+
+          .${HIGHLIGHT_CLASS}[data-highlight-color="pink"] {
+            background: rgba(244, 114, 182, 0.26);
+            box-shadow: inset 0 0 0 1px rgba(190, 24, 93, 0.18);
+          }
+
+          blockquote.${HIGHLIGHT_CLASS} {
+            color: #2a3950;
+          }
+        `;
+        frameDocument.head.appendChild(style);
+      }
+
+      function enhanceFrameImages() {
+        const frameDocument = getFrameDocument();
 
         if (!frameDocument || !frameDocument.body) {
           return;
         }
 
-        const previousStyle = frameDocument.getElementById("frame-lightbox-style");
-
-        if (!previousStyle) {
-          const style = frameDocument.createElement("style");
-          style.id = "frame-lightbox-style";
-          style.textContent = `
-            ${iframeImageSelector} {
-              cursor: zoom-in;
-            }
-          `;
-          frameDocument.head.appendChild(style);
-        }
+        injectFrameEnhancements(frameDocument);
 
         frameDocument.querySelectorAll(iframeImageSelector).forEach((image) => {
           if (image.dataset.lightboxBound === "true") {
@@ -334,9 +528,214 @@
         });
       }
 
-      contentFrame.addEventListener("load", () => {
+      function getHighlightableParagraphs(frameDocument) {
+        if (!frameDocument || !frameDocument.body) {
+          return [];
+        }
+
+        return Array.from(frameDocument.querySelectorAll(HIGHLIGHTABLE_SELECTOR)).filter((paragraph) => {
+          return normalizeComparableText(paragraph.textContent).length > 0;
+        });
+      }
+
+      function assignParagraphKeys(frameDocument) {
+        getHighlightableParagraphs(frameDocument).forEach((paragraph, index) => {
+          paragraph.dataset.highlightParagraphKey = `p:${index}`;
+          paragraph.dataset.highlightParagraphIndex = String(index);
+        });
+      }
+
+      function getParagraphByKey(key) {
+        const frameDocument = getFrameDocument();
+
+        if (!frameDocument || !key) {
+          return null;
+        }
+
+        return frameDocument.querySelector(`[data-highlight-paragraph-key="${CSS.escape(key)}"]`);
+      }
+
+      function applyParagraphHighlight(paragraph) {
+        if (!paragraph) {
+          return;
+        }
+
+        paragraph.classList.add(HIGHLIGHT_CLASS);
+        paragraph.dataset.highlightColor = paragraph.dataset.highlightColor || HIGHLIGHT_COLORS.yellow;
+      }
+
+      function removeParagraphHighlight(paragraph) {
+        if (!paragraph) {
+          return;
+        }
+
+        paragraph.classList.remove(HIGHLIGHT_CLASS);
+        delete paragraph.dataset.highlightColor;
+      }
+
+      function getParagraphState(paragraph) {
+        const key = paragraph.dataset.highlightParagraphKey || "";
+        const index = Number(paragraph.dataset.highlightParagraphIndex || 0);
+
+        return {
+          key,
+          index,
+          text: normalizeComparableText(paragraph.textContent),
+          color: paragraph.dataset.highlightColor || HIGHLIGHT_COLORS.yellow,
+          element: paragraph
+        };
+      }
+
+      function getParagraphsForRange(range) {
+        const frameDocument = getFrameDocument();
+
+        if (!frameDocument || !range) {
+          return [];
+        }
+
+        return getHighlightableParagraphs(frameDocument).filter((paragraph) => {
+          try {
+            return range.intersectsNode(paragraph);
+          } catch (error) {
+            return false;
+          }
+        });
+      }
+
+      function captureFrameSelection() {
+        const frameDocument = getFrameDocument();
+        const selection = contentFrame.contentWindow?.getSelection();
+
+        if (!frameDocument || !selection || selection.rangeCount === 0 || selection.isCollapsed) {
+          resetFrameSelectionState();
+          return;
+        }
+
+        const range = selection.getRangeAt(0);
+        const paragraphs = getParagraphsForRange(range);
+
+        if (paragraphs.length === 0) {
+          resetFrameSelectionState();
+          return;
+        }
+
+        frameSelectionState = {
+          mode: paragraphs.every((paragraph) => paragraph.classList.contains(HIGHLIGHT_CLASS)) ? "remove" : "add",
+          paragraphs: paragraphs.map(getParagraphState)
+        };
+        updateHighlightToggle(frameSelectionState.mode, frameSelectionState.paragraphs[0]?.color || null);
+      }
+
+      function bindFrameHighlightInteractions(frameDocument) {
+        if (frameDocument.body.dataset.highlightBindings === "true") {
+          return;
+        }
+
+        frameDocument.body.dataset.highlightBindings = "true";
+        const updateSelectionState = () => window.setTimeout(captureFrameSelection, 0);
+
+        frameDocument.addEventListener("selectionchange", updateSelectionState);
+        frameDocument.addEventListener("mouseup", updateSelectionState);
+        frameDocument.addEventListener("keyup", updateSelectionState);
+        frameDocument.addEventListener("touchend", updateSelectionState);
+        frameDocument.addEventListener("click", (event) => {
+          const paragraph = event.target.closest?.(HIGHLIGHTABLE_SELECTOR);
+
+          if (paragraph && paragraph.dataset.highlightParagraphKey) {
+            const selection = contentFrame.contentWindow?.getSelection();
+            const range = frameDocument.createRange();
+            range.selectNodeContents(paragraph);
+            selection?.removeAllRanges();
+            selection?.addRange(range);
+            captureFrameSelection();
+            return;
+          }
+
+          updateSelectionState();
+        });
+      }
+
+      async function applyStoredHighlights() {
+        const frameDocument = getFrameDocument();
+
+        if (!frameDocument || !frameDocument.body || !getSourceKey()) {
+          return;
+        }
+
+        const highlights = await fetchStoredHighlights();
+        highlights.forEach((highlight) => {
+          const paragraph = getParagraphByKey(highlight.key);
+
+          if (paragraph) {
+            paragraph.dataset.highlightColor = highlight.color || HIGHLIGHT_COLORS.yellow;
+            applyParagraphHighlight(paragraph);
+          }
+        });
+      }
+
+      async function handleHighlightToggle(color) {
+        const currentState = frameSelectionState;
+
+        if (!currentState) {
+          return;
+        }
+
+        try {
+          if (currentState.mode === "add") {
+            currentState.paragraphs.forEach((paragraphState) => {
+              paragraphState.color = color;
+              paragraphState.element.dataset.highlightColor = color;
+              applyParagraphHighlight(paragraphState.element);
+            });
+            await Promise.all(currentState.paragraphs.map((paragraphState) => saveHighlight(paragraphState)));
+          } else {
+            const shouldRemove = currentState.paragraphs.every((paragraphState) => {
+              return (paragraphState.color || HIGHLIGHT_COLORS.yellow) === color;
+            });
+
+            if (shouldRemove) {
+              currentState.paragraphs.forEach((paragraphState) => {
+                removeParagraphHighlight(paragraphState.element);
+              });
+              await Promise.all(currentState.paragraphs.map((paragraphState) => deleteHighlight(paragraphState.key)));
+            } else {
+              currentState.paragraphs.forEach((paragraphState) => {
+                paragraphState.color = color;
+                paragraphState.element.dataset.highlightColor = color;
+                applyParagraphHighlight(paragraphState.element);
+              });
+              await Promise.all(currentState.paragraphs.map((paragraphState) => saveHighlight(paragraphState)));
+            }
+          }
+
+          const frameDocument = getFrameDocument();
+          frameDocument?.getSelection()?.removeAllRanges();
+          resetFrameSelectionState();
+        } catch (error) {
+          captureFrameSelection();
+        }
+      }
+
+      contentFrame.addEventListener("load", async () => {
         closeLightbox();
+        resetFrameSelectionState();
         enhanceFrameImages();
+
+        const frameDocument = getFrameDocument();
+
+        if (!frameDocument || !frameDocument.body) {
+          return;
+        }
+
+        injectFrameEnhancements(frameDocument);
+        assignParagraphKeys(frameDocument);
+        bindFrameHighlightInteractions(frameDocument);
+
+        try {
+          await applyStoredHighlights();
+        } catch (error) {
+          resetFrameSelectionState();
+        }
       });
 
       lightbox.addEventListener("click", (event) => {
@@ -346,6 +745,12 @@
       });
 
       lightboxClose.addEventListener("click", closeLightbox);
+      highlightToggles.forEach((button) => {
+        button.addEventListener("click", () => {
+          handleHighlightToggle(button.dataset.highlightColor || HIGHLIGHT_COLORS.yellow);
+        });
+      });
+      resetFrameSelectionState();
 
       window.addEventListener("keydown", (event) => {
         if (event.key === "Escape" && lightbox.classList.contains("is-open")) {

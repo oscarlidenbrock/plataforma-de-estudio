@@ -19,6 +19,7 @@ function emptyState(): array
         'updatedAt' => gmdate('c'),
         'items' => [],
         'failedQuestions' => [],
+        'highlights' => [],
     ];
 }
 
@@ -38,6 +39,7 @@ function ensureStorageExists(string $path): void
         'updatedAt' => gmdate('c'),
         'items' => new stdClass(),
         'failedQuestions' => new stdClass(),
+        'highlights' => new stdClass(),
     ];
 
     if (file_put_contents($path, json_encode($initialState, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)) === false) {
@@ -66,6 +68,10 @@ function readStorage(string $path): array
 
     if (!isset($data['failedQuestions']) || !is_array($data['failedQuestions'])) {
         $data['failedQuestions'] = [];
+    }
+
+    if (!isset($data['highlights']) || !is_array($data['highlights'])) {
+        $data['highlights'] = [];
     }
 
     return $data;
@@ -110,6 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     respond(200, [
         'items' => $data['items'],
         'failedQuestions' => $data['failedQuestions'],
+        'highlights' => $data['highlights'],
     ]);
 }
 
@@ -185,6 +192,77 @@ if ($action === 'complete') {
 } elseif ($action === 'delete_failed_question') {
     $key = requireKey($item, 'Falta la clave de la pregunta fallada.');
     unset($data['failedQuestions'][$key]);
+} elseif ($action === 'add_highlight') {
+    if (!is_array($item) || !is_string($item['sourceKey'] ?? null) || trim($item['sourceKey']) === '') {
+        respond(400, ['error' => 'Falta la clave del contenido subrayado.']);
+    }
+
+    if (!is_string($item['key'] ?? null) || trim($item['key']) === '') {
+        respond(400, ['error' => 'Falta la clave del subrayado.']);
+    }
+
+    if (!is_string($item['text'] ?? null) || trim($item['text']) === '') {
+        respond(400, ['error' => 'Falta el texto subrayado.']);
+    }
+
+    $sourceKey = trim((string)$item['sourceKey']);
+    $highlightKey = trim((string)$item['key']);
+    $highlights = $data['highlights'][$sourceKey] ?? [];
+
+    if (!is_array($highlights)) {
+        $highlights = [];
+    }
+
+    $existingIndex = null;
+
+    foreach ($highlights as $index => $highlight) {
+        if (is_array($highlight) && (string)($highlight['key'] ?? '') === $highlightKey) {
+            $existingIndex = $index;
+            break;
+        }
+    }
+
+    $highlightPayload = [
+        'key' => $highlightKey,
+        'text' => trim((string)$item['text']),
+        'start' => max(0, (int)($item['start'] ?? 0)),
+        'end' => max(0, (int)($item['end'] ?? 0)),
+        'color' => is_string($item['color'] ?? null) && trim((string)$item['color']) !== '' ? trim((string)$item['color']) : 'yellow',
+        'createdAt' => gmdate('c'),
+    ];
+
+    if ($existingIndex !== null) {
+        $highlightPayload['createdAt'] = (string)($highlights[$existingIndex]['createdAt'] ?? gmdate('c'));
+        $highlights[$existingIndex] = $highlightPayload;
+    } else {
+        $highlights[] = $highlightPayload;
+    }
+
+    $data['highlights'][$sourceKey] = array_values($highlights);
+} elseif ($action === 'delete_highlight') {
+    if (!is_array($item) || !is_string($item['sourceKey'] ?? null) || trim($item['sourceKey']) === '') {
+        respond(400, ['error' => 'Falta la clave del contenido subrayado.']);
+    }
+
+    if (!is_string($item['key'] ?? null) || trim($item['key']) === '') {
+        respond(400, ['error' => 'Falta la clave del subrayado.']);
+    }
+
+    $sourceKey = trim((string)$item['sourceKey']);
+    $highlightKey = trim((string)$item['key']);
+    $highlights = $data['highlights'][$sourceKey] ?? [];
+
+    if (is_array($highlights)) {
+        $highlights = array_values(array_filter($highlights, static function ($highlight) use ($highlightKey) {
+            return !is_array($highlight) || (string)($highlight['key'] ?? '') !== $highlightKey;
+        }));
+
+        if ($highlights === []) {
+            unset($data['highlights'][$sourceKey]);
+        } else {
+            $data['highlights'][$sourceKey] = $highlights;
+        }
+    }
 } else {
     respond(400, ['error' => 'Acción no válida.']);
 }
@@ -196,4 +274,5 @@ respond(200, [
     'ok' => true,
     'items' => $stored['items'],
     'failedQuestions' => $stored['failedQuestions'],
+    'highlights' => $stored['highlights'],
 ]);
