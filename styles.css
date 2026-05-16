@@ -425,7 +425,7 @@ p {
   flex-wrap: nowrap;
   gap: 8px;
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 0;
   width: 100%;
 }
 
@@ -610,6 +610,7 @@ p {
 
 .content-viewer__toolbar--standalone {
   margin-top: 0;
+  margin-bottom: 5px;
   border: 1px solid var(--border);
   border-radius: 8px;
 }
@@ -621,6 +622,7 @@ p {
 .content-viewer__label {
   font-size: 14px;
   font-weight: 700;
+  text-transform: uppercase;
   color: var(--text);
 }
 

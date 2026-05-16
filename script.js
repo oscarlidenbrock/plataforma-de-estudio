@@ -4,9 +4,9 @@ const topicSearch = document.querySelector("#topic-search");
 const sidebar = document.querySelector("#sidebar");
 const mobileMenuOpenButton = document.querySelector("#mobile-menu-open");
 const mobileMenuCloseButton = document.querySelector("#mobile-menu-close");
-const contentEyebrow = document.querySelector(".content__eyebrow");
-const topicTitle = document.querySelector("#topic-title");
-const topicDescription = document.querySelector("#topic-description");
+const contentEyebrow = document.querySelector(".content__eyebrow") || { hidden: true, textContent: "" };
+const topicTitle = document.querySelector("#topic-title") || { hidden: true, textContent: "" };
+const topicDescription = document.querySelector("#topic-description") || { hidden: true, textContent: "" };
 const topicSectionsBar = document.querySelector("#topic-sections-bar");
 const topicProgress = document.querySelector("#topic-progress");
 const topicProgressCount = document.querySelector("#topic-progress-count");
@@ -2173,13 +2173,15 @@ function buildSidebar() {
   applyCompletionStateToSidebar();
   restoreSidebarSelectionState();
 }
-function filterTopics(query) {
+function filterTopics(query, autoOpenFirst = true) {
   applyTopicFilterVisibility(query);
 
   const firstVisibleEntry = findFirstSelectableEntry();
 
   if (firstVisibleEntry !== null) {
-    selectTopicAndOpenDefault(firstVisibleEntry.themeIndex, firstVisibleEntry.topicIndex).catch(() => {});
+    if (autoOpenFirst) {
+      selectTopicAndOpenDefault(firstVisibleEntry.themeIndex, firstVisibleEntry.topicIndex).catch(() => {});
+    }
     return;
   }
 
@@ -2312,7 +2314,7 @@ mobileMenuCloseButton.addEventListener("click", () => {
 });
 
 topicSearch.addEventListener("input", (event) => {
-  filterTopics(event.target.value);
+  filterTopics(event.target.value, !isMobileLayout());
 
   if (findFirstSelectableEntry() === null) {
     hideSectionToolbar();

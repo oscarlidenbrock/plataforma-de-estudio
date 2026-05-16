@@ -287,13 +287,13 @@
               "label": "Teoria",
               "icon": "fa-solid fa-book-open",
               "pageType": "html",
-              "link": "#"
+              "link": "data/1/1.4.1/teoria.html"
             },
             {
               "label": "Resumen",
               "icon": "fa-solid fa-file-lines",
               "pageType": "html",
-              "link": "#"
+              "link": "data/1/1.4.1/resumen.html"
             },
             {
               "label": "Preguntas",
@@ -319,13 +319,13 @@
               "label": "Teoria",
               "icon": "fa-solid fa-book-open",
               "pageType": "html",
-              "link": "#"
+              "link": "data/1/1.4.2/teoria.html"
             },
             {
               "label": "Resumen",
               "icon": "fa-solid fa-file-lines",
               "pageType": "html",
-              "link": "#"
+              "link": "data/1/1.4.2/resumen.html"
             },
             {
               "label": "Preguntas",

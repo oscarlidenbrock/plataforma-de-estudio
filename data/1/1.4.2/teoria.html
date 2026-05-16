@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tema 1.4.2 - Principio de oficialidad</title>
+  <style>
+    :root {
+      --bg: #eef3f9;
+      --surface: #ffffff;
+      --surface-alt: #f6f9fd;
+      --ink: #18212f;
+      --muted: #5f6b7a;
+      --accent: #1f6feb;
+      --border: #d7dee8;
+      --quote: #0f1723;
+      --shadow: 0 18px 40px rgba(24, 33, 47, 0.08);
+      --max: 980px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background: linear-gradient(180deg, #f4f7fb 0%, #eef3f9 100%);
+      color: var(--ink);
+      line-height: 1.7;
+    }
+    .page {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 32px auto 56px;
+    }
+    .hero, .block, .note, .sources {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+    .hero { padding: 36px; margin-bottom: 24px; }
+    .eyebrow {
+      margin: 0 0 8px;
+      font: 700 12px/1.2 Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+    }
+    h1, h2, h3 { margin: 0; line-height: 1.15; color: #10203a; }
+    h1 { font-size: clamp(2.2rem, 4vw, 3.3rem); margin-bottom: 16px; }
+    h2 { font-size: 1.8rem; margin-bottom: 18px; }
+    h3 { font-size: 1.25rem; margin-bottom: 12px; }
+    p { margin: 0 0 16px; font-size: 1.07rem; }
+    .lead { font-size: 1.18rem; color: #2a3950; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: start;
+      margin-top: 28px;
+    }
+    .hero-card, .mini-card {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+    }
+    .hero-card ul, .block ul, .block ol, .sources ul { margin: 0; padding-left: 22px; }
+    .hero-card li, .block li, .sources li { margin-bottom: 10px; }
+    .illustration {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      display: block;
+      background: #fff;
+    }
+    .toc {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 18px;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-family: Arial, sans-serif;
+      font-size: 0.96rem;
+    }
+    .toc a, .sources a { color: #184f9c; text-decoration: none; }
+    .toc a:hover, .sources a:hover { text-decoration: underline; }
+    .block, .note, .sources { padding: 30px; margin-bottom: 24px; }
+    .callout {
+      margin: 22px 0;
+      padding: 18px 20px;
+      border-left: 4px solid var(--accent);
+      background: #f4f8ff;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+    blockquote {
+      margin: 24px 0;
+      padding: 24px 26px;
+      background: var(--quote);
+      color: #eef5ff;
+      border-radius: 14px;
+      font-size: 1.08rem;
+    }
+    blockquote p:last-child { margin-bottom: 0; }
+    .cols {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+    .table-wrap { overflow-x: auto; margin-top: 18px; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.98rem; }
+    th, td { border: 1px solid var(--border); padding: 12px 14px; vertical-align: top; }
+    th {
+      background: #edf4ff;
+      text-align: left;
+      font-family: Arial, sans-serif;
+      font-size: 0.95rem;
+    }
+    .note { background: #f7fbff; }
+    .note strong { color: #123e7c; }
+    .footer {
+      margin-top: 12px;
+      font-size: 0.94rem;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+    }
+    @media (max-width: 820px) {
+      .hero-grid, .cols, .toc { grid-template-columns: 1fr; }
+      .hero, .block, .note, .sources { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <p class="eyebrow">Tema 1 - Punto 4.2</p>
+      <h1>Principio de oficialidad</h1>
+      <p class="lead">
+        El <strong>principio de oficialidad</strong> significa que el procedimiento administrativo no queda abandonado a
+        la sola iniciativa de los interesados. La Administracion <strong>puede iniciar, impulsar, ordenar e instruir de
+        oficio</strong> el expediente, buscando por si misma los hechos relevantes y conduciendo la tramitacion hasta la
+        resolucion final, siempre con respeto a los derechos de defensa y contradiccion.
+      </p>
+      <blockquote>
+        <p>
+          Idea central de examen: <strong>en el procedimiento administrativo la Administracion no espera pasivamente a que
+          las partes muevan el expediente</strong>; tiene el deber de hacerlo avanzar y de reunir los elementos necesarios
+          para decidir conforme a Derecho.
+        </p>
+      </blockquote>
+      <div class="hero-grid">
+        <div class="hero-card">
+          <h3>Lo primero que debes fijar</h3>
+          <ul>
+            <li>Se manifiesta en la <strong>iniciacion de oficio</strong>, el <strong>impulso de oficio</strong> y la <strong>instruccion de oficio</strong>.</li>
+            <li>Tiene reflejo claro en la <strong>Ley 39/2015</strong>, especialmente en los <strong>arts. 58, 71 y 75</strong>.</li>
+            <li>No elimina la participacion del interesado: convive con alegaciones, prueba, audiencia y recursos.</li>
+            <li>Su finalidad es evitar la paralizacion, garantizar una correcta averiguacion de los hechos y permitir una resolucion fundada.</li>
+          </ul>
+        </div>
+        <img class="illustration" src="principio-oficialidad-esquema.svg" alt="Esquema sobre el principio de oficialidad en el procedimiento administrativo">
+      </div>
+      <nav class="toc" aria-label="Indice de contenidos">
+        <a href="#concepto">1. Concepto y significado</a>
+        <a href="#fundamento">2. Fundamento normativo</a>
+        <a href="#contenido">3. Contenido del principio</a>
+        <a href="#inicio">4. Iniciacion de oficio</a>
+        <a href="#impulso">5. Impulso y ordenacion del procedimiento</a>
+        <a href="#instruccion">6. Instruccion e investigacion de oficio</a>
+        <a href="#interesado">7. Relacion con el interesado</a>
+        <a href="#limites">8. Limites y garantias</a>
+        <a href="#efectos">9. Efectos practicos</a>
+        <a href="#sintesis">10. Sintesis final</a>
+      </nav>
+    </section>
+
+    <section id="concepto" class="block">
+      <h2>1. Concepto y significado</h2>
+      <p>
+        El principio de oficialidad expresa que el procedimiento administrativo tiene un
+        <strong>caracter institucional y publico</strong>. No es un conflicto privado que dependa exclusivamente del
+        interes de las partes, sino un cauce juridico orientado a la satisfaccion del interes general y a la correcta
+        aplicacion del ordenamiento.
+      </p>
+      <p>
+        Por eso la Administracion no se limita a recibir escritos y esperar. Debe
+        <strong>poner en marcha el procedimiento cuando la ley lo permita o lo imponga</strong>, hacerlo avanzar en todos
+        sus tramites y practicar las actuaciones necesarias para conocer los hechos y dictar una resolucion ajustada a
+        Derecho.
+      </p>
+      <div class="callout">
+        <strong>Formula breve para memorizar:</strong> oficialidad es <em>la regla por la que la Administracion asume la
+        direccion activa del procedimiento, desde su inicio hasta su resolucion</em>.
+      </div>
+      <p>
+        En oposiciones conviene vincular esta idea a una imagen clara: el procedimiento administrativo
+        <strong>no descansa solo sobre el impulso de los interesados</strong>, sino sobre el deber de actuacion de la
+        propia Administracion.
+      </p>
+    </section>
+
+    <section id="fundamento" class="block">
+      <h2>2. Fundamento normativo</h2>
+      <p>
+        El principio de oficialidad se apoya en la naturaleza misma de la funcion administrativa y en varios preceptos de
+        la normativa procedimental.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Norma</th>
+              <th>Contenido relevante</th>
+              <th>Importancia para este punto</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Art. 103.1 CE</td>
+              <td>La Administracion sirve con objetividad los intereses generales y actua con sometimiento pleno a la ley y al Derecho.</td>
+              <td>Justifica que la Administracion deba actuar y no permanecer inerte.</td>
+            </tr>
+            <tr>
+              <td>Art. 58 Ley 39/2015</td>
+              <td>Los procedimientos se iniciaran de oficio por acuerdo del organo competente en los supuestos previstos.</td>
+              <td>Es la expresion mas clara de la oficialidad en la fase inicial.</td>
+            </tr>
+            <tr>
+              <td>Art. 71 Ley 39/2015</td>
+              <td>El procedimiento se impulsara de oficio en todos sus tramites.</td>
+              <td>Refleja la oficialidad en la ordenacion del expediente.</td>
+            </tr>
+            <tr>
+              <td>Art. 75 Ley 39/2015</td>
+              <td>Los actos de instruccion necesarios para conocer y comprobar los hechos se realizaran de oficio.</td>
+              <td>Proyecta la oficialidad sobre la actividad probatoria e investigadora.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <blockquote>
+        <p>
+          El procedimiento administrativo es <strong>oficial</strong> porque responde a una funcion publica: la
+          Administracion debe procurar la correcta decision del asunto, no limitarse a arbitrar un debate entre partes.
+        </p>
+      </blockquote>
+      <p>
+        Esta oficialidad tambien se relaciona con otros mecanismos de la Ley 39/2015, como las
+        <strong>actuaciones previas, medidas provisionales, acumulacion de procedimientos, concentracion de tramites e
+        instruccion electronica</strong>, todos ellos pensados para dar capacidad de direccion real al organo
+        administrativo.
+      </p>
+    </section>
+
+    <section id="contenido" class="block">
+      <h2>3. Contenido del principio</h2>
+      <p>
+        El principio de oficialidad puede descomponerse en tres grandes dimensiones:
+      </p>
+      <div class="cols">
+        <article class="mini-card">
+          <h3>Iniciacion</h3>
+          <p>La Administracion puede abrir por si misma determinados procedimientos cuando el ordenamiento asi lo establece.</p>
+        </article>
+        <article class="mini-card">
+          <h3>Impulso</h3>
+          <p>El expediente avanza por accion del organo tramitador, que no puede dejarlo paralizado injustificadamente.</p>
+        </article>
+        <article class="mini-card">
+          <h3>Instruccion</h3>
+          <p>La Administracion debe practicar las diligencias necesarias para conocer y comprobar los hechos relevantes.</p>
+        </article>
+        <article class="mini-card">
+          <h3>Ordenacion</h3>
+          <p>Corresponde a la Administracion dar forma, secuencia y ritmo al procedimiento hasta la resolucion.</p>
+        </article>
+      </div>
+      <p>
+        No se trata de compartimentos estancos. En realidad, todos estos aspectos forman parte de una misma idea:
+        <strong>la titularidad publica del procedimiento</strong> y la obligacion de conducirlo hacia una decision final.
+      </p>
+    </section>
+
+    <section id="inicio" class="block">
+      <h2>4. Iniciacion de oficio</h2>
+      <p>
+        Una de las manifestaciones mas visibles de la oficialidad es la <strong>iniciacion de oficio</strong>. La Ley
+        39/2015 distingue expresamente entre procedimientos iniciados a solicitud del interesado y procedimientos
+        iniciados por la propia Administracion.
+      </p>
+      <p>
+        El <strong>art. 58</strong> dispone que los procedimientos se iniciaran de oficio por acuerdo del organo
+        competente, bien por <strong>propia iniciativa</strong>, como consecuencia de <strong>orden superior</strong>, a
+        <strong>peticion razonada de otros organos</strong> o por <strong>denuncia</strong>.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Modo de iniciacion de oficio</th>
+              <th>Significado</th>
+              <th>Conexion con la oficialidad</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Propia iniciativa</td>
+              <td>El organo conoce directa o indirectamente hechos que justifican actuar.</td>
+              <td>La Administracion reacciona por si misma ante la realidad juridica.</td>
+            </tr>
+            <tr>
+              <td>Orden superior</td>
+              <td>Un organo jerarquicamente superior ordena la iniciacion.</td>
+              <td>La direccion publica del procedimiento se articula internamente.</td>
+            </tr>
+            <tr>
+              <td>Peticion razonada</td>
+              <td>Otro organo solicita motivadamente la apertura del procedimiento.</td>
+              <td>Refuerza la cooperacion administrativa.</td>
+            </tr>
+            <tr>
+              <td>Denuncia</td>
+              <td>Un tercero pone hechos en conocimiento de la Administracion.</td>
+              <td>La denuncia no abre sola el procedimiento; quien decide sigue siendo la Administracion competente.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        Este ultimo matiz es especialmente importante: <strong>la denuncia no desplaza la titularidad del procedimiento al
+        denunciante</strong>. Quien decide iniciar, continuar o archivar es la Administracion, segun la ley y los datos
+        disponibles.
+      </p>
+    </section>
+
+    <section id="impulso" class="block">
+      <h2>5. Impulso y ordenacion del procedimiento</h2>
+      <p>
+        La oficialidad no termina al iniciarse el expediente. Se proyecta con especial intensidad en la
+        <strong>fase de impulso</strong>. El <strong>art. 71 de la Ley 39/2015</strong> dispone que el procedimiento,
+        sometido al principio de celeridad, se impulsara de oficio en todos sus tramites y a traves de medios
+        electronicos.
+      </p>
+      <p>
+        Esto significa que la Administracion tiene el deber de <strong>hacer avanzar el expediente</strong>, realizar
+        las comunicaciones necesarias, pedir informes cuando proceda, controlar los plazos y evitar que la tramitacion se
+        detenga por mera inercia burocratica.
+      </p>
+      <ol>
+        <li><strong>Orden riguroso de incoacion</strong> en asuntos de naturaleza homogenea.</li>
+        <li><strong>Responsabilidad directa</strong> del instructor o de la unidad administrativa por la tramitacion.</li>
+        <li><strong>Concentracion de tramites</strong> cuando puedan practicarse conjuntamente.</li>
+        <li><strong>Continuidad procedimental</strong> salvo suspension o interrupcion legalmente previstas.</li>
+      </ol>
+      <div class="callout">
+        <strong>Idea-clave:</strong> impulso de oficio significa que el ciudadano no tiene que ir
+        <strong>empujando constantemente</strong> el expediente para que exista actividad administrativa.
+      </div>
+    </section>
+
+    <section id="instruccion" class="block">
+      <h2>6. Instruccion e investigacion de oficio</h2>
+      <p>
+        La oficialidad alcanza uno de sus puntos mas caracteristicos en la <strong>instruccion</strong>. El
+        <strong>art. 75 de la Ley 39/2015</strong> establece que los actos de instruccion necesarios para la
+        determinacion, conocimiento y comprobacion de los hechos en virtud de los cuales deba pronunciarse la resolucion
+        <strong>se realizaran de oficio</strong> por el organo que tramite el procedimiento.
+      </p>
+      <p>
+        En otras palabras, la Administracion debe procurar por si misma la base factica suficiente para decidir. No se
+        limita a valorar lo que las partes aporten, sino que puede y debe recabar aquello que sea necesario para una
+        resolucion correcta.
+      </p>
+      <h3>6.1. Prueba</h3>
+      <p>
+        El <strong>art. 77</strong> permite acreditar los hechos relevantes por cualquier medio de prueba admisible en
+        Derecho. Cuando la Administracion no tenga por ciertos los hechos alegados o la naturaleza del procedimiento lo
+        exija, el instructor acordara la apertura de un periodo de prueba. Esto encaja plenamente con la oficialidad:
+        <strong>la prueba no depende solo de la iniciativa del particular</strong>.
+      </p>
+      <h3>6.2. Informes y comprobaciones</h3>
+      <p>
+        La peticion de informes, las verificaciones, comprobaciones tecnicas o documentales y otras diligencias
+        instructoras son manifestaciones practicas de este principio. La Administracion debe utilizarlas cuando resulten
+        pertinentes para aclarar el asunto.
+      </p>
+      <blockquote>
+        <p>
+          Oficialidad en la instruccion no significa arbitrariedad investigadora, sino
+          <strong>deber de averiguacion suficiente y juridicamente ordenada</strong>.
+        </p>
+      </blockquote>
+    </section>
+
+    <section id="interesado" class="block">
+      <h2>7. Relacion con la posicion del interesado</h2>
+      <p>
+        El principio de oficialidad no convierte al interesado en una figura irrelevante. Al contrario, la Ley 39/2015
+        mantiene intactos sus derechos de <strong>alegacion, prueba, audiencia, acceso al expediente, recurso y defensa</strong>.
+      </p>
+      <p>
+        Lo que cambia es el reparto de iniciativa: la Administracion <strong>dirige el procedimiento</strong>, pero el
+        interesado sigue pudiendo intervenir para influir en el contenido de la decision y para proteger su esfera
+        juridica.
+      </p>
+      <div class="cols">
+        <article class="mini-card">
+          <h3>Lo que hace la Administracion</h3>
+          <p>Inicia, impulsa, instruye, pide informes, abre prueba, concentra tramites y resuelve.</p>
+        </article>
+        <article class="mini-card">
+          <h3>Lo que conserva el interesado</h3>
+          <p>Derecho a alegar, proponer pruebas, subsanar, ser oido, conocer el expediente y recurrir.</p>
+        </article>
+      </div>
+      <p>
+        Por eso no debe confundirse oficialidad con un procedimiento unilateral cerrado. Es un procedimiento
+        <strong>dirigido por la Administracion, pero abierto a la contradiccion</strong>.
+      </p>
+    </section>
+
+    <section id="limites" class="block">
+      <h2>8. Limites y garantias</h2>
+      <p>
+        La oficialidad tiene un amplio alcance, pero encuentra limites claros en el propio Estado de Derecho. No permite
+        a la Administracion ignorar la posicion del interesado ni prescindir de las formas esenciales del procedimiento.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Lo que la oficialidad permite</th>
+              <th>Lo que la oficialidad no permite</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Iniciar e impulsar procedimientos cuando la ley lo prevea.</td>
+              <td>Actuar sin competencia o fuera de los cauces legales.</td>
+            </tr>
+            <tr>
+              <td>Practicar diligencias instructoras y recabar pruebas o informes.</td>
+              <td>Eliminar audiencia, defensa o contradiccion del interesado.</td>
+            </tr>
+            <tr>
+              <td>Evitar la paralizacion y conducir el expediente hasta su resolucion.</td>
+              <td>Resolver arbitrariamente o sin una base factica suficiente.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        La oficialidad debe interpretarse de forma sistematica con otros principios como
+        <strong>legalidad, objetividad, eficacia, celeridad, proporcionalidad y defensa</strong>. Solo asi produce una
+        buena administracion y no una gestion autoritaria del expediente.
+      </p>
+    </section>
+
+    <section id="efectos" class="block">
+      <h2>9. Efectos practicos y consecuencias juridicas</h2>
+      <p>
+        El principio de oficialidad tiene varias consecuencias practicas que conviene fijar para examen:
+      </p>
+      <ul>
+        <li><strong>justifica la iniciacion de oficio</strong> de numerosos procedimientos administrativos;</li>
+        <li><strong>explica el deber de impulso de oficio</strong> y la responsabilidad por retrasos o desorden en la tramitacion;</li>
+        <li><strong>fundamenta la instruccion activa</strong> del expediente por la Administracion;</li>
+        <li><strong>impide trasladar al ciudadano</strong> toda la carga de mover y completar el procedimiento;</li>
+        <li><strong>sirve de criterio interpretativo</strong> a favor de una decision de fondo correctamente instruida.</li>
+      </ul>
+      <p>
+        Su infraccion puede manifestarse como <strong>paralizacion injustificada, defectuosa instruccion, falta de
+        averiguacion de hechos o incumplimiento de plazos</strong>. En cada caso habra que analizar si ello ha generado
+        invalidez, indefension, responsabilidad o simplemente una irregularidad no invalidante.
+      </p>
+      <div class="callout">
+        <strong>Matiz importante:</strong> la oficialidad no obliga a una investigacion ilimitada, sino a una
+        <strong>actividad suficiente, razonable y pertinente</strong> para que la resolucion pueda dictarse con base
+        bastante.
+      </div>
+    </section>
+
+    <section id="sintesis" class="note">
+      <h2>10. Sintesis final para estudio</h2>
+      <p>
+        <strong>Definicion util:</strong> el principio de oficialidad impone que la Administracion asuma la direccion
+        activa del procedimiento, pudiendo iniciarlo de oficio cuando corresponda, impulsandolo en todos sus tramites e
+        instruyendolo por si misma para conocer los hechos y dictar resolucion ajustada a Derecho.
+      </p>
+      <ul>
+        <li>se manifiesta en la <strong>iniciacion, impulso e instruccion de oficio</strong>;</li>
+        <li>sus preceptos mas utiles para estudio estan en los <strong>arts. 58, 71 y 75 de la Ley 39/2015</strong>;</li>
+        <li>no elimina la intervencion del interesado, sino que convive con sus derechos de defensa y contradiccion;</li>
+        <li>persigue evitar la paralizacion y asegurar una correcta averiguacion de los hechos;</li>
+        <li>debe memorizarse como un principio de <strong>direccion publica del expediente dentro de la legalidad</strong>.</li>
+      </ul>
+      <p>
+        <strong>Formula corta para retener:</strong> <em>oficialidad es que la Administracion mueve e instruye el
+        procedimiento, pero decide siempre con garantias</em>.
+      </p>
+    </section>
+
+    <section class="sources">
+      <h2>Base normativa y referencias</h2>
+      <p>
+        Esta pagina sistematiza el principio de oficialidad desde la Ley 39/2015, en conexion con el fundamento general
+        constitucional de la actuacion administrativa.
+      </p>
+      <ul>
+        <li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229" target="_blank" rel="noopener noreferrer">Constitucion Espanola, art. 103.1</a>.</li>
+        <li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2015-10565" target="_blank" rel="noopener noreferrer">Ley 39/2015, del Procedimiento Administrativo Comun de las Administraciones Publicas</a>, con especial interes en los arts. 58 a 62, 71, 75 y 77.</li>
+        <li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2015-10566" target="_blank" rel="noopener noreferrer">Ley 40/2015, de Regimen Juridico del Sector Publico</a>, como marco general de actuacion administrativa.</li>
+      </ul>
+      <p class="footer">Contenido redactado para el punto 4.2 del Tema 1, con enfoque de oposicion y apoyo en BOE.</p>
+    </section>
+  </main>
+</body>
+</html>

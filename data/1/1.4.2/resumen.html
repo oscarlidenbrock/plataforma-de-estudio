@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tema 1.4.2 - Resumen - Principio de oficialidad</title>
+  <style>
+    :root {
+      --bg: #eef3f9;
+      --surface: #ffffff;
+      --surface-alt: #f6f9fd;
+      --ink: #18212f;
+      --muted: #5f6b7a;
+      --accent: #1f6feb;
+      --border: #d7dee8;
+      --quote: #0f1723;
+      --shadow: 0 18px 40px rgba(24, 33, 47, 0.08);
+      --max: 980px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background: linear-gradient(180deg, #f4f7fb 0%, #eef3f9 100%);
+      color: var(--ink);
+      line-height: 1.7;
+    }
+    .page {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 32px auto 56px;
+    }
+    .hero, .block, .note, .sources {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+    .hero { padding: 36px; margin-bottom: 24px; }
+    .eyebrow {
+      margin: 0 0 8px;
+      font: 700 12px/1.2 Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+    }
+    h1, h2, h3 { margin: 0; line-height: 1.15; color: #10203a; }
+    h1 { font-size: clamp(2.1rem, 4vw, 3.2rem); margin-bottom: 16px; }
+    h2 { font-size: 1.75rem; margin-bottom: 18px; }
+    h3 { font-size: 1.2rem; margin-bottom: 12px; }
+    p { margin: 0 0 16px; font-size: 1.05rem; }
+    .lead { font-size: 1.16rem; color: #2a3950; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 24px;
+      align-items: start;
+      margin-top: 28px;
+    }
+    .hero-card, .mini-card {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+    }
+    .hero-card ul, .block ul, .block ol, .sources ul { margin: 0; padding-left: 22px; }
+    .hero-card li, .block li, .sources li { margin-bottom: 10px; }
+    .illustration {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      display: block;
+      background: #fff;
+    }
+    .toc {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 18px;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-family: Arial, sans-serif;
+      font-size: 0.96rem;
+    }
+    .toc a, .sources a { color: #184f9c; text-decoration: none; }
+    .toc a:hover, .sources a:hover { text-decoration: underline; }
+    .block, .note, .sources { padding: 30px; margin-bottom: 24px; }
+    .callout {
+      margin: 22px 0;
+      padding: 18px 20px;
+      border-left: 4px solid var(--accent);
+      background: #f4f8ff;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+    blockquote {
+      margin: 24px 0;
+      padding: 24px 26px;
+      background: var(--quote);
+      color: #eef5ff;
+      border-radius: 14px;
+      font-size: 1.08rem;
+    }
+    blockquote p:last-child { margin-bottom: 0; }
+    .cols {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+    .table-wrap { overflow-x: auto; margin-top: 18px; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.98rem; }
+    th, td { border: 1px solid var(--border); padding: 12px 14px; vertical-align: top; }
+    th {
+      background: #edf4ff;
+      text-align: left;
+      font-family: Arial, sans-serif;
+      font-size: 0.95rem;
+    }
+    .note { background: #f7fbff; }
+    .note strong { color: #123e7c; }
+    .footer {
+      margin-top: 12px;
+      font-size: 0.94rem;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+    }
+    @media (max-width: 820px) {
+      .hero-grid, .cols, .toc { grid-template-columns: 1fr; }
+      .hero, .block, .note, .sources { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <p class="eyebrow">Tema 1 - Punto 4.2 - Resumen</p>
+      <h1>Principio de oficialidad</h1>
+      <p class="lead">
+        El principio de oficialidad supone que la Administracion <strong>dirige activamente el procedimiento</strong>:
+        puede iniciarlo de oficio cuando proceda, lo impulsa en todos sus tramites y realiza las actuaciones de
+        instruccion necesarias para resolver.
+      </p>
+      <blockquote>
+        <p>
+          Frase para memorizar: <strong>oficialidad es que el expediente lo mueve la Administracion, no solo el
+          interesado</strong>.
+        </p>
+      </blockquote>
+      <div class="hero-grid">
+        <div class="hero-card">
+          <h3>Lo imprescindible</h3>
+          <ul>
+            <li>Manifestaciones: <strong>iniciacion, impulso e instruccion de oficio</strong>.</li>
+            <li>Preceptos clave: <strong>arts. 58, 71 y 75 de la Ley 39/2015</strong>.</li>
+            <li>No elimina audiencia, alegaciones ni prueba del interesado.</li>
+            <li>Busca evitar paralizaciones y asegurar una decision fundada.</li>
+          </ul>
+        </div>
+        <img class="illustration" src="principio-oficialidad-esquema.svg" alt="Resumen visual del principio de oficialidad">
+      </div>
+      <nav class="toc" aria-label="Indice del resumen">
+        <a href="#concepto">1. Concepto</a>
+        <a href="#fundamento">2. Fundamento</a>
+        <a href="#manifestaciones">3. Manifestaciones</a>
+        <a href="#claves">4. Claves de examen</a>
+        <a href="#limites">5. Limites</a>
+        <a href="#repaso">6. Repaso final</a>
+      </nav>
+    </section>
+
+    <section id="concepto" class="block">
+      <h2>1. Concepto</h2>
+      <p>
+        La oficialidad significa que el procedimiento administrativo tiene una <strong>direccion publica</strong>. La
+        Administracion no se limita a esperar la actuacion de las partes, sino que asume el deber de iniciar, impulsar e
+        instruir el expediente para llegar a una resolucion conforme a Derecho.
+      </p>
+      <div class="callout">
+        <strong>Idea-clave:</strong> no es un procedimiento puramente dispositivo; la Administracion tiene iniciativa y
+        responsabilidad propia sobre la tramitacion.
+      </div>
+    </section>
+
+    <section id="fundamento" class="block">
+      <h2>2. Fundamento</h2>
+      <ul>
+        <li><strong>Art. 103.1 CE:</strong> servicio objetivo a los intereses generales.</li>
+        <li><strong>Art. 58 Ley 39/2015:</strong> iniciacion de oficio.</li>
+        <li><strong>Art. 71 Ley 39/2015:</strong> impulso de oficio.</li>
+        <li><strong>Art. 75 Ley 39/2015:</strong> instruccion de oficio.</li>
+      </ul>
+    </section>
+
+    <section id="manifestaciones" class="block">
+      <h2>3. Manifestaciones</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Manifestacion</th>
+              <th>Contenido</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Iniciacion de oficio</td>
+              <td>La Administracion puede abrir el procedimiento por propia iniciativa, orden superior, peticion razonada o denuncia.</td>
+            </tr>
+            <tr>
+              <td>Impulso de oficio</td>
+              <td>La Administracion hace avanzar el expediente en todos sus tramites.</td>
+            </tr>
+            <tr>
+              <td>Instruccion de oficio</td>
+              <td>El organo tramitador practica actuaciones para conocer y comprobar los hechos relevantes.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="claves" class="block">
+      <h2>4. Claves de examen</h2>
+      <div class="cols">
+        <article class="mini-card">
+          <h3>Que implica</h3>
+          <p>Direccion activa del expediente por la Administracion.</p>
+        </article>
+        <article class="mini-card">
+          <h3>Que persigue</h3>
+          <p>Evitar paralizacion y asegurar una base suficiente para resolver.</p>
+        </article>
+        <article class="mini-card">
+          <h3>Que no excluye</h3>
+          <p>Alegaciones, prueba, audiencia, contradiccion y recursos del interesado.</p>
+        </article>
+        <article class="mini-card">
+          <h3>Como formularlo</h3>
+          <p>Principio de direccion publica del procedimiento dentro de la legalidad.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="limites" class="block">
+      <h2>5. Limites</h2>
+      <p>
+        La oficialidad no permite actuar sin competencia ni sin respetar las garantias procedimentales. La Administracion
+        puede dirigir el expediente, pero debe hacerlo con <strong>legalidad, objetividad y respeto al derecho de
+        defensa</strong>.
+      </p>
+      <blockquote>
+        <p>
+          Oficialidad no equivale a autoritarismo procedimental. Equivale a iniciativa y responsabilidad administrativa
+          con garantias.
+        </p>
+      </blockquote>
+    </section>
+
+    <section id="repaso" class="note">
+      <h2>6. Repaso final</h2>
+      <p>
+        <strong>Definicion corta:</strong> el principio de oficialidad obliga a la Administracion a asumir la iniciativa
+        y direccion del procedimiento, pudiendo iniciarlo de oficio, impulsandolo en todos sus tramites e instruyendolo
+        para conocer los hechos y resolver.
+      </p>
+      <ul>
+        <li>Preceptos clave: <strong>58, 71 y 75 de la Ley 39/2015</strong>.</li>
+        <li>Manifestaciones: iniciacion, impulso e instruccion de oficio.</li>
+        <li>No suprime la posicion juridica del interesado.</li>
+        <li>Busca una decision fundada y evita la inercia administrativa.</li>
+      </ul>
+      <p class="footer">Resumen orientado a memorizacion y repaso rapido del punto 4.2.</p>
+    </section>
+
+    <section class="sources">
+      <h2>Normas basicas de referencia</h2>
+      <ul>
+        <li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229" target="_blank" rel="noopener noreferrer">Constitucion Espanola</a></li>
+        <li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2015-10565" target="_blank" rel="noopener noreferrer">Ley 39/2015, del Procedimiento Administrativo Comun</a></li>
+        <li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2015-10566" target="_blank" rel="noopener noreferrer">Ley 40/2015, de Regimen Juridico del Sector Publico</a></li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

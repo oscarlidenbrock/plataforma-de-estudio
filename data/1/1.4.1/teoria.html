@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tema 1.4.1 - Principio de eficacia</title>
+  <style>
+    :root {
+      --bg: #eef3f9;
+      --surface: #ffffff;
+      --surface-alt: #f6f9fd;
+      --ink: #18212f;
+      --muted: #5f6b7a;
+      --accent: #1f6feb;
+      --border: #d7dee8;
+      --quote: #0f1723;
+      --shadow: 0 18px 40px rgba(24, 33, 47, 0.08);
+      --max: 980px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background: linear-gradient(180deg, #f4f7fb 0%, #eef3f9 100%);
+      color: var(--ink);
+      line-height: 1.7;
+    }
+    .page {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 32px auto 56px;
+    }
+    .hero, .block, .note, .sources {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+    .hero { padding: 36px; margin-bottom: 24px; }
+    .eyebrow {
+      margin: 0 0 8px;
+      font: 700 12px/1.2 Arial, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+    }
+    h1, h2, h3 { margin: 0; line-height: 1.15; color: #10203a; }
+    h1 { font-size: clamp(2.2rem, 4vw, 3.3rem); margin-bottom: 16px; }
+    h2 { font-size: 1.8rem; margin-bottom: 18px; }
+    h3 { font-size: 1.25rem; margin-bottom: 12px; }
+    p { margin: 0 0 16px; font-size: 1.07rem; }
+    .lead { font-size: 1.18rem; color: #2a3950; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: start;
+      margin-top: 28px;
+    }
+    .hero-card, .mini-card {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+    }
+    .hero-card ul, .block ul, .block ol, .sources ul { margin: 0; padding-left: 22px; }
+    .hero-card li, .block li, .sources li { margin-bottom: 10px; }
+    .illustration {
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      display: block;
+      background: #fff;
+    }
+    .toc {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 18px;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-family: Arial, sans-serif;
+      font-size: 0.96rem;
+    }
+    .toc a, .sources a { color: #184f9c; text-decoration: none; }
+    .toc a:hover, .sources a:hover { text-decoration: underline; }
+    .block, .note, .sources { padding: 30px; margin-bottom: 24px; }
+    .callout {
+      margin: 22px 0;
+      padding: 18px 20px;
+      border-left: 4px solid var(--accent);
+      background: #f4f8ff;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+    blockquote {
+      margin: 24px 0;
+      padding: 24px 26px;
+      background: var(--quote);
+      color: #eef5ff;
+      border-radius: 14px;
+      font-size: 1.08rem;
+    }
+    blockquote p:last-child { margin-bottom: 0; }
+    .cols {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+    .table-wrap { overflow-x: auto; margin-top: 18px; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.98rem; }
+    th, td { border: 1px solid var(--border); padding: 12px 14px; vertical-align: top; }
+    th {
+      background: #edf4ff;
+      text-align: left;
+      font-family: Arial, sans-serif;
+      font-size: 0.95rem;
+    }
+    .note { background: #f7fbff; }
+    .note strong { color: #123e7c; }
+    .footer {
+      margin-top: 12px;
+      font-size: 0.94rem;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+    }
+    @media (max-width: 820px) {
+      .hero-grid, .cols, .toc { grid-template-columns: 1fr; }
+      .hero, .block, .note, .sources { padding: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <p class="eyebrow">Tema 1 - Punto 4.1</p>
+      <h1>Principio de eficacia</h1>
+      <p class="lead">
+        El <strong>principio de eficacia</strong> exige que la Administracion no se limite a tramitar formalmente un
+        expediente, sino que actue de forma que el procedimiento <strong>sirva realmente para alcanzar el fin publico que
+        la ley persigue</strong>, dentro de plazo, con orden, sin demoras inutiles y con una respuesta util para el
+        ciudadano y para el interes general.
+      </p>
+      <blockquote>
+        <p>
+          Idea central de examen: <strong>ser eficaz no es resolver de cualquier manera</strong>, sino
+          <strong>obtener el resultado juridicamente debido</strong> con sometimiento pleno a la ley, a las garantias del
+          procedimiento y a los derechos del interesado.
+        </p>
+      </blockquote>
+      <div class="hero-grid">
+        <div class="hero-card">
+          <h3>Lo primero que debes fijar</h3>
+          <ul>
+            <li>Su base general esta en el <strong>art. 103.1 CE</strong> y en el <strong>art. 3 de la Ley 40/2015</strong>.</li>
+            <li>En la <strong>Ley 39/2015</strong> se traduce en tecnicas concretas: resolver en plazo, impulsar de oficio, concentrar tramites y simplificar.</li>
+            <li>No se confunde con la <strong>eficiencia</strong>: eficacia mira al logro del fin; eficiencia, al uso racional de medios y costes.</li>
+            <li>No autoriza a sacrificar audiencia, motivacion, prueba o defensa. La eficacia es <strong>compatible con la legalidad</strong>, no alternativa a ella.</li>
+          </ul>
+        </div>
+        <img class="illustration" src="principio-eficacia-esquema.svg" alt="Esquema sobre el principio de eficacia en el procedimiento administrativo">
+      </div>
+      <nav class="toc" aria-label="Indice de contenidos">
+        <a href="#concepto">1. Concepto y sentido</a>
+        <a href="#fundamento">2. Fundamento normativo</a>
+        <a href="#distinguir">3. Eficacia, eficiencia y celeridad</a>
+        <a href="#proyeccion">4. Proyeccion en la Ley 39/2015</a>
+        <a href="#manifestaciones">5. Manifestaciones practicas</a>
+        <a href="#limites">6. Limites y garantias</a>
+        <a href="#efectos">7. Consecuencias juridicas</a>
+        <a href="#ejemplos">8. Ejemplos de examen</a>
+        <a href="#preguntas">9. Preguntas tipicas</a>
+        <a href="#sintesis">10. Sintesis final</a>
+      </nav>
+    </section>
+
+    <section id="concepto" class="block">
+      <h2>1. Concepto y sentido</h2>
+      <p>
+        El principio de eficacia forma parte de los <strong>principios rectores de la actuacion administrativa</strong>.
+        Desde la perspectiva del procedimiento, significa que la organizacion y la tramitacion deben orientarse a que la
+        Administracion <strong>cumpla la finalidad legal</strong> que justifica su intervencion y lo haga de forma util,
+        ordenada y tempestiva.
+      </p>
+      <p>
+        No basta con que el expediente exista y avance. La eficacia exige que el procedimiento produzca una
+        <strong>decision valida, util y apta para satisfacer el interes general</strong>. Por eso conecta tanto con el
+        contenido final de la resolucion como con la manera de tramitarla.
+      </p>
+      <div class="callout">
+        <strong>Formula breve para memorizar:</strong> eficacia es <em>capacidad de la Administracion para lograr el fin
+        legal mediante una actuacion procedimental util, ordenada y en plazo</em>.
+      </div>
+      <p>
+        En oposiciones conviene entenderlo como un principio de doble vertiente: por un lado, obliga a la
+        Administracion a <strong>actuar de verdad</strong> y no quedarse inerte; por otro, la obliga a actuar
+        <strong>bien orientada</strong>, evitando formalismos vacios, duplicidades, retrasos y tramites que no aportan
+        nada al resultado final.
+      </p>
+    </section>
+
+    <section id="fundamento" class="block">
+      <h2>2. Fundamento normativo</h2>
+      <p>
+        El principio de eficacia no es una creacion doctrinal aislada. Tiene una <strong>base constitucional y legal
+        directa</strong>.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Norma</th>
+              <th>Contenido relevante</th>
+              <th>Importancia para este punto</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Art. 103.1 CE</td>
+              <td>La Administracion sirve con objetividad los intereses generales y actua de acuerdo con el principio de eficacia.</td>
+              <td>Es el fundamento constitucional del principio.</td>
+            </tr>
+            <tr>
+              <td>Art. 3.1 Ley 40/2015</td>
+              <td>Reitera la eficacia e incorpora ideas de agilidad, simplificacion, direccion por objetivos y evaluacion de resultados.</td>
+              <td>Conecta eficacia con organizacion, gestion y servicio efectivo a los ciudadanos.</td>
+            </tr>
+            <tr>
+              <td>Ley 39/2015</td>
+              <td>Proyecta el principio sobre la tramitacion comun: plazos, impulso de oficio, concentracion de tramites, subsanacion y resolucion expresa.</td>
+              <td>Es la concrecion procedimental que interesa para estudio.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <blockquote>
+        <p>
+          El principio de eficacia se entiende bien si se vincula al servicio objetivo al interes general:
+          <strong>la Administracion esta para resolver y servir, no para bloquear, duplicar o eternizar tramites</strong>.
+        </p>
+      </blockquote>
+      <p>
+        La eficacia tambien enlaza con otros principios del art. 3 de la Ley 40/2015, como la
+        <strong>simplicidad, claridad, proximidad a los ciudadanos, racionalizacion y agilidad</strong>. Todos ellos
+        funcionan como expresiones complementarias de una misma exigencia: que la maquinaria administrativa produzca
+        resultados juridicos utiles.
+      </p>
+    </section>
+
+    <section id="distinguir" class="block">
+      <h2>3. Eficacia, eficiencia y celeridad</h2>
+      <p>
+        Uno de los errores mas frecuentes es mezclar estos conceptos como si fueran sinonimos. Estan relacionados, pero
+        <strong>no significan exactamente lo mismo</strong>.
+      </p>
+      <div class="cols">
+        <article class="mini-card">
+          <h3>Eficacia</h3>
+          <p>Se centra en <strong>alcanzar el resultado debido</strong>. La pregunta es: la actuacion administrativa ha servido para cumplir el fin legal?</p>
+        </article>
+        <article class="mini-card">
+          <h3>Eficiencia</h3>
+          <p>Se fija en la <strong>relacion entre medios y resultados</strong>. Busca hacerlo bien con el menor coste o consumo posible de recursos.</p>
+        </article>
+        <article class="mini-card">
+          <h3>Celeridad</h3>
+          <p>Apunta a la <strong>rapidez en la tramitacion</strong>. Es un componente de la eficacia, pero no la agota.</p>
+        </article>
+        <article class="mini-card">
+          <h3>Simplificacion</h3>
+          <p>Persigue que el procedimiento elimine pasos inutiles y agrupe tramites cuando sea posible.</p>
+        </article>
+      </div>
+      <p>
+        De este modo, una actuacion puede ser rapida pero poco eficaz si resuelve mal o deja sin satisfacer el fin legal;
+        tambien puede ser eficaz pero poco eficiente si consume recursos desproporcionados. En el procedimiento
+        administrativo, el objetivo es la <strong>combinacion razonable</strong> de todas estas exigencias.
+      </p>
+      <div class="callout">
+        <strong>Regla de examen:</strong> la celeridad es una manifestacion de la eficacia; la eficiencia es un principio
+        proximo, pero distinto; ninguno puede justificar la lesion de garantias esenciales.
+      </div>
+    </section>
+
+    <section id="proyeccion" class="block">
+      <h2>4. Proyeccion del principio en la Ley 39/2015</h2>
+      <p>
+        La Ley 39/2015 no suele formular el principio de eficacia en un unico articulo definitorio, sino que
+        <strong>lo despliega a traves de tecnicas concretas de ordenacion del procedimiento</strong>.
+      </p>
+      <ol>
+        <li><strong>Obligacion de resolver expresamente</strong>: el procedimiento debe terminar con decision, no con inactividad sistematica.</li>
+        <li><strong>Plazo maximo para resolver y notificar</strong>: la eficacia exige respuesta tempestiva.</li>
+        <li><strong>Impulso de oficio</strong>: la Administracion no puede trasladar al ciudadano el peso de mover el expediente.</li>
+        <li><strong>Concentracion de tramites</strong>: se agrupan actuaciones compatibles para evitar dispersion y retrasos.</li>
+        <li><strong>Subsanacion y mejora de solicitudes</strong>: antes que bloquear el procedimiento por defectos corregibles, la ley orienta a su correccion.</li>
+        <li><strong>Tramitacion electronica</strong>: instrumento para ordenar, agilizar y dar continuidad al procedimiento.</li>
+      </ol>
+      <p>
+        En consecuencia, la eficacia no es una idea abstracta o retorica: aparece en la ley como
+        <strong>mandato de configuracion procedimental</strong>. La estructura del procedimiento comun esta construida
+        para que la Administracion pueda decidir de manera util y sin dilaciones indebidas.
+      </p>
+    </section>
+
+    <section id="manifestaciones" class="block">
+      <h2>5. Manifestaciones practicas en la tramitacion</h2>
+      <h3>5.1. Resolver expresamente y en plazo</h3>
+      <p>
+        La primera exigencia de eficacia es elemental: <strong>resolver</strong>. La inactividad administrativa frustra el
+        fin del procedimiento y perjudica tanto al interes general como al administrado. Por eso la Ley 39/2015 impone
+        la obligacion de dictar resolucion expresa y notificarla dentro del plazo maximo.
+      </p>
+      <p>
+        Esta exigencia enlaza con el deber de buena administracion: el ciudadano no solo tiene derecho a presentar
+        solicitudes, sino a obtener una <strong>respuesta juridica</strong>.
+      </p>
+
+      <h3>5.2. Impulso de oficio</h3>
+      <p>
+        El <strong>art. 71 de la Ley 39/2015</strong> conecta el procedimiento con el principio de celeridad y dispone
+        que se impulsara <strong>de oficio en todos sus tramites</strong> y a traves de medios electronicos, respetando
+        transparencia y publicidad. Aqui la eficacia se traduce en una idea muy importante: la Administracion
+        <strong>es la responsable principal de hacer avanzar el expediente</strong>.
+      </p>
+      <p>
+        Esto evita que el procedimiento quede paralizado por pura pasividad interna. La ley tambien exige guardar
+        <strong>orden riguroso de incoacion</strong> en asuntos de naturaleza homogenea y atribuye responsabilidad directa
+        a quienes tramitan el procedimiento por el cumplimiento de los plazos.
+      </p>
+
+      <h3>5.3. Concentracion de tramites</h3>
+      <p>
+        El <strong>art. 72 de la Ley 39/2015</strong> dispone que, conforme al principio de simplificacion
+        administrativa, se acordaran en un solo acto los tramites que admitan impulso simultaneo y no exijan cumplimiento
+        sucesivo. Es una regla claramente funcional: <strong>si varios tramites pueden hacerse juntos, deben hacerse
+        juntos</strong>.
+      </p>
+      <p>
+        Con ello se reducen tiempos muertos, notificaciones innecesarias y fragmentacion artificial del expediente.
+      </p>
+
+      <h3>5.4. Subsanacion y mejora</h3>
+      <p>
+        El <strong>art. 68 de la Ley 39/2015</strong> permite requerir la subsanacion de defectos en la solicitud. Desde
+        la perspectiva de la eficacia, esta tecnica impide que errores formales reparables provoquen de entrada el fracaso
+        del procedimiento. La idea no es premiar la informalidad, sino <strong>favorecer la decision sobre el fondo</strong>
+        cuando ello sea juridicamente posible.
+      </p>
+
+      <h3>5.5. Actos de instruccion y averiguacion de hechos</h3>
+      <p>
+        Los actos de instruccion se realizan de oficio por el organo que tramite el procedimiento. Esto significa que la
+        Administracion debe reunir los elementos necesarios para una decision correcta. La eficacia no consiste solo en
+        correr, sino en <strong>tramitar con la informacion suficiente para resolver bien</strong>.
+      </p>
+    </section>
+
+    <section id="limites" class="block">
+      <h2>6. Limites y garantias</h2>
+      <p>
+        El principio de eficacia tiene gran importancia, pero <strong>no es un superprincipio que permita ignorar el
+        resto del ordenamiento</strong>. Debe convivir con legalidad, objetividad, igualdad, contradiccion, audiencia,
+        motivacion y defensa.
+      </p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Lo que la eficacia permite</th>
+              <th>Lo que la eficacia no permite</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Agilizar, simplificar, impulsar y ordenar el expediente.</td>
+              <td>Suprimir tramites esenciales o prescindir totalmente del procedimiento.</td>
+            </tr>
+            <tr>
+              <td>Corregir defectos subsanables y evitar formalismos vacios.</td>
+              <td>Desatender derechos de audiencia, prueba o alegaciones.</td>
+            </tr>
+            <tr>
+              <td>Priorizar una gestion util y orientada a resultados.</td>
+              <td>Resolver arbitrariamente o sin motivacion suficiente.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <blockquote>
+        <p>
+          Una Administracion no es mas eficaz por recortar garantias, sino por
+          <strong>resolver mejor, antes y dentro de la ley</strong>.
+        </p>
+      </blockquote>
+      <p>
+        Desde esta optica, la eficacia debe interpretarse como un <strong>principio de buena administracion</strong>:
+        exige utilidad real de la actuacion publica, pero siempre dentro de las formas y garantias que el propio Estado
+        de Derecho considera necesarias.
+      </p>
+    </section>
+
+    <section id="efectos" class="block">
+      <h2>7. Consecuencias juridicas del principio</h2>
+      <p>
+        El principio de eficacia produce efectos practicos de gran interes para examen:
+      </p>
+      <ul>
+        <li><strong>Obliga a estructurar procedimientos utiles</strong>, no meramente rituales.</li>
+        <li><strong>Refuerza el deber de resolver</strong> y el cumplimiento de plazos.</li>
+        <li><strong>Justifica tecnicas de simplificacion</strong>, acumulacion y tramitacion electronica.</li>
+        <li><strong>Permite interpretar las normas procedimentales</strong> en sentido favorable a una decision de fondo cuando no se lesionen garantias.</li>
+        <li><strong>Sirve de criterio para exigir responsabilidad</strong> por retrasos, desorden o paralizacion injustificada.</li>
+      </ul>
+      <p>
+        Ahora bien, su infraccion no siempre genera por si sola nulidad del acto. Habra que examinar si el defecto ha
+        causado <strong>indefension, omision de tramite esencial, lesion de derechos o incumplimiento sustancial de la
+        legalidad procedimental</strong>.
+      </p>
+      <div class="callout">
+        <strong>Matiz importante:</strong> la falta de eficacia puede traducirse en retraso, funcionamiento anormal,
+        responsabilidad disciplinaria o patrimonial, pero no toda ineficacia equivale automaticamente a invalidez del acto.
+      </div>
+    </section>
+
+    <section id="ejemplos" class="block">
+      <h2>8. Ejemplos practicos para fijar la idea</h2>
+      <ol>
+        <li><strong>Expediente que duerme meses sin movimiento</strong>: se vulnera la idea de impulso de oficio y se resiente la eficacia del procedimiento.</li>
+        <li><strong>Solicitud con un defecto documental menor</strong>: requerir subsanacion es mas acorde con la eficacia que cerrar el paso sin mas.</li>
+        <li><strong>Varios tramites compatibles separados artificialmente</strong>: se incumple la logica de concentracion y se alarga innecesariamente la tramitacion.</li>
+        <li><strong>Resolucion muy rapida pero sin audiencia obligatoria</strong>: no hay verdadera eficacia juridica, porque la rapidez se ha obtenido lesionando garantias.</li>
+        <li><strong>Decision bien fundada y dentro de plazo</strong>: es la expresion normal del principio de eficacia correctamente aplicado.</li>
+      </ol>
+      <p>
+        En todos estos casos debes razonar siempre igual: identificar el <strong>fin del procedimiento</strong>, analizar
+        si la tramitacion ha sido apta para alcanzarlo y comprobar si se han respetado las garantias que la ley impone.
+      </p>
+    </section>
+
+    <section id="preguntas" class="block">
+      <h2>9. Preguntas tipicas de examen y enfoque de respuesta</h2>
+      <h3>9.1. Que es el principio de eficacia?</h3>
+      <p>
+        Debes definirlo como la exigencia de que la Administracion oriente su actuacion a la consecucion efectiva del fin
+        legal, mediante una tramitacion util, agil y ordenada, con sometimiento a la ley y al Derecho.
+      </p>
+      <h3>9.2. Donde se recoge?</h3>
+      <p>
+        En el <strong>art. 103.1 de la Constitucion</strong> y en el <strong>art. 3 de la Ley 40/2015</strong>; en la
+        Ley 39/2015 se manifiesta en reglas como la resolucion en plazo, el impulso de oficio y la concentracion de
+        tramites.
+      </p>
+      <h3>9.3. Se puede sacrificar la audiencia por eficacia?</h3>
+      <p>
+        No. La eficacia no legitima la supresion de tramites esenciales ni la indefension. Es un principio de
+        <strong>mejor administracion dentro de la legalidad</strong>, no una excusa para apartarse de ella.
+      </p>
+      <h3>9.4. Que diferencia hay entre eficacia y eficiencia?</h3>
+      <p>
+        La eficacia se refiere al <strong>cumplimiento del fin</strong>; la eficiencia, al <strong>empleo racional de los
+        medios</strong> para alcanzar ese fin.
+      </p>
+    </section>
+
+    <section id="sintesis" class="note">
+      <h2>10. Sintesis final para estudio</h2>
+      <p>
+        <strong>Definicion util:</strong> el principio de eficacia obliga a la Administracion a conducir el procedimiento
+        de manera que se alcance el resultado legalmente debido, con una respuesta expresa, en plazo, por medio de una
+        tramitacion ordenada, agil y util para el interes general.
+      </p>
+      <ul>
+        <li>su fundamento general esta en el <strong>art. 103.1 CE</strong> y en el <strong>art. 3 de la Ley 40/2015</strong>;</li>
+        <li>en la <strong>Ley 39/2015</strong> se proyecta en resolver, impulsar de oficio, concentrar tramites y subsanar defectos;</li>
+        <li>se relaciona con celeridad y simplificacion, pero no se identifica sin mas con ellas;</li>
+        <li>no permite eliminar garantias esenciales ni actuar arbitrariamente;</li>
+        <li>debe memorizarse como un principio de <strong>resultado util dentro de la legalidad procedimental</strong>.</li>
+      </ul>
+      <p>
+        <strong>Formula corta para retener:</strong> <em>eficacia es resolver bien, a tiempo y conforme a Derecho</em>.
+      </p>
+    </section>
+
+    <section class="sources">
+      <h2>Base normativa y referencias</h2>
+      <p>
+        Esta pagina sintetiza el principio de eficacia desde una perspectiva de estudio, tomando como eje el marco
+        constitucional y la regulacion del procedimiento administrativo comun.
+      </p>
+      <ul>
+        <li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-1978-31229" target="_blank" rel="noopener noreferrer">Constitucion Espanola, art. 103.1</a>.</li>
+        <li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2015-10566" target="_blank" rel="noopener noreferrer">Ley 40/2015, de Regimen Juridico del Sector Publico, art. 3</a>.</li>
+        <li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2015-10565" target="_blank" rel="noopener noreferrer">Ley 39/2015, del Procedimiento Administrativo Comun de las Administraciones Publicas</a>, con especial interes en los arts. 21, 68, 71 y 72.</li>
+      </ul>
+      <p class="footer">Contenido redactado para el punto 4.1 del Tema 1, con enfoque de oposicion y apoyo en BOE.</p>
+    </section>
+  </main>
+</body>
+</html>
