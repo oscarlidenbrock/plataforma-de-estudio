@@ -2,6 +2,9 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Oposición Ley 39/2015</title>
   <link rel="icon" type="image/svg+xml" href="resources/favicon.svg">
@@ -146,6 +149,7 @@
         <p id="topic-description" class="content__description">
           Pulsa sobre cualquier tema del menú lateral para ver sus secciones.
         </p>
+        <div id="topic-sections-bar" class="topic-sections-bar" hidden aria-label="Secciones del tema actual"></div>
         <div id="section-toolbar" class="content-viewer__toolbar content-viewer__toolbar--standalone" hidden>
           <p id="content-viewer-label" class="content-viewer__label">Contenido</p>
           <div class="content-viewer__actions">
@@ -198,12 +202,14 @@
         <section id="quiz-viewer" class="quiz-viewer" hidden>
           <div class="quiz-stats" aria-label="Estado del cuestionario">
             <article class="quiz-stat quiz-stat--timer">
-              <p class="quiz-stat__label">Tiempo restante</p>
+              <span class="quiz-stat__icon" aria-hidden="true">
+                <i class="fa-solid fa-clock"></i>
+              </span>
               <p id="quiz-timer" class="quiz-stat__value quiz-stat__value--timer">00:30</p>
             </article>
             <article class="quiz-progress-track" aria-label="Progreso del cuestionario">
               <div class="quiz-progress-track__header">
-                <p class="quiz-stat__label">Resultado por pregunta</p>
+                <p class="quiz-stat__label">Resultados</p>
               </div>
               <div id="quiz-question-track" class="quiz-progress-track__segments"></div>
             </article>
@@ -271,6 +277,9 @@
               </div>
             </div>
           </div>
+        </section>
+        <section id="statistics-viewer" class="statistics-viewer" hidden>
+          <div class="statistics-viewer__empty"></div>
         </section>
       </section>
     </main>
@@ -761,3 +770,4 @@
   </script>
 </body>
 </html>
+

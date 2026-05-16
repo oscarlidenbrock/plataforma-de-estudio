@@ -7,6 +7,7 @@ const mobileMenuCloseButton = document.querySelector("#mobile-menu-close");
 const contentEyebrow = document.querySelector(".content__eyebrow");
 const topicTitle = document.querySelector("#topic-title");
 const topicDescription = document.querySelector("#topic-description");
+const topicSectionsBar = document.querySelector("#topic-sections-bar");
 const topicProgress = document.querySelector("#topic-progress");
 const topicProgressCount = document.querySelector("#topic-progress-count");
 const topicProgressNav = document.querySelector("#topic-progress-nav");
@@ -42,6 +43,7 @@ const quizRestartButton = document.querySelector("#quiz-restart-button");
 const errorsViewer = document.querySelector("#errors-viewer");
 const errorsCompleteErrors = document.querySelector("#errors-complete-errors");
 const errorsCompleteErrorsList = document.querySelector("#errors-complete-errors-list");
+const statisticsViewer = document.querySelector("#statistics-viewer");
 
 const topicEntries = [];
 const questionRenderers = {
@@ -50,7 +52,7 @@ const questionRenderers = {
   "completar frase": renderFillBlankQuestion,
   "relacionar": renderMatchingQuestion
 };
-const SECTION_PRIORITY = ["teoria", "resumen", "preguntas", "revisar errores"];
+const SECTION_PRIORITY = ["teoria", "resumen", "preguntas", "repaso", "revisar errores", "estadísticas", "estadisticas"];
 const LAST_SECTION_COOKIE = "oposicion_last_section";
 const COOKIE_MAX_AGE = 60 * 60 * 24 * 365;
 
@@ -65,9 +67,11 @@ let activeSectionKey = null;
 let currentSection = null;
 let completionState = {};
 let failedQuestionState = {};
+let statsState = { topics: {} };
 let quizState = null;
 let quizTimerId = null;
 let quizSessionSeed = null;
+const expandedBranchKeys = new Set();
 
 function isMobileLayout() {
   return window.matchMedia("(max-width: 980px)").matches;
@@ -135,6 +139,10 @@ function hideErrorsViewer() {
   errorsCompleteErrorsList.innerHTML = "";
 }
 
+function hideStatisticsViewer() {
+  statisticsViewer.hidden = true;
+}
+
 function hideTopicProgress() {
   topicProgress.hidden = true;
   topicProgressNav.innerHTML = "";
@@ -155,6 +163,7 @@ function hideAllContentModes() {
   hideContentViewer();
   hideQuizViewer();
   hideErrorsViewer();
+  hideStatisticsViewer();
 }
 
 function formatSeconds(value) {
@@ -216,11 +225,40 @@ async function saveCompletionState(action, payload) {
     throw new Error(`No se pudo guardar el progreso (${response.status})`);
   }
 
-  return response.json();
+  const result = await response.json();
+  syncProgressStateFromResponse(result);
+  return result;
 }
 
 function normalizeFailedQuestionsState(data) {
   return data && typeof data === "object" ? data : {};
+}
+
+function normalizeStatsState(data) {
+  if (!data || typeof data !== "object") {
+    return { topics: {} };
+  }
+
+  const topics = data.topics && typeof data.topics === "object" ? data.topics : {};
+  return { ...data, topics };
+}
+
+function syncProgressStateFromResponse(data) {
+  if (!data || typeof data !== "object") {
+    return;
+  }
+
+  if (data.items && typeof data.items === "object") {
+    completionState = data.items;
+  }
+
+  if (data.failedQuestions && typeof data.failedQuestions === "object") {
+    failedQuestionState = normalizeFailedQuestionsState(data.failedQuestions);
+  }
+
+  if (data.stats && typeof data.stats === "object") {
+    statsState = normalizeStatsState(data.stats);
+  }
 }
 
 function getQuestionStorageKey(sourceLink, question) {
@@ -331,13 +369,15 @@ function renderAbcdQuestion(question) {
   const shuffledOptions = shuffleArray(question.opciones);
 
   shuffledOptions.forEach((option, optionIndex) => {
+    const optionBadge = optionBadges[optionIndex] || option.id.toUpperCase();
     const optionButton = document.createElement("button");
     optionButton.type = "button";
     optionButton.className = "quiz-option";
+    optionButton.dataset.shortcut = optionBadge.toLowerCase();
     optionButton.setAttribute("role", "listitem");
     optionButton.innerHTML = `
       <span class="quiz-option__radio" aria-hidden="true"></span>
-      <span class="quiz-option__badge">${optionBadges[optionIndex] || option.id.toUpperCase()}</span>
+      <span class="quiz-option__badge">${optionBadge}</span>
       <span class="quiz-option__text">${option.texto}</span>
     `;
     optionButton.addEventListener("click", () => handleAnswerSelection(option));
@@ -360,13 +400,15 @@ function renderTrueFalseQuestion(question) {
   ]);
 
   options.forEach((option) => {
+    const optionBadge = option.texto.charAt(0);
     const optionButton = document.createElement("button");
     optionButton.type = "button";
     optionButton.className = "quiz-option";
+    optionButton.dataset.shortcut = optionBadge.toLowerCase();
     optionButton.setAttribute("role", "listitem");
     optionButton.innerHTML = `
       <span class="quiz-option__radio" aria-hidden="true"></span>
-      <span class="quiz-option__badge">${option.texto.charAt(0)}</span>
+      <span class="quiz-option__badge">${optionBadge}</span>
       <span class="quiz-option__text">${option.texto}</span>
     `;
     optionButton.addEventListener("click", () => handleAnswerSelection(option));
@@ -512,10 +554,20 @@ function renderMatchingQuestion(question) {
       return;
     }
 
+    const question = quizState.questions[quizState.currentIndex];
     hasCompleted = true;
     clearQuizTimer();
     quizState.correctCount += 1;
     quizState.answerStatuses[quizState.currentIndex] = "correct";
+    recordQuizAnswerStat({
+      topic: quizState.topic,
+      section: quizState.section,
+      isCorrect: true,
+      isCorrection: quizState.mode === "review"
+    }).catch(() => {});
+    if (quizState.mode === "review") {
+      persistReviewQuestionSuccess(question).catch(() => {});
+    }
     updateQuizStats();
     window.setTimeout(() => {
       goToNextQuestion();
@@ -551,6 +603,11 @@ function renderMatchingQuestion(question) {
     isLocked = true;
     selectedLeftButton.classList.add("is-wrong");
     selectedRightButton.classList.add("is-wrong");
+    const hasExpired = penalizeQuestionTime(10);
+
+    if (hasExpired) {
+      return;
+    }
 
     window.setTimeout(() => {
       if (selectedLeftButton) {
@@ -567,12 +624,21 @@ function renderMatchingQuestion(question) {
   }
 
   function buildRelationButton(item, side) {
+    const shortcutNumber = side === "left"
+      ? leftItems.findIndex((candidate) => candidate.id === item.id && candidate.text === item.text) + 1
+      : leftItems.length + rightItems.findIndex((candidate) => candidate.id === item.id && candidate.text === item.text) + 1;
     const button = document.createElement("button");
     button.type = "button";
     button.className = "quiz-match__item";
     button.dataset.relationId = item.id;
     button.dataset.side = side;
-    button.textContent = item.text;
+    button.dataset.shortcut = String(shortcutNumber);
+    button.innerHTML = `
+      <span class="quiz-match__item-content">
+        <span class="quiz-option__badge">${shortcutNumber}</span>
+        <span class="quiz-match__item-text">${item.text}</span>
+      </span>
+    `;
     button.addEventListener("click", () => {
       if (isLocked || button.dataset.matched === "true") {
         return;
@@ -620,6 +686,23 @@ function renderMatchingQuestion(question) {
 
   container.append(leftColumn, rightColumn);
   quizOptions.appendChild(container);
+}
+
+function penalizeQuestionTime(seconds) {
+  if (!quizState || quizState.isFeedbackVisible) {
+    return false;
+  }
+
+  quizState.remainingSeconds = Math.max(0, quizState.remainingSeconds - seconds);
+  updateQuizStats();
+
+  if (quizState.remainingSeconds === 0) {
+    clearQuizTimer();
+    handleTimeExpired();
+    return true;
+  }
+
+  return false;
 }
 
 function startQuestionTimer() {
@@ -688,6 +771,48 @@ async function persistFailedQuestions(wrongQuestionRecords) {
   refreshSidebarAfterQuestionStateChange();
 }
 
+function refreshStatisticsPanelIfVisible() {
+  if (!activeEntry || activeSectionKey !== getStatisticsSectionKey(activeEntry.themeIndex, activeEntry.topicIndex)) {
+    return;
+  }
+
+  const topic = syllabus[activeEntry.themeIndex]?.topics?.[activeEntry.topicIndex];
+
+  if (topic) {
+    renderStatisticsPanel(topic);
+  }
+}
+
+async function recordQuizAnswerStat({ topic, section, isCorrect, isCorrection = false }) {
+  if (!topic || !section) {
+    return;
+  }
+
+  await saveCompletionState("record_quiz_answer", {
+    themeTitle: syllabus[activeEntry?.themeIndex ?? 0]?.title || "",
+    topicTitle: topic.title,
+    sectionLabel: section.label,
+    sourceLink: section.link,
+    isCorrect,
+    isCorrection
+  });
+  refreshStatisticsPanelIfVisible();
+}
+
+async function recordQuizCompletionStat(topic, section) {
+  if (!topic || !section) {
+    return;
+  }
+
+  await saveCompletionState("record_quiz_completion", {
+    themeTitle: syllabus[activeEntry?.themeIndex ?? 0]?.title || "",
+    topicTitle: topic.title,
+    sectionLabel: section.label,
+    sourceLink: section.link
+  });
+  refreshStatisticsPanelIfVisible();
+}
+
 async function persistReviewQuestionSuccess(question) {
   const questionKey = question?.__failedQuestionKey || getQuestionStorageKey(quizState?.section?.link || "", question);
   const result = await saveCompletionState("mark_review_question_correct", {
@@ -704,6 +829,7 @@ async function deleteFailedQuestion(questionKey, topic) {
   failedQuestionState = normalizeFailedQuestionsState(result.failedQuestions);
   refreshSidebarAfterQuestionStateChange();
   renderErrorsPanel(topic);
+  refreshStatisticsPanelIfVisible();
 }
 
 function handleAnswerSelection(selectedOption) {
@@ -723,6 +849,12 @@ function handleAnswerSelection(selectedOption) {
   if (selectedOption.correcta) {
     quizState.correctCount += 1;
     quizState.answerStatuses[quizState.currentIndex] = "correct";
+    recordQuizAnswerStat({
+      topic: quizState.topic,
+      section: quizState.section,
+      isCorrect: true,
+      isCorrection: quizState.mode === "review"
+    }).catch(() => {});
     if (quizState.mode === "review") {
       persistReviewQuestionSuccess(question).catch(() => {});
     }
@@ -740,6 +872,12 @@ function handleAnswerSelection(selectedOption) {
 
   quizState.wrongCount += 1;
   quizState.answerStatuses[quizState.currentIndex] = "wrong";
+  recordQuizAnswerStat({
+    topic: quizState.topic,
+    section: quizState.section,
+    isCorrect: false,
+    isCorrection: false
+  }).catch(() => {});
   if (quizState.mode === "standard" && quizState.topic && quizState.section) {
     quizState.wrongQuestionRecords.push(
       buildFailedQuestionRecord(quizState.topic, quizState.section, question)
@@ -769,6 +907,12 @@ function handleTimeExpired() {
   quizState.isFeedbackVisible = true;
   quizState.wrongCount += 1;
   quizState.answerStatuses[quizState.currentIndex] = "wrong";
+  recordQuizAnswerStat({
+    topic: quizState.topic,
+    section: quizState.section,
+    isCorrect: false,
+    isCorrection: false
+  }).catch(() => {});
   if (quizState.mode === "standard" && quizState.topic && quizState.section) {
     quizState.wrongQuestionRecords.push(
       buildFailedQuestionRecord(quizState.topic, quizState.section, question)
@@ -795,6 +939,7 @@ function handleTimeExpired() {
 function completeQuiz() {
   if (quizState?.mode === "standard") {
     persistFailedQuestions(quizState.wrongQuestionRecords).catch(() => {});
+    recordQuizCompletionStat(quizState.topic, quizState.section).catch(() => {});
   }
 
   clearQuizTimer();
@@ -944,6 +1089,342 @@ function renderErrorsPanel(topic) {
   });
 }
 
+function getTopicStatsKey(themeTitle, topicTitle) {
+  return JSON.stringify([themeTitle || "", topicTitle || ""]);
+}
+
+function getTopicStatsEntry(themeIndex, topic) {
+  const themeTitle = syllabus[themeIndex]?.title || "";
+  const topicTitle = topic?.title || "";
+  return statsState.topics?.[getTopicStatsKey(themeTitle, topicTitle)] || null;
+}
+
+function formatStatisticsDate(value) {
+  if (!value) {
+    return "Sin registro";
+  }
+
+  const date = new Date(value);
+
+  if (Number.isNaN(date.getTime())) {
+    return "Sin registro";
+  }
+
+  return new Intl.DateTimeFormat("es-ES", {
+    dateStyle: "medium",
+    timeStyle: "short"
+  }).format(date);
+}
+
+function formatRelativeStatisticsTime(value) {
+  if (!value) {
+    return "Pendiente";
+  }
+
+  const date = new Date(value);
+
+  if (Number.isNaN(date.getTime())) {
+    return "Pendiente";
+  }
+
+  const diffMs = Date.now() - date.getTime();
+  const diffHours = Math.max(0, Math.floor(diffMs / (1000 * 60 * 60)));
+
+  if (diffHours < 24) {
+    return `Hace ${Math.max(1, diffHours)} hora${Math.max(1, diffHours) === 1 ? "" : "s"}`;
+  }
+
+  const diffDays = Math.floor(diffHours / 24);
+
+  if (diffDays < 7) {
+    return `Hace ${diffDays} día${diffDays === 1 ? "" : "s"}`;
+  }
+
+  const diffWeeks = Math.floor(diffDays / 7);
+  return `Hace ${diffWeeks} semana${diffWeeks === 1 ? "" : "s"}`;
+}
+
+function getStatisticsSectionKeyName(section) {
+  const normalizedLabel = normalizeSectionLabel(section?.label);
+
+  if (section?.pageType === "preguntas" || normalizedLabel === "preguntas") {
+    return "practicas";
+  }
+
+  if (normalizedLabel === "teoria") {
+    return "teoria";
+  }
+
+  if (normalizedLabel === "resumen") {
+    return "resumen";
+  }
+
+  return normalizedLabel;
+}
+
+function getStatisticsSectionDisplayName(sectionKey) {
+  if (sectionKey === "teoria") {
+    return "Teoría";
+  }
+
+  if (sectionKey === "resumen") {
+    return "Resumen";
+  }
+
+  if (sectionKey === "practicas") {
+    return "Prácticas";
+  }
+
+  return sectionKey;
+}
+
+function getTopicSectionStats(themeIndex, topic) {
+  const topicStats = getTopicStatsEntry(themeIndex, topic);
+  const lastCompletions = topicStats?.lastSectionCompletions || {};
+
+  return (Array.isArray(topic?.sections) ? topic.sections : [])
+    .filter((section) => {
+      const sectionKey = getStatisticsSectionKeyName(section);
+      return sectionKey === "teoria" || sectionKey === "resumen" || sectionKey === "practicas";
+    })
+    .map((section) => {
+      const sectionKey = getStatisticsSectionKeyName(section);
+      const currentCompletion = completionState[getSectionKey(themeIndex, activeEntry.topicIndex, section)] || null;
+      const lastCompletion = lastCompletions[sectionKey] || null;
+      const completedAt = currentCompletion?.completedAt || lastCompletion?.completedAt || null;
+
+      return {
+        key: sectionKey,
+        label: getStatisticsSectionDisplayName(sectionKey),
+        completedAt,
+        isCompleted: Boolean(currentCompletion),
+      };
+    });
+}
+
+function renderStatisticsPanel(topic) {
+  hideAllContentModes();
+  statisticsViewer.hidden = false;
+  topicDescription.textContent = topic.description || "";
+  hideSectionToolbar();
+
+  if (!activeEntry) {
+    statisticsViewer.innerHTML = '<div class="statistics-viewer__empty"></div>';
+    return;
+  }
+
+  const topicStats = getTopicStatsEntry(activeEntry.themeIndex, topic);
+  const sectionStats = getTopicSectionStats(activeEntry.themeIndex, topic);
+  const quizStats = topicStats?.quiz || {};
+  const correctAnswers = Number(quizStats.correctAnswers || 0);
+  const wrongAnswers = Number(quizStats.wrongAnswers || 0);
+  const resolvedFailedQuestions = Number(quizStats.resolvedFailedQuestions || 0);
+  const totalAnswers = Number(quizStats.totalAnswers || 0);
+  const testsCompleted = Number(quizStats.testsCompleted || 0);
+  const currentFailedQuestions = getTopicFailedQuestions(topic);
+  const totalFailedQuestions = resolvedFailedQuestions + currentFailedQuestions.length;
+  const reviewedButPendingQuestions = currentFailedQuestions.filter((entry) => Number(entry?.reviewCorrectCount || 0) > 0).length;
+  const answeredBase = Math.max(1, totalAnswers);
+  const correctPercent = Math.round((correctAnswers / answeredBase) * 100);
+  const wrongPercent = Math.round((wrongAnswers / answeredBase) * 100);
+  const correctedPercent = totalFailedQuestions > 0
+    ? Math.min(100, Math.round((resolvedFailedQuestions / totalFailedQuestions) * 100))
+    : 0;
+
+  statisticsViewer.innerHTML = `
+    <div class="statistics-dashboard">
+      <section class="statistics-panel statistics-panel--hero">
+        <div class="statistics-metric-card">
+          <p class="statistics-panel__eyebrow">Tests completados</p>
+          <p class="statistics-metric-card__value">${testsCompleted}</p>
+        </div>
+        <div class="statistics-metric-card">
+          <p class="statistics-panel__eyebrow">Preguntas respondidas</p>
+          <p class="statistics-metric-card__value">${totalAnswers}</p>
+        </div>
+        <div class="statistics-metric-card">
+          <p class="statistics-panel__eyebrow">Aciertos</p>
+          <p class="statistics-metric-card__value">${correctAnswers}</p>
+          <p class="statistics-metric-card__meta">${correctPercent}%</p>
+        </div>
+        <div class="statistics-metric-card">
+          <p class="statistics-panel__eyebrow">Fallos</p>
+          <p class="statistics-metric-card__value">${wrongAnswers}</p>
+          <p class="statistics-metric-card__meta">${wrongPercent}%</p>
+        </div>
+        <div class="statistics-metric-card">
+          <p class="statistics-panel__eyebrow">Corregidas</p>
+          <p class="statistics-metric-card__value">${resolvedFailedQuestions}</p>
+          <p class="statistics-metric-card__meta">${correctedPercent}% de fallos</p>
+        </div>
+      </section>
+
+      <section class="statistics-panel">
+        <div class="statistics-panel__header">
+          <div>
+            <p class="statistics-panel__eyebrow">Secciones</p>
+            <h3 class="statistics-panel__title">Fechas de completado</h3>
+          </div>
+        </div>
+        <div class="statistics-section-grid">
+          ${sectionStats.map((section) => `
+            <article class="statistics-section-card ${section.isCompleted ? "is-completed" : ""}">
+              <p class="statistics-section-card__title">Finalización de ${section.label === "Teoría" ? "la teoría" : section.label === "Resumen" ? "del resumen" : "las preguntas"}</p>
+              <p class="statistics-section-card__time">${formatRelativeStatisticsTime(section.completedAt)}</p>
+              <p class="statistics-section-card__date">${formatStatisticsDate(section.completedAt)}</p>
+            </article>
+          `).join("")}
+        </div>
+      </section>
+
+      <div class="statistics-panel-grid">
+        <section class="statistics-panel">
+          <div class="statistics-panel__header">
+            <div>
+              <p class="statistics-panel__eyebrow">Resultados</p>
+              <h3 class="statistics-panel__title">Aciertos y fallos</h3>
+            </div>
+          </div>
+          <div class="statistics-bar-chart">
+            <div class="statistics-bar-chart__track">
+              <span class="statistics-bar-chart__segment is-correct" style="width:${correctPercent}%"></span>
+              <span class="statistics-bar-chart__segment is-wrong" style="width:${wrongPercent}%"></span>
+            </div>
+            <div class="statistics-bar-chart__legend">
+              <div class="statistics-bar-chart__legend-item">
+                <span class="statistics-bar-chart__dot is-correct"></span>
+                <span>Aciertos ${correctAnswers} (${correctPercent}%)</span>
+              </div>
+              <div class="statistics-bar-chart__legend-item">
+                <span class="statistics-bar-chart__dot is-wrong"></span>
+                <span>Fallos ${wrongAnswers} (${wrongPercent}%)</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="statistics-panel">
+          <div class="statistics-panel__header">
+            <div>
+              <p class="statistics-panel__eyebrow">Correcciones</p>
+              <h3 class="statistics-panel__title">% de preguntas corregidas</h3>
+            </div>
+          </div>
+          <div class="statistics-correction">
+            <div class="statistics-donut" style="--statistics-progress:${correctedPercent}%;">
+              <div class="statistics-donut__inner">
+                <strong>${correctedPercent}%</strong>
+              </div>
+            </div>
+            <div class="statistics-correction__copy">
+              <p>Total de preguntas falladas: <strong>${totalFailedQuestions}</strong></p>
+              <p>Preguntas corregidas: <strong>${resolvedFailedQuestions}</strong></p>
+              <p>Falladas y acertadas pero no corregidas: <strong>${reviewedButPendingQuestions}</strong></p>
+              <p>Falladas pendientes: <strong>${currentFailedQuestions.length}</strong></p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  `;
+}
+
+function isDisplaySectionCompleted(section) {
+  if (!activeEntry || section.pageType === "errors" || section.pageType === "statistics") {
+    return false;
+  }
+
+  return Boolean(completionState[section.sectionKey]);
+}
+
+function updateSectionBarActiveState() {
+  Array.from(topicSectionsBar.querySelectorAll(".topic-sections-bar__button")).forEach((button) => {
+    const isActive = Boolean(activeSectionKey) && button.dataset.sectionKey === activeSectionKey;
+    button.classList.toggle("is-active", isActive);
+
+    if (isActive) {
+      button.setAttribute("aria-current", "page");
+    } else {
+      button.removeAttribute("aria-current");
+    }
+  });
+}
+
+function renderTopicSectionsBar(themeIndex, topicIndex, topic) {
+  if (!isSelectableTopic(topic)) {
+    topicSectionsBar.hidden = true;
+    topicSectionsBar.innerHTML = "";
+    return;
+  }
+
+  topicSectionsBar.hidden = false;
+  topicSectionsBar.innerHTML = "";
+
+  getTopicSectionsForDisplay(themeIndex, topicIndex, topic).forEach((section) => {
+    const button = document.createElement("button");
+    const isCompleted = isDisplaySectionCompleted(section);
+    button.type = "button";
+    button.className = "topic-sections-bar__button";
+    button.dataset.sectionKey = section.sectionKey;
+    button.dataset.pageType = section.pageType;
+    button.classList.toggle("is-completed", isCompleted);
+    button.innerHTML = `
+      <span class="topic-sections-bar__button-content">
+        <i class="${section.displayIcon}" aria-hidden="true"></i>
+        <span>${section.displayLabel}</span>
+        <span class="topic-sections-bar__button-status" ${isCompleted ? "" : "hidden"}>
+          <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+        </span>
+      </span>
+    `;
+    button.classList.toggle("is-disabled", section.pageType !== "statistics" && !isSectionAvailable(themeIndex, topicIndex, topic, section));
+    button.addEventListener("click", async () => {
+      try {
+        if (section.pageType === "statistics") {
+          hideSectionToolbar();
+          setActiveSection(section.sectionKey);
+          renderStatisticsPanel(topic);
+          return;
+        }
+
+        if (section.pageType === "errors") {
+          setCurrentSection(themeIndex, topicIndex, topic, section);
+          setActiveSection(section.sectionKey);
+          await openSectionInPanel(topic, section);
+          return;
+        }
+
+        if (!hasSectionContent(section)) {
+          const opened = await openTopicTargetSection(
+            themeIndex,
+            topicIndex,
+            topic,
+            section.label
+          );
+
+          if (!opened) {
+            clearActiveSectionState();
+            renderSections(topic);
+          }
+
+          return;
+        }
+
+        setCurrentSection(themeIndex, topicIndex, topic, section);
+        setActiveSection(section.sectionKey);
+        await openSectionInPanel(topic, section);
+      } catch (error) {
+        topicTitle.textContent = topic.title;
+        topicDescription.textContent = error.message;
+        hideAllContentModes();
+      }
+    });
+    topicSectionsBar.appendChild(button);
+  });
+
+  updateSectionBarActiveState();
+}
+
 async function openQuizInPanel(topic, section) {
   if (!section.link || section.link === "#") {
     topicTitle.textContent = topic.title;
@@ -977,6 +1458,8 @@ async function openQuizInPanel(topic, section) {
 }
 
 async function openSectionInPanel(topic, section) {
+  hideStatisticsViewer();
+  hideErrorsViewer();
   setTopicHeaderVisibility(true);
   setQuizLayoutState(false);
   topicTitle.textContent = topic.title;
@@ -1055,20 +1538,12 @@ function renderTopicProgress(themeIndex) {
     progressButton.classList.toggle("is-active", isActive);
     progressButton.setAttribute("aria-label", topic.title);
     progressButton.title = topic.title;
-    progressButton.addEventListener("click", async () => {
-      try {
-        setActiveTopic(themeIndex, topicIndex);
-        const opened = await openTopicTargetSection(themeIndex, topicIndex, topic);
-
-        if (!opened) {
-          clearActiveSectionState();
-          renderSections(topic);
-        }
-      } catch (error) {
+    progressButton.addEventListener("click", () => {
+      selectTopicAndOpenDefault(themeIndex, topicIndex).catch((error) => {
         topicTitle.textContent = topic.title;
         topicDescription.textContent = error.message;
         hideAllContentModes();
-      }
+      });
     });
     topicProgressNav.appendChild(progressButton);
   });
@@ -1167,6 +1642,7 @@ function annotateThemeTopics(topics) {
 
     return {
       ...topic,
+      code,
       level: topic.level ?? getTopicDepth(topic.title),
       hasChildren: topic.hasChildren ?? hasChildren
     };
@@ -1175,6 +1651,36 @@ function annotateThemeTopics(topics) {
 
 function isSelectableTopic(topic) {
   return Array.isArray(topic.sections) && topic.sections.length > 0 && !topic.hasChildren;
+}
+
+function isDescendantTopicCode(candidateCode, ancestorCode) {
+  return Boolean(candidateCode && ancestorCode && candidateCode.startsWith(`${ancestorCode}.`));
+}
+
+function getAncestorTopicCodes(topicCode) {
+  if (!topicCode) {
+    return [];
+  }
+
+  const parts = topicCode.split(".");
+  const ancestors = [];
+
+  for (let index = 1; index < parts.length; index += 1) {
+    ancestors.push(parts.slice(0, index).join("."));
+  }
+
+  return ancestors;
+}
+
+function updateBranchVisibility() {
+  const hasSearchQuery = topicSearch.value.trim() !== "";
+
+  topicEntries.forEach((entry) => {
+    const isHiddenByCollapsedBranch =
+      !hasSearchQuery &&
+      entry.ancestorCodes.some((ancestorCode) => !expandedBranchKeys.has(ancestorCode));
+    entry.card.classList.toggle("is-collapsed-by-branch", isHiddenByCollapsedBranch);
+  });
 }
 
 function isTopicComplete(themeIndex, topicIndex, topic) {
@@ -1209,6 +1715,71 @@ function isTopicStarted(themeIndex, topicIndex, topic) {
 
 function normalizeSectionLabel(label) {
   return String(label || "").trim().toLowerCase();
+}
+
+function getSectionDisplayLabel(section) {
+  if (section?.pageType === "errors") {
+    return "Repaso";
+  }
+
+  return section?.label || "";
+}
+
+function getSectionDisplayIcon(section) {
+  const normalizedLabel = normalizeSectionLabel(section?.label);
+
+  if (section?.pageType === "errors") {
+    return "fa-solid fa-triangle-exclamation";
+  }
+
+  if (section?.pageType === "statistics") {
+    return "fa-solid fa-chart-column";
+  }
+
+  if (normalizedLabel === "teoria") {
+    return "fa-solid fa-book-open";
+  }
+
+  if (normalizedLabel === "resumen") {
+    return "fa-solid fa-file-lines";
+  }
+
+  if (normalizedLabel === "preguntas") {
+    return "fa-solid fa-circle-question";
+  }
+
+  return section?.icon || "fa-solid fa-folder";
+}
+
+function getStatisticsSectionKey(themeIndex, topicIndex) {
+  return JSON.stringify([
+    syllabus[themeIndex]?.title || "",
+    syllabus[themeIndex]?.topics?.[topicIndex]?.title || "",
+    "Estadísticas",
+    "statistics"
+  ]);
+}
+
+function getTopicSectionsForDisplay(themeIndex, topicIndex, topic) {
+  const displayedSections = getSortedTopicSections(topic)
+    .filter(({ section }) => isSectionAvailable(themeIndex, topicIndex, topic, section))
+    .map(({ section }) => ({
+      ...section,
+      displayLabel: getSectionDisplayLabel(section),
+      displayIcon: getSectionDisplayIcon(section),
+      sectionKey: getSectionKey(themeIndex, topicIndex, section)
+    }));
+
+  displayedSections.push({
+    label: "Estadísticas",
+    displayLabel: "Estadísticas",
+    displayIcon: getSectionDisplayIcon({ pageType: "statistics" }),
+    pageType: "statistics",
+    link: "#",
+    sectionKey: getStatisticsSectionKey(themeIndex, topicIndex)
+  });
+
+  return displayedSections;
 }
 
 function hasSectionContent(section) {
@@ -1280,11 +1851,20 @@ function findNextPendingSection(themeIndex, topicIndex, topic, startLabel = null
   return null;
 }
 
+async function openTopicStatistics(themeIndex, topicIndex, topic) {
+  renderTopicSectionsBar(themeIndex, topicIndex, topic);
+  hideSectionToolbar();
+  setActiveSection(getStatisticsSectionKey(themeIndex, topicIndex));
+  renderStatisticsPanel(topic);
+  closeMobileMenu();
+}
+
 async function openTopicTargetSection(themeIndex, topicIndex, topic, startLabel = null) {
   const targetSection = findNextPendingSection(themeIndex, topicIndex, topic, startLabel);
 
   if (!targetSection) {
-    return false;
+    await openTopicStatistics(themeIndex, topicIndex, topic);
+    return true;
   }
 
   const sectionKey = getSectionKey(themeIndex, topicIndex, targetSection);
@@ -1354,16 +1934,38 @@ async function restoreLastVisitedSection() {
 }
 
 function findFirstSelectableEntry() {
-  return topicEntries.find((entry) => entry.isSelectable && !entry.card.hidden) ?? null;
+  return topicEntries.find((entry) => entry.isSelectable && !entry.card.hidden && !entry.card.classList.contains("is-collapsed-by-branch")) ?? null;
 }
 
 function applyTopicFilterVisibility(query) {
   const normalizedQuery = query.trim().toLowerCase();
+  const matchedCodes = new Set(
+    topicEntries
+      .filter((topicEntry) => topicEntry.title.toLowerCase().includes(normalizedQuery))
+      .map((topicEntry) => topicEntry.code)
+      .filter(Boolean)
+  );
+  const visibleCodes = new Set();
+
+  if (normalizedQuery === "") {
+    topicEntries.forEach((topicEntry) => {
+      topicEntry.card.hidden = false;
+    });
+    updateBranchVisibility();
+    return;
+  }
+
+  matchedCodes.forEach((code) => {
+    visibleCodes.add(code);
+    getAncestorTopicCodes(code).forEach((ancestorCode) => {
+      visibleCodes.add(ancestorCode);
+      expandedBranchKeys.add(ancestorCode);
+    });
+  });
 
   topicEntries.forEach((topicEntry) => {
-    const topicMatches = topicEntry.title.toLowerCase().includes(normalizedQuery);
-    const isVisible = normalizedQuery === "" || topicMatches;
-    topicEntry.card.hidden = !isVisible;
+    topicEntry.card.hidden = !visibleCodes.has(topicEntry.code);
+    topicEntry.card.classList.remove("is-collapsed-by-branch");
   });
 }
 
@@ -1375,30 +1977,27 @@ function restoreSidebarSelectionState() {
       entry.topicIndex === activeEntry.topicIndex;
 
     entry.button.classList.toggle("is-active", Boolean(isActiveTopic));
-    entry.button.setAttribute("aria-expanded", isActiveTopic ? "true" : "false");
-    entry.sectionList.classList.toggle("is-open", Boolean(isActiveTopic));
-
-    if (!Array.isArray(entry.sectionLinks)) {
-      return;
-    }
-
-    entry.sectionLinks.forEach((link) => {
-      const isActiveSection = activeSectionKey && link.dataset.sectionKey === activeSectionKey;
-      link.classList.toggle("is-active", Boolean(isActiveSection));
-
-      if (isActiveSection) {
-        link.setAttribute("aria-current", "page");
-      } else {
-        link.removeAttribute("aria-current");
-      }
-    });
+    const isExpandedBranch = entry.isBranch && expandedBranchKeys.has(entry.code);
+    entry.button.classList.toggle("is-expanded", isExpandedBranch);
+    entry.button.setAttribute("aria-expanded", isExpandedBranch ? "true" : "false");
   });
+
+  updateBranchVisibility();
+  updateSectionBarActiveState();
 }
 
 function refreshSidebarAfterQuestionStateChange() {
   buildSidebar();
   applyTopicFilterVisibility(topicSearch.value);
   restoreSidebarSelectionState();
+
+  if (activeEntry) {
+    const topic = syllabus[activeEntry.themeIndex]?.topics?.[activeEntry.topicIndex];
+
+    if (topic && isSelectableTopic(topic)) {
+      renderTopicSectionsBar(activeEntry.themeIndex, activeEntry.topicIndex, topic);
+    }
+  }
 }
 
 function resetNavigationState() {
@@ -1408,33 +2007,28 @@ function resetNavigationState() {
 
 function renderSections(topic) {
   topicTitle.textContent = topic.title;
-  topicDescription.textContent = topic.description || "Selecciona una sección desde el menú lateral para abrir su contenido aquí.";
+  topicDescription.textContent = topic.description || "Selecciona una sección para abrir su contenido aquí.";
   hideAllContentModes();
 
   if (!isSelectableTopic(topic)) {
+    topicSectionsBar.hidden = true;
+    topicSectionsBar.innerHTML = "";
     hideTopicProgress();
     topicDescription.textContent = "Este punto agrupa subtemas. Selecciona uno de los puntos hijos del menú lateral.";
     return;
   }
 
   if (activeEntry) {
+    renderTopicSectionsBar(activeEntry.themeIndex, activeEntry.topicIndex, topic);
     renderTopicProgress(activeEntry.themeIndex);
   }
+
+  hideSectionToolbar();
 }
 
 function clearActiveSectionState() {
   activeSectionKey = null;
-
-  topicEntries.forEach((entry) => {
-    if (!Array.isArray(entry.sectionLinks)) {
-      return;
-    }
-
-    entry.sectionLinks.forEach((link) => {
-      link.classList.remove("is-active");
-      link.removeAttribute("aria-current");
-    });
-  });
+  updateSectionBarActiveState();
 
   if (activeEntry) {
     renderTopicProgress(activeEntry.themeIndex);
@@ -1443,24 +2037,7 @@ function clearActiveSectionState() {
 
 function setActiveSection(sectionKey) {
   activeSectionKey = sectionKey;
-
-  topicEntries.forEach((entry) => {
-    if (!Array.isArray(entry.sectionLinks)) {
-      return;
-    }
-
-    entry.sectionLinks.forEach((link) => {
-      const isActive = link.dataset.sectionKey === sectionKey;
-
-      link.classList.toggle("is-active", isActive);
-
-      if (isActive) {
-        link.setAttribute("aria-current", "page");
-      } else {
-        link.removeAttribute("aria-current");
-      }
-    });
-  });
+  updateSectionBarActiveState();
 
   if (activeEntry) {
     renderTopicProgress(activeEntry.themeIndex);
@@ -1469,37 +2046,9 @@ function setActiveSection(sectionKey) {
 
 function applyCompletionStateToSidebar() {
   topicEntries.forEach((entry) => {
-    let completedSections = 0;
-    const totalSections = Array.isArray(entry.sectionLinks) ? entry.sectionLinks.length : 0;
-
-    if (Array.isArray(entry.sectionLinks)) {
-      entry.sectionLinks.forEach((link) => {
-        const isCompleted = Boolean(completionState[link.dataset.sectionKey]);
-        const statusNode = link.querySelector(".topic-section-button__status");
-
-        if (statusNode) {
-          statusNode.hidden = !isCompleted;
-        }
-
-        if (isCompleted) {
-          completedSections += 1;
-        }
-      });
-    }
-
-    entry.label.classList.toggle(
-      "is-complete",
-      totalSections > 0 && completedSections === totalSections
-    );
-    entry.isCompleted = totalSections > 0 && completedSections === totalSections;
-  });
-
-  const orderedEntries = [...topicEntries].sort(
-    (left, right) => Number(Boolean(left.isCompleted)) - Number(Boolean(right.isCompleted))
-  );
-
-  orderedEntries.forEach((entry) => {
-    topicsList.appendChild(entry.card);
+    const topic = syllabus[entry.themeIndex]?.topics?.[entry.topicIndex];
+    entry.isCompleted = Boolean(topic) && isTopicComplete(entry.themeIndex, entry.topicIndex, topic);
+    entry.label.classList.toggle("is-complete", entry.isCompleted);
   });
 
   if (activeEntry) {
@@ -1511,23 +2060,30 @@ function applyCompletionStateToSidebar() {
 
 function setActiveTopic(themeIndex, topicIndex) {
   const topic = syllabus[themeIndex].topics[topicIndex];
+
   if (!isSelectableTopic(topic)) {
-    clearActiveSectionState();
-    renderSections(topic);
     return;
   }
 
   activeEntry = { themeIndex, topicIndex };
-
-  topicEntries.forEach((entry) => {
-    const isActive = entry.themeIndex === themeIndex && entry.topicIndex === topicIndex;
-    entry.button.classList.toggle("is-active", isActive);
-    entry.button.setAttribute("aria-expanded", isActive ? "true" : "false");
-    entry.sectionList.classList.toggle("is-open", isActive);
+  getAncestorTopicCodes(topic.code).forEach((ancestorCode) => {
+    expandedBranchKeys.add(ancestorCode);
   });
+  restoreSidebarSelectionState();
 
   renderSections(topic);
   clearActiveSectionState();
+}
+
+async function selectTopicAndOpenDefault(themeIndex, topicIndex) {
+  const topic = syllabus[themeIndex]?.topics?.[topicIndex];
+
+  if (!topic || !isSelectableTopic(topic)) {
+    return;
+  }
+
+  setActiveTopic(themeIndex, topicIndex);
+  await openTopicTargetSection(themeIndex, topicIndex, topic);
 }
 
 function buildThemeSelector() {
@@ -1552,37 +2108,41 @@ function buildSidebar() {
     return;
   }
 
-  const orderedTopics = theme.topics
-    .map((topic, topicIndex) => ({
-      topic,
-      topicIndex,
-      isCompleted: isTopicComplete(activeThemeIndex, topicIndex, topic)
-    }))
-    .sort((left, right) => Number(left.isCompleted) - Number(right.isCompleted));
-
-  orderedTopics.forEach(({ topic, topicIndex }) => {
+  theme.topics.forEach((topic, topicIndex) => {
     const card = document.createElement("section");
     card.className = "topic-card";
 
     const button = document.createElement("button");
+    const isBranch = Boolean(topic.hasChildren);
     button.type = "button";
     button.className = "topic-button";
-    button.classList.toggle("is-branch", !isSelectableTopic(topic));
+    button.classList.toggle("is-branch", isBranch);
     button.style.paddingLeft = `${16 + (topic.level ?? 0) * 18}px`;
-    button.setAttribute("aria-expanded", "false");
+    button.setAttribute("aria-expanded", isBranch && expandedBranchKeys.has(topic.code) ? "true" : "false");
+    button.addEventListener("click", () => {
+      if (isBranch) {
+        if (expandedBranchKeys.has(topic.code)) {
+          expandedBranchKeys.delete(topic.code);
+        } else {
+          expandedBranchKeys.add(topic.code);
+        }
+        restoreSidebarSelectionState();
+        return;
+      }
 
-    if (isSelectableTopic(topic)) {
-      button.addEventListener("click", async () => {
-        try {
-          setActiveTopic(activeThemeIndex, topicIndex);
-          await openTopicTargetSection(activeThemeIndex, topicIndex, topic);
-        } catch (error) {
+      try {
+        selectTopicAndOpenDefault(activeThemeIndex, topicIndex).catch((error) => {
           topicTitle.textContent = topic.title;
           topicDescription.textContent = error.message;
           hideAllContentModes();
-        }
-      });
-    }
+        });
+        closeMobileMenu();
+      } catch (error) {
+        topicTitle.textContent = topic.title;
+        topicDescription.textContent = error.message;
+        hideAllContentModes();
+      }
+    });
 
     const label = document.createElement("span");
     label.className = "topic-button__label";
@@ -1591,113 +2151,56 @@ function buildSidebar() {
     const icon = document.createElement("span");
     icon.className = "topic-button__icon";
     icon.setAttribute("aria-hidden", "true");
-    icon.textContent = isSelectableTopic(topic) ? ">" : "";
+    icon.textContent = isBranch ? ">" : "";
 
     button.append(label, icon);
-
-    const sectionList = document.createElement("div");
-    sectionList.className = "topic-sections";
-    const sectionLinks = [];
-
-    if (isSelectableTopic(topic)) {
-      topic.sections.forEach((section) => {
-        if (!isSectionAvailable(activeThemeIndex, topicIndex, topic, section)) {
-          return;
-        }
-
-        const sectionKey = getSectionKey(activeThemeIndex, topicIndex, section);
-        const sectionLink = document.createElement("a");
-        sectionLink.className = "topic-section-button";
-        sectionLink.href = section.link;
-        sectionLink.dataset.pageType = section.pageType;
-        sectionLink.dataset.sectionKey = sectionKey;
-        sectionLink.innerHTML =
-          `<span class="topic-section-button__content">` +
-            `<i class="${section.icon}" aria-hidden="true"></i>` +
-            `<span class="topic-section-button__text">${section.label}</span>` +
-          `</span>` +
-          `<span class="topic-section-button__status" hidden>` +
-            `<i class="fa-solid fa-circle-check" aria-hidden="true"></i>` +
-          `</span>`;
-        sectionLink.addEventListener("click", async (event) => {
-          event.preventDefault();
-          try {
-            setActiveTopic(activeThemeIndex, topicIndex);
-            if (section.pageType === "errors") {
-              setCurrentSection(activeThemeIndex, topicIndex, topic, section);
-              setActiveSection(sectionKey);
-              await openSectionInPanel(topic, section);
-              closeMobileMenu();
-              return;
-            }
-
-            if (!hasSectionContent(section)) {
-              const opened = await openTopicTargetSection(
-                activeThemeIndex,
-                topicIndex,
-                topic,
-                section.label
-              );
-
-              if (!opened) {
-                clearActiveSectionState();
-                renderSections(topic);
-              }
-
-              return;
-            }
-
-            setCurrentSection(activeThemeIndex, topicIndex, topic, section);
-            setActiveSection(sectionKey);
-            await openSectionInPanel(topic, section);
-            closeMobileMenu();
-          } catch (error) {
-            topicTitle.textContent = topic.title;
-            topicDescription.textContent = error.message;
-            hideAllContentModes();
-          }
-        });
-        sectionList.appendChild(sectionLink);
-        sectionLinks.push(sectionLink);
-      });
-    }
-
     card.append(button);
-
-    if (isSelectableTopic(topic)) {
-      card.append(sectionList);
-    }
-
     topicsList.appendChild(card);
     topicEntries.push({
       card,
       button,
       label,
-      sectionList,
-      sectionLinks,
       themeIndex: activeThemeIndex,
       topicIndex,
       title: topic.title,
-      isSelectable: isSelectableTopic(topic)
+      code: topic.code || String(topicIndex),
+      ancestorCodes: getAncestorTopicCodes(topic.code),
+      isSelectable: isSelectableTopic(topic),
+      isBranch
     });
   });
 
   applyCompletionStateToSidebar();
+  restoreSidebarSelectionState();
 }
-
 function filterTopics(query) {
   applyTopicFilterVisibility(query);
 
   const firstVisibleEntry = findFirstSelectableEntry();
 
   if (firstVisibleEntry !== null) {
-    setActiveTopic(firstVisibleEntry.themeIndex, firstVisibleEntry.topicIndex);
+    selectTopicAndOpenDefault(firstVisibleEntry.themeIndex, firstVisibleEntry.topicIndex).catch(() => {});
+    return;
+  }
+
+  if (query.trim() === "") {
+    topicTitle.textContent = "Selecciona un tema";
+    topicDescription.textContent = "Despliega un topic del menú lateral y elige un subtopic para ver sus secciones.";
+    topicSectionsBar.hidden = true;
+    topicSectionsBar.innerHTML = "";
+    hideAllContentModes();
+    hideTopicProgress();
+    hideSectionToolbar();
     return;
   }
 
   topicTitle.textContent = "Sin resultados";
   topicDescription.textContent = "No hay temas que coincidan con la búsqueda actual.";
+  topicSectionsBar.hidden = true;
+  topicSectionsBar.innerHTML = "";
   hideAllContentModes();
+  hideTopicProgress();
+  hideSectionToolbar();
 }
 
 function syncSidebarForTheme(themeIndex) {
@@ -1705,23 +2208,20 @@ function syncSidebarForTheme(themeIndex) {
   activeEntry = null;
   activeSectionKey = null;
   currentSection = null;
+  expandedBranchKeys.clear();
   buildSidebar();
   filterTopics(topicSearch.value);
 
-  if (findFirstSelectableEntry() !== null) {
-    return;
-  }
-
-  const firstSelectableEntry = topicEntries.find((entry) => entry.isSelectable) ?? null;
-
-  if (firstSelectableEntry !== null) {
-    setActiveTopic(firstSelectableEntry.themeIndex, firstSelectableEntry.topicIndex);
+  if (findFirstSelectableEntry() !== null || topicEntries.some((entry) => entry.isSelectable)) {
     return;
   }
 
   topicTitle.textContent = "Sin contenidos seleccionables";
   topicDescription.textContent = "No hay subtemas finales disponibles en el tema seleccionado.";
+  topicSectionsBar.hidden = true;
+  topicSectionsBar.innerHTML = "";
   hideAllContentModes();
+  hideTopicProgress();
   hideSectionToolbar();
 }
 
@@ -1742,6 +2242,7 @@ async function loadCompletionData() {
   const data = await fetchCompletionState();
   completionState = data.items && typeof data.items === "object" ? data.items : {};
   failedQuestionState = normalizeFailedQuestionsState(data.failedQuestions);
+  statsState = normalizeStatsState(data.stats);
 }
 
 async function toggleCurrentSectionCompletion() {
@@ -1761,6 +2262,15 @@ async function toggleCurrentSectionCompletion() {
     );
     completionState = result.items && typeof result.items === "object" ? result.items : {};
     applyCompletionStateToSidebar();
+
+    if (activeEntry) {
+      const topic = syllabus[activeEntry.themeIndex]?.topics?.[activeEntry.topicIndex];
+
+      if (topic && isSelectableTopic(topic)) {
+        renderTopicSectionsBar(activeEntry.themeIndex, activeEntry.topicIndex, topic);
+        setActiveSection(activeSectionKey);
+      }
+    }
   } finally {
     completionToggle.classList.remove("is-busy");
   }
@@ -1821,6 +2331,48 @@ completionToggle.addEventListener("click", async (event) => {
 
 quizNextButton.addEventListener("click", () => {
   goToNextQuestion();
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Enter" || quizFeedbackScreen.hidden) {
+  } else {
+    event.preventDefault();
+    goToNextQuestion();
+    return;
+  }
+
+  if (!quizState || quizQuestionScreen.hidden || quizState.isFeedbackVisible) {
+    return;
+  }
+
+  const question = quizState.questions?.[quizState.currentIndex];
+  const questionType = question?.tipo;
+
+  if (
+    questionType !== "pregunta abcd" &&
+    questionType !== "pregunta verdadero-falso" &&
+    questionType !== "relacionar"
+  ) {
+    return;
+  }
+
+  const pressedKey = String(event.key || "").trim().toLowerCase();
+
+  if (!pressedKey) {
+    return;
+  }
+
+  const selector = questionType === "relacionar" ? ".quiz-match__item" : ".quiz-option";
+  const targetOption = Array.from(quizOptions.querySelectorAll(selector)).find((button) => {
+    return !button.disabled && button.dataset.shortcut === pressedKey;
+  });
+
+  if (!targetOption) {
+    return;
+  }
+
+  event.preventDefault();
+  targetOption.click();
 });
 
 quizStartButton.addEventListener("click", () => {
@@ -1886,3 +2438,6 @@ contentFrame.addEventListener("load", syncContentViewerVisibility);
 window.addEventListener("resize", syncMobileMenuState);
 
 init();
+
+
+

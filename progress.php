@@ -20,7 +20,77 @@ function emptyState(): array
         'items' => [],
         'failedQuestions' => [],
         'highlights' => [],
+        'stats' => [
+            'topics' => [],
+        ],
     ];
+}
+
+function emptyStatsState(): array
+{
+    return [
+        'topics' => [],
+    ];
+}
+
+function topicStatsKey(string $themeTitle, string $topicTitle): string
+{
+    return json_encode([$themeTitle, $topicTitle], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+}
+
+function normalizeSectionStatsKey(string $sectionLabel, string $pageType): string
+{
+    $normalizedLabel = strtolower(trim($sectionLabel));
+
+    if ($pageType === 'preguntas' || $normalizedLabel === 'preguntas') {
+        return 'practicas';
+    }
+
+    if ($normalizedLabel === 'teoria') {
+        return 'teoria';
+    }
+
+    if ($normalizedLabel === 'resumen') {
+        return 'resumen';
+    }
+
+    return $normalizedLabel !== '' ? $normalizedLabel : strtolower(trim($pageType));
+}
+
+function defaultTopicStats(string $themeTitle, string $topicTitle): array
+{
+    return [
+        'themeTitle' => $themeTitle,
+        'topicTitle' => $topicTitle,
+        'sectionEvents' => [],
+        'lastSectionCompletions' => [],
+        'quiz' => [
+            'correctAnswers' => 0,
+            'wrongAnswers' => 0,
+            'resolvedFailedQuestions' => 0,
+            'totalAnswers' => 0,
+            'testsCompleted' => 0,
+        ],
+    ];
+}
+
+function &getTopicStats(array &$data, string $themeTitle, string $topicTitle): array
+{
+    if (!isset($data['stats']) || !is_array($data['stats'])) {
+        $data['stats'] = emptyStatsState();
+    }
+
+    if (!isset($data['stats']['topics']) || !is_array($data['stats']['topics'])) {
+        $data['stats']['topics'] = [];
+    }
+
+    $topicKey = topicStatsKey($themeTitle, $topicTitle);
+
+    if (!isset($data['stats']['topics'][$topicKey]) || !is_array($data['stats']['topics'][$topicKey])) {
+        $data['stats']['topics'][$topicKey] = defaultTopicStats($themeTitle, $topicTitle);
+    }
+
+    return $data['stats']['topics'][$topicKey];
 }
 
 function ensureStorageExists(string $path): void
@@ -40,6 +110,9 @@ function ensureStorageExists(string $path): void
         'items' => new stdClass(),
         'failedQuestions' => new stdClass(),
         'highlights' => new stdClass(),
+        'stats' => [
+            'topics' => new stdClass(),
+        ],
     ];
 
     if (file_put_contents($path, json_encode($initialState, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES)) === false) {
@@ -72,6 +145,14 @@ function readStorage(string $path): array
 
     if (!isset($data['highlights']) || !is_array($data['highlights'])) {
         $data['highlights'] = [];
+    }
+
+    if (!isset($data['stats']) || !is_array($data['stats'])) {
+        $data['stats'] = emptyStatsState();
+    }
+
+    if (!isset($data['stats']['topics']) || !is_array($data['stats']['topics'])) {
+        $data['stats']['topics'] = [];
     }
 
     return $data;
@@ -117,6 +198,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         'items' => $data['items'],
         'failedQuestions' => $data['failedQuestions'],
         'highlights' => $data['highlights'],
+        'stats' => $data['stats'],
     ]);
 }
 
@@ -137,17 +219,73 @@ $data = readStorage($storagePath);
 
 if ($action === 'complete') {
     $key = requireKey($item, 'Falta la clave del apartado.');
+    $completedAt = gmdate('c');
     $data['items'][$key] = [
         'themeTitle' => (string)($item['themeTitle'] ?? ''),
         'topicTitle' => (string)($item['topicTitle'] ?? ''),
         'sectionLabel' => (string)($item['sectionLabel'] ?? ''),
         'pageType' => (string)($item['pageType'] ?? ''),
         'link' => (string)($item['link'] ?? '#'),
-        'completedAt' => gmdate('c'),
+        'completedAt' => $completedAt,
+    ];
+
+    $themeTitle = (string)($item['themeTitle'] ?? '');
+    $topicTitle = (string)($item['topicTitle'] ?? '');
+    $sectionLabel = (string)($item['sectionLabel'] ?? '');
+    $pageType = (string)($item['pageType'] ?? '');
+    $sectionStatsKey = normalizeSectionStatsKey($sectionLabel, $pageType);
+    $topicStats =& getTopicStats($data, $themeTitle, $topicTitle);
+    $topicStats['sectionEvents'][] = [
+        'sectionKey' => $sectionStatsKey,
+        'sectionLabel' => $sectionLabel,
+        'pageType' => $pageType,
+        'completedAt' => $completedAt,
+    ];
+    $topicStats['lastSectionCompletions'][$sectionStatsKey] = [
+        'sectionKey' => $sectionStatsKey,
+        'sectionLabel' => $sectionLabel,
+        'pageType' => $pageType,
+        'completedAt' => $completedAt,
     ];
 } elseif ($action === 'uncomplete') {
     $key = requireKey($item, 'Falta la clave del apartado.');
     unset($data['items'][$key]);
+} elseif ($action === 'record_quiz_answer') {
+    if (!is_array($item)) {
+        respond(400, ['error' => 'No se han recibido estadÃ­sticas de respuesta vÃ¡lidas.']);
+    }
+
+    $themeTitle = (string)($item['themeTitle'] ?? '');
+    $topicTitle = (string)($item['topicTitle'] ?? '');
+
+    if ($themeTitle === '' || $topicTitle === '') {
+        respond(400, ['error' => 'Faltan los datos del tema para registrar la respuesta.']);
+    }
+
+    $topicStats =& getTopicStats($data, $themeTitle, $topicTitle);
+    $isCorrect = (bool)($item['isCorrect'] ?? false);
+    $topicStats['quiz']['totalAnswers'] = (int)($topicStats['quiz']['totalAnswers'] ?? 0) + 1;
+
+    if ($isCorrect) {
+        $topicStats['quiz']['correctAnswers'] = (int)($topicStats['quiz']['correctAnswers'] ?? 0) + 1;
+    } else {
+        $topicStats['quiz']['wrongAnswers'] = (int)($topicStats['quiz']['wrongAnswers'] ?? 0) + 1;
+    }
+
+} elseif ($action === 'record_quiz_completion') {
+    if (!is_array($item)) {
+        respond(400, ['error' => 'No se han recibido estadÃ­sticas de finalizaciÃ³n vÃ¡lidas.']);
+    }
+
+    $themeTitle = (string)($item['themeTitle'] ?? '');
+    $topicTitle = (string)($item['topicTitle'] ?? '');
+
+    if ($themeTitle === '' || $topicTitle === '') {
+        respond(400, ['error' => 'Faltan los datos del tema para registrar la finalizaciÃ³n del test.']);
+    }
+
+    $topicStats =& getTopicStats($data, $themeTitle, $topicTitle);
+    $topicStats['quiz']['testsCompleted'] = (int)($topicStats['quiz']['testsCompleted'] ?? 0) + 1;
 } elseif ($action === 'record_failed_questions') {
     $questions = is_array($item) ? ($item['questions'] ?? null) : null;
 
@@ -183,6 +321,23 @@ if ($action === 'complete') {
         $currentCount = (int)($data['failedQuestions'][$key]['reviewCorrectCount'] ?? 0) + 1;
 
         if ($currentCount >= 3) {
+            $failedQuestion = $data['failedQuestions'][$key];
+            $topicTitle = (string)($failedQuestion['topicTitle'] ?? '');
+            $questionSectionLabel = (string)($failedQuestion['sectionLabel'] ?? '');
+
+            foreach ($data['stats']['topics'] as &$topicStats) {
+                if (!is_array($topicStats)) {
+                    continue;
+                }
+
+                if ((string)($topicStats['topicTitle'] ?? '') !== $topicTitle) {
+                    continue;
+                }
+
+                $topicStats['quiz']['resolvedFailedQuestions'] = (int)($topicStats['quiz']['resolvedFailedQuestions'] ?? 0) + 1;
+                break;
+            }
+            unset($topicStats);
             unset($data['failedQuestions'][$key]);
         } else {
             $data['failedQuestions'][$key]['reviewCorrectCount'] = $currentCount;
@@ -275,4 +430,5 @@ respond(200, [
     'items' => $stored['items'],
     'failedQuestions' => $stored['failedQuestions'],
     'highlights' => $stored['highlights'],
+    'stats' => $stored['stats'],
 ]);
